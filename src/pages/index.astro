@@ -1,15 +1,29 @@
 ---
+import { getCollection } from 'astro:content'
+import BaseHead from '@components/base-head.astro'
+
+const posts = await getCollection('posts', ({ data }) => !data.isDraft)
+const uniqueTags = [...new Set(posts.map((post) => post.data.tags).flat())].filter((tag) => tag)
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
+<html lang="zh">
+  <BaseHead title="babyblue" description="my blog" />
   <body>
-    <h1 class="bg-sky-700 px-4 py-2 text-white hover:bg-sky-800 sm:px-8 sm:py-3">Astro</h1>
+    <main>
+      <section>blogs</section>
+      <section>
+        {uniqueTags.map((tag) => <a href={'/tags/' + tag}>{tag}</a>)}
+      </section>
+      <section>
+        {
+          posts.map((post) => (
+            <p>
+              <a href={'/posts/' + post.data.abbrlink}>{post.data.title}</a>
+            </p>
+          ))
+        }
+        <p></p>
+      </section>
+    </main>
   </body>
 </html>

@@ -3,7 +3,15 @@ module.exports = {
   singleQuote: true,
   semi: false,
   endOfLine: 'auto',
-  importOrder: ['^@core/(.*)$', '^@server/(.*)$', '^@ui/(.*)$', '^[./]'],
+  importOrder: [
+    '^astro(.*)$',
+    '^@astrojs/(.*)$',
+    '^@core/(.*)$',
+    '^@server/(.*)$',
+    '^@ui/(.*)$',
+    '^[./]',
+    '^@assets/(.*)$',
+  ],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
   overrides: [
