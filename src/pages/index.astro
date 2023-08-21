@@ -18,7 +18,7 @@ const uniqueTags = [...new Set(posts.map((post) => post.data.tags).flat())].filt
         {
           posts.map((post) => (
             <p>
-              <a href={'/posts/' + post.data.abbrlink}>{post.data.title}</a>
+              <a href={'/posts/' + post.data.title}>{post.data.title}</a>
             </p>
           ))
         }

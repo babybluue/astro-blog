@@ -5,7 +5,7 @@ import BaseHead from '@components/base-head.astro'
 export async function getStaticPaths() {
   const blogEntries = await getCollection('posts')
   return blogEntries.map((entry) => ({
-    params: { slug: entry.data.abbrlink },
+    params: { slug: entry.data.title },
     props: { entry },
   }))
 }

@@ -33,7 +33,7 @@ const { posts } = Astro.props
     <section>blogs</section>
     <section>
       <ul>
-        {posts.map((post: CollectionEntry<'posts'>) => <a href={'/posts/' + post.data.abbrlink}>{post.data.title}</a>)}
+        {posts.map((post: CollectionEntry<'posts'>) => <a href={'/posts/' + post.data.title}>{post.data.title}</a>)}
       </ul>
     </section>
   </main>
