@@ -10,4 +10,17 @@ body {
   font-family: roboto-slab, RobotoSlab, SimHei, Songti, serif;
   font-size: 16px;
   line-height: 1.7;
+  min-height: 100vh;
+}
+
+main {
+  width: 60%;
+  margin: auto;
+  max-width: 1220px;
+  @media screen and (max-width: 1000px) {
+    width: 80%;
+  }
+  @media screen and (max-width: 900px) {
+    width: 95%;
+  }
 }

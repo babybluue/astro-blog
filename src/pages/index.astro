@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content'
+
 import BaseHead from '@components/base-head.astro'
+import NavHead from '@components/nav-head.astro'
 
 const posts = await getCollection('posts', ({ data }) => !data.isDraft)
 const uniqueTags = [...new Set(posts.map((post) => post.data.tags).flat())].filter((tag) => tag)
@@ -10,7 +12,7 @@ const uniqueTags = [...new Set(posts.map((post) => post.data.tags).flat())].filt
   <BaseHead title="babyblue" description="my blog" />
   <body>
     <main>
-      <section>blogs</section>
+      <NavHead />
       <section>
         {uniqueTags.map((tag) => <a href={'/tags/' + tag}>{tag}</a>)}
       </section>

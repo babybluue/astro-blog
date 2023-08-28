@@ -1,0 +1,26 @@
+---
+interface NavLink {
+  title: string
+  url: string
+}
+
+const navLinks: NavLink[] = [
+  { title: 'Blogs', url: '/blog/' },
+  { title: 'Archive', url: '/archive/' },
+  { title: 'About', url: '/about/' },
+]
+---
+
+<header class="py-10">
+  <nav>
+    <ul class="flex gap-10">
+      {
+        navLinks.map((nav: NavLink) => (
+          <li>
+            <a href={nav.url}>{nav.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>

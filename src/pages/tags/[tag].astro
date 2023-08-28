@@ -1,5 +1,6 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content'
+
 import BaseHead from '@components/base-head.astro'
 
 export async function getStaticPaths() {
@@ -10,7 +11,7 @@ export async function getStaticPaths() {
       allPosts
         .map((post) => post.data.tags)
         .flat()
-        .filter((tag): tag is string => Boolean(tag))
+        .filter((tag): tag is string => Boolean(tag)),
     ),
   ]
 

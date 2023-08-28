@@ -3,17 +3,7 @@ module.exports = {
   singleQuote: true,
   semi: false,
   endOfLine: 'auto',
-  importOrder: [
-    '^astro(.*)$',
-    '^@astrojs/(.*)$',
-    '^@core/(.*)$',
-    '^@server/(.*)$',
-    '^@ui/(.*)$',
-    '^[./]',
-    '^@assets/(.*)$',
-  ],
-  importOrderSeparation: true,
-  importOrderSortSpecifiers: true,
+  importOrder: ['^(astro|@astrojs)(.*)$', '', '^@[a-z]+/(.*)$', '^@assets/(.*)$'],
   overrides: [
     {
       files: '*.astro',
@@ -22,5 +12,5 @@ module.exports = {
       },
     },
   ],
-  plugins: ['prettier-plugin-astro', '@trivago/prettier-plugin-sort-imports', 'prettier-plugin-tailwindcss'],
+  plugins: ['prettier-plugin-astro', '@ianvs/prettier-plugin-sort-imports', 'prettier-plugin-tailwindcss'],
 }
