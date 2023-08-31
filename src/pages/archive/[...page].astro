@@ -1,0 +1,37 @@
+---
+import type { PaginateFunction } from 'astro'
+import { getCollection } from 'astro:content'
+
+import NavHead from '@components/nav-head.astro'
+import BaseLayout from '@layouts/base-layout.astro'
+
+export const getStaticPaths = async ({ paginate }: { paginate: PaginateFunction }) => {
+  const blogs = await getCollection('posts')
+
+  return paginate(blogs, { pageSize: 3 })
+}
+
+const { page } = Astro.props
+const title = 'Blogs'
+const description = 'blog list page'
+---
+
+<BaseLayout title={title} description={description}>
+  <main>
+    <NavHead />
+    <ul>
+      {
+        page.data.map((post: any) => (
+          <li>
+            <a href={'/posts/' + post.data.title}>{post.data.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+    <div>
+      {page.url.prev ? <a href={page.url.prev}>Previous</a> : null}
+      {page.currentPage}
+      {page.url.next ? <a href={page.url.next}>Next</a> : null}
+    </div>
+  </main>
+</BaseLayout>

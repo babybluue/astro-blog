@@ -1,0 +1,10 @@
+---
+import type { PostEntry } from '@interfaces/post-model'
+
+const { post } = Astro.props as PostEntry
+const { Content } = await post.render()
+---
+
+<article class="my-10">
+  <Content />
+</article>

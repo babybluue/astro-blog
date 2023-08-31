@@ -1,7 +1,8 @@
 ---
-import { CollectionEntry, getCollection } from 'astro:content'
+import { getCollection } from 'astro:content'
 
 import BaseHead from '@components/base-head.astro'
+import type { PostModel } from '@interfaces/post-model'
 
 export async function getStaticPaths() {
   const allPosts = await getCollection('posts')
@@ -34,7 +35,7 @@ const { posts } = Astro.props
     <section>blogs</section>
     <section>
       <ul>
-        {posts.map((post: CollectionEntry<'posts'>) => <a href={'/posts/' + post.data.title}>{post.data.title}</a>)}
+        {posts.map((post: PostModel) => <a href={'/posts/' + post.data.title}>{post.data.title}</a>)}
       </ul>
     </section>
   </main>

@@ -10,12 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/check": "^0.2.0",
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/sitemap": "^2.0.1",
-    "astro": "^2.10.3"
+    "astro": "^3.0.0",
+    "typescript": "^5.2.2"
   },
   "devDependencies": {
-    "@astrojs/tailwind": "^4.0.0",
+    "@astrojs/tailwind": "^5.0.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
     "@typescript-eslint/parser": "^6.3.0",
     "autoprefixer": "^10.4.14",
