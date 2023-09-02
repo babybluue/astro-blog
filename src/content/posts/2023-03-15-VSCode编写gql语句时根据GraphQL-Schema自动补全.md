@@ -3,7 +3,7 @@ title: VSCode编写gql语句时根据GraphQL Schema自动补全
 abbrlink: ce03c2ea
 date: 2023-03-15 18:42:56
 updated: 2023-03-15 18:42:56
-categories:
+category: note
 tags: vscode
 ---
 

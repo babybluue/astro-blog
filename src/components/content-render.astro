@@ -1,7 +1,11 @@
 ---
-import type { PostEntry } from '@interfaces/post-model'
+import type { PostEntry, PostModel } from '@interfaces/post-model'
 
-const { post } = Astro.props as PostEntry
+interface Props {
+  post: PostModel
+}
+
+const { post } = Astro.props
 const { Content } = await post.render()
 ---
 

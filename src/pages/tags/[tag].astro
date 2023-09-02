@@ -35,7 +35,7 @@ const { posts } = Astro.props
     <section>blogs</section>
     <section>
       <ul>
-        {posts.map((post: PostModel) => <a href={'/posts/' + post.data.title}>{post.data.title}</a>)}
+        {posts.map((post: PostModel) => <a href={'/post/' + post.data.title}>{post.data.title}</a>)}
       </ul>
     </section>
   </main>

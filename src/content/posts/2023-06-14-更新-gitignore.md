@@ -4,7 +4,9 @@ tags: git
 abbrlink: efc43189
 date: 2023-06-14 17:30:43
 updated: 2023-06-14 17:30:43
+category: note
 ---
+
 如何应用.gitignore文件的更新。
 
 ```bash

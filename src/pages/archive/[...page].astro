@@ -23,7 +23,7 @@ const description = 'blog list page'
       {
         page.data.map((post: any) => (
           <li>
-            <a href={'/posts/' + post.data.title}>{post.data.title}</a>
+            <a href={'/post/' + post.data.title}>{post.data.title}</a>
           </li>
         ))
       }

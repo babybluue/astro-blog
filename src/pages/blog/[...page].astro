@@ -2,7 +2,7 @@
 import type { Page, PaginateFunction } from 'astro'
 import { getCollection } from 'astro:content'
 
-import Excerpt from '@components/excerpt.astro'
+import ContentRender from '@components/content-render.astro'
 import NavHead from '@components/nav-head.astro'
 import BaseLayout from '@layouts/base-layout.astro'
 
@@ -20,7 +20,7 @@ const description = 'blog list page'
   <main>
     <NavHead />
     <ul>
-      {page.data.map((post) => <Excerpt post={post} />)}
+      {page.data.map((post) => <ContentRender post={post} />)}
     </ul>
     <div>
       {page.url.prev ? <a href={page.url.prev}>Previous</a> : null}

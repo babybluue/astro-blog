@@ -3,7 +3,7 @@ title: 使用Object.entries循环对象
 abbrlink: 282cecd0
 date: 2023-03-25 12:01:49
 updated: 2023-03-25 12:01:49
-categories:
+category: note
 tags: JavaScript
 ---
 
