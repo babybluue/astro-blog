@@ -6,12 +6,16 @@ import ContentRender from '@components/content-render.astro'
 import NavHead from '@components/nav-head.astro'
 import BaseLayout from '@layouts/base-layout.astro'
 
-export const getStaticPaths = async ({ paginate }: { paginate: PaginateFunction }) => {
-  const blogs = await getCollection('posts')
-  return paginate(blogs, { pageSize: 3 })
+interface Props {
+  page: Page
 }
 
-const { page }: { page: Page<any> } = Astro.props as any
+export const getStaticPaths = async ({ paginate }: { paginate: PaginateFunction }) => {
+  const notes = await getCollection('notes')
+  return paginate(notes, { pageSize: 3 })
+}
+
+const { page } = Astro.props
 const title = 'Blogs'
 const description = 'blog list page'
 ---

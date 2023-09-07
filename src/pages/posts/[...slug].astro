@@ -1,11 +1,16 @@
 ---
-import { getCollection } from 'astro:content'
-
 import BaseHead from '@components/base-head.astro'
 import ContentRender from '@components/content-render.astro'
+import NavHead from '@components/nav-head.astro'
+import type { PostModel } from '@interfaces/post-model'
+import { getAllPosts } from '@utils/all-posts'
+
+interface Props {
+  post: PostModel
+}
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts')
+  const posts = await getAllPosts()
   return posts.map((post) => ({
     params: { slug: post.data.title },
     props: { post },
@@ -16,9 +21,10 @@ const { post } = Astro.props
 ---
 
 <html lang="zh">
-  <BaseHead title={post.data.title} description="entry.data.description" />
+  <BaseHead title={post.data.title} description={post.data.descriptions ?? ''} />
   <body>
     <main>
+      <NavHead />
       <h1>{post.data.title}</h1>
       <ContentRender post={post} />
     </main>

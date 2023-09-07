@@ -1,11 +1,11 @@
 ---
-import { getCollection } from 'astro:content'
-
 import BaseHead from '@components/base-head.astro'
 import NavHead from '@components/nav-head.astro'
+import { getAllPosts } from '@utils/all-posts'
 
-const posts = await getCollection('posts', ({ data }) => !data.isDraft)
-const uniqueTags = [...new Set(posts.map((post) => post.data.tags).flat())].filter((tag) => tag)
+const allPosts = await getAllPosts()
+const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())].filter((tag) => tag)
+const indexPosts = allPosts.slice(0, 12)
 ---
 
 <html lang="zh">
@@ -18,7 +18,7 @@ const uniqueTags = [...new Set(posts.map((post) => post.data.tags).flat())].filt
       </section>
       <section>
         {
-          posts.map((post) => (
+          indexPosts.map((post) => (
             <p>
               <a href={'/posts/' + post.data.title}>{post.data.title}</a>
             </p>

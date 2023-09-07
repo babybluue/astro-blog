@@ -1,11 +1,15 @@
 ---
-import { getCollection } from 'astro:content'
-
 import BaseHead from '@components/base-head.astro'
+import NavHead from '@components/nav-head.astro'
 import type { PostModel } from '@interfaces/post-model'
+import { getAllPosts } from '@utils/all-posts'
+
+interface Props {
+  posts: PostModel[]
+}
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection('posts')
+  const allPosts = await getAllPosts()
 
   const uniqueTags = [
     ...new Set(
@@ -32,6 +36,7 @@ const { posts } = Astro.props
 <html lang="zh">
   <BaseHead title={tag ?? 'tag'} description="blog tag" />
   <main>
+    <NavHead />
     <section>blogs</section>
     <section>
       <ul>
