@@ -13,8 +13,14 @@ const indexPosts = allPosts.slice(0, 12)
   <body>
     <main>
       <NavHead />
-      <section>
-        {uniqueTags.map((tag) => <a href={'/tags/' + tag}>{tag}</a>)}
+      <section class="mb-5">
+        {
+          uniqueTags.map((tag) => (
+            <a class="mr-2" href={'/tags/' + tag}>
+              {tag}
+            </a>
+          ))
+        }
       </section>
       <section>
         {

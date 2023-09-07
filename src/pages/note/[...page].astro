@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content'
 
 import ContentRender from '@components/content-render.astro'
 import NavHead from '@components/nav-head.astro'
+import type { PostModel } from '@interfaces/post-model'
 import BaseLayout from '@layouts/base-layout.astro'
 
 interface Props {
@@ -24,10 +25,17 @@ const description = 'blog list page'
   <main>
     <NavHead />
     <ul>
-      {page.data.map((post) => <ContentRender post={post} />)}
+      {
+        page.data.map((post: PostModel) => (
+          <div class="mb-5 rounded-lg border p-5">
+            <h3 class="my-2">{post.data.title}</h3>
+            <ContentRender post={post} />
+          </div>
+        ))
+      }
     </ul>
-    <div>
-      {page.url.prev ? <a href={page.url.prev}>Previous</a> : null}
+    <div class="mt-5 flex justify-end gap-3">
+      {page.url.prev ? <a href={page.url.prev}>Prev</a> : null}
       {page.currentPage}
       {page.url.next ? <a href={page.url.next}>Next</a> : null}
     </div>

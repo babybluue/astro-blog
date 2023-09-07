@@ -3,12 +3,14 @@ import type { PaginateFunction } from 'astro'
 import { getCollection } from 'astro:content'
 
 import NavHead from '@components/nav-head.astro'
+import type { PostModel } from '@interfaces/post-model'
 import BaseLayout from '@layouts/base-layout.astro'
+import { displayDate } from '@utils/date-helper'
 
 export const getStaticPaths = async ({ paginate }: { paginate: PaginateFunction }) => {
-  const blogs = await getCollection('posts')
+  const blogs = (await getCollection('posts')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 
-  return paginate(blogs, { pageSize: 3 })
+  return paginate(blogs, { pageSize: 15 })
 }
 
 const { page } = Astro.props
@@ -21,14 +23,15 @@ const description = 'blog list page'
     <NavHead />
     <ul>
       {
-        page.data.map((post: any) => (
+        page.data.map((post: PostModel) => (
           <li>
+            <span class="inline-block min-w-[100px]">{displayDate(post.data.date)}</span>
             <a href={'/post/' + post.data.title}>{post.data.title}</a>
           </li>
         ))
       }
     </ul>
-    <div>
+    <div class="mt-5">
       {page.url.prev ? <a href={page.url.prev}>Previous</a> : null}
       {page.currentPage}
       {page.url.next ? <a href={page.url.next}>Next</a> : null}
