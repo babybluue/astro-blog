@@ -19,14 +19,14 @@ const description = 'blog list page'
 ---
 
 <BaseLayout title={title} description={description}>
+  <NavHead />
   <main>
-    <NavHead />
     <ul>
       {
         page.data.map((post: PostModel) => (
           <li>
             <span class="inline-block min-w-[100px]">{displayDate(post.data.date)}</span>
-            <a href={'/post/' + post.data.title}>{post.data.title}</a>
+            <a href={'/posts/' + post.data.title}>{post.data.title}</a>
           </li>
         ))
       }

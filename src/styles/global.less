@@ -1,3 +1,20 @@
+@prettier-scrollbar: {
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #475569;
+  }
+
+  &::-webkit-scrollbar-corner {
+    opacity: 0;
+  }
+};
+
 @font-face {
   font-family: 'roboto-slab';
   src: url('/fonts/roboto-slab.woff2');
@@ -6,18 +23,29 @@
   font-display: swap;
 }
 
+html {
+}
+
 body {
   font-family: roboto-slab, RobotoSlab, SimHei, Songti, serif;
   font-size: 16px;
   line-height: 1.7;
   min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+nav {
+  width: 60%;
+  margin: auto;
 }
 
 main {
   width: 60%;
   margin: auto;
   max-width: 1220px;
-  padding: 10px 0;
+  padding: 1.2rem 0;
+
   @media screen and (max-width: 1000px) {
     width: 80%;
   }

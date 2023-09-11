@@ -22,8 +22,8 @@ const description = 'blog list page'
 ---
 
 <BaseLayout title={title} description={description}>
+  <NavHead />
   <main>
-    <NavHead />
     <ul>
       {
         page.data.map((post: PostModel) => (

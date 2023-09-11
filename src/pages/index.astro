@@ -11,12 +11,12 @@ const indexPosts = allPosts.slice(0, 12)
 <html lang="zh">
   <BaseHead title="babyblue" description="my blog" />
   <body>
+    <NavHead />
     <main>
-      <NavHead />
       <section class="mb-5">
         {
           uniqueTags.map((tag) => (
-            <a class="mr-2" href={'/tags/' + tag}>
+            <a class="mr-3" href={'/tags/' + tag}>
               {tag}
             </a>
           ))
@@ -25,9 +25,9 @@ const indexPosts = allPosts.slice(0, 12)
       <section>
         {
           indexPosts.map((post) => (
-            <p>
+            <div class="py-2">
               <a href={'/posts/' + post.data.title}>{post.data.title}</a>
-            </p>
+            </div>
           ))
         }
         <p></p>

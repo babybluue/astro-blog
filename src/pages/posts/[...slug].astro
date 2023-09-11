@@ -7,26 +7,32 @@ import { getAllPosts } from '@utils/all-posts'
 
 interface Props {
   post: PostModel
+  prev: PostModel | undefined
+  next: PostModel | undefined
 }
 
 export async function getStaticPaths() {
   const posts = await getAllPosts()
-  return posts.map((post) => ({
+  return posts.map((post, index) => ({
     params: { slug: post.data.title },
-    props: { post },
+    props: { post, prev: posts[index - 1], next: posts[index + 1] },
   }))
 }
 
-const { post } = Astro.props
+const { post, prev, next } = Astro.props
 ---
 
 <html lang="zh">
   <BaseHead title={post.data.title} description={post.data.descriptions ?? ''} />
   <body>
+    <NavHead />
     <main>
-      <NavHead />
       <h1>{post.data.title}</h1>
       <ContentRender post={post} />
+      <div class="mt-5 flex justify-between gap-3">
+        {prev ? <a href={prev.data.title}>{prev.data.title}</a> : <span />}
+        {next ? <a href={next.data.title}>{next.data.title}</a> : <span />}
+      </div>
     </main>
   </body>
 </html>

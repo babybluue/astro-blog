@@ -3,7 +3,4 @@
 @tailwind utilities;
 
 @layer components {
-  .primary-bg {
-    @apply bg-amber-700;
-  }
 }

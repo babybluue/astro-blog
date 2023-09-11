@@ -35,12 +35,18 @@ const { posts } = Astro.props
 
 <html lang="zh">
   <BaseHead title={tag ?? 'tag'} description="blog tag" />
+  <NavHead />
   <main>
-    <NavHead />
-    <section>blogs</section>
+    <section>{tag}</section>
     <section>
       <ul>
-        {posts.map((post: PostModel) => <a href={'/post/' + post.data.title}>{post.data.title}</a>)}
+        {
+          posts.map((post: PostModel) => (
+            <li>
+              <a href={'/post/' + post.data.title}>{post.data.title}</a>
+            </li>
+          ))
+        }
       </ul>
     </section>
   </main>
