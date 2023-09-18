@@ -4,7 +4,6 @@ tags: ChromeOS
 abbrlink: fc1b1c9c
 date: 2022-11-28T15:25:27.000Z
 updated: 2022-11-28T15:25:27.000Z
-category: post
 ---
 
 记录一下我老旧的联想小新 air13 安装 ChromeOS 的过程.

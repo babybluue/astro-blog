@@ -4,7 +4,6 @@ tags: JavaScript
 abbrlink: 9315014e
 date: 2021-03-20T11:13:19.000Z
 updated: 2021-03-20T11:13:19.000Z
-category: post
 ---
 
 #### this 的两个误解

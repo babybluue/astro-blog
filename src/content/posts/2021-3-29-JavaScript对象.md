@@ -4,7 +4,6 @@ tags: JavaScript
 abbrlink: 17d9136e
 date: 2021-03-30T14:07:56.000Z
 updated: 2021-03-30T14:07:56.000Z
-category: post
 ---
 
 JavaScript 有七种主要类型，string、number、boolean、null、undefined、object、symbol(es6)。  

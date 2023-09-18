@@ -4,7 +4,6 @@ abbrlink: 1dcf8778
 date: 2021-05-14T15:46:40.000Z
 updated: 2021-05-14T15:46:40.000Z
 tags: HTML
-category: post
 ---
 
 ```html

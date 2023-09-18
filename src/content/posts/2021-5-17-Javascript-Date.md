@@ -4,7 +4,6 @@ abbrlink: 614ea15c
 date: 2021-05-17T10:10:44.000Z
 updated: 2021-05-17T10:10:44.000Z
 tags: JavaScript
-category: post
 ---
 
 创建一个新 Date 对象的唯一方式是通过 new 操作符，若将它作为常规函数调用将返回一个字符串。

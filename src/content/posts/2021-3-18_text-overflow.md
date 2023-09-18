@@ -4,7 +4,6 @@ abbrlink: 15761b84
 date: 2021-03-18T23:02:28.000Z
 updated: 2021-03-18T23:02:28.000Z
 tags: CSS
-category: post
 ---
 
 CSS 设置文字只显示一行,超出部分用省略号代替

@@ -6,7 +6,6 @@ updated: 2022-05-13T00:15:49.000Z
 tags:
   - JavaScript
   - 备忘录
-category: post
 ---
 
 - 通过对象解构赋值在循环里取对象特定的属性

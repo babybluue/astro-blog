@@ -6,7 +6,6 @@ tags:
 abbrlink: 89195a6e
 date: 2021-04-12T17:22:01.000Z
 updated: 2021-04-12T17:22:01.000Z
-category: post
 ---
 
 以前将 Github page 页面代码和 Hexo 源码分别放在了一个仓库的两个分支里面，每次更新文章或者修改格式两个分支都要单独 push 一下。  
