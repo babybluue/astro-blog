@@ -10,7 +10,6 @@ const posts = defineCollection({
     abbrlink: z.string().optional(),
     updated: z.date(),
     tags: z.array(z.string()).or(z.string()).or(z.null()).optional(),
-    category: z.union([z.literal('note'), z.literal('post')]),
     descriptions: z.string().optional(),
   }),
 })
@@ -25,7 +24,6 @@ const notes = defineCollection({
     abbrlink: z.string().optional(),
     updated: z.date(),
     tags: z.array(z.string()).or(z.string()).or(z.null()).optional(),
-    category: z.union([z.literal('note'), z.literal('post')]),
     descriptions: z.string().optional(),
   }),
 })
