@@ -25,7 +25,7 @@ const indexPosts = allPosts.slice(0, 12)
       <section>
         {
           indexPosts.map((post) => (
-            <div class="py-2">
+            <div class="py-1">
               <a href={'/posts/' + post.data.title}>{post.data.title}</a>
             </div>
           ))

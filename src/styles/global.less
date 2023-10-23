@@ -35,6 +35,11 @@ body {
   overflow-x: hidden;
 }
 
+header {
+  height: 50px;
+  line-height: 50px;
+}
+
 nav {
   width: 60%;
   margin: auto;
@@ -44,6 +49,7 @@ main {
   width: 60%;
   margin: auto;
   max-width: 1220px;
+  min-height: calc(100vh - 50px);
   padding: 1.2rem 0;
 
   @media screen and (max-width: 1000px) {
