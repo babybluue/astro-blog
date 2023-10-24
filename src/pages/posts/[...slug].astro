@@ -14,7 +14,7 @@ interface Props {
 export async function getStaticPaths() {
   const posts = await getAllPosts()
   return posts.map((post, index) => ({
-    params: { slug: post.data.title },
+    params: { slug: post.data.abbrlink },
     props: { post, prev: posts[index - 1], next: posts[index + 1] },
   }))
 }
@@ -33,8 +33,8 @@ const { post, prev, next } = Astro.props
       </div>
 
       <div class="mt-5 flex justify-between gap-3">
-        {prev ? <a href={prev.data.title}>{prev.data.title}</a> : <span />}
-        {next ? <a href={next.data.title}>{next.data.title}</a> : <span />}
+        {prev ? <a href={'posts/' + prev.data.abbrlink}>{prev.data.title}</a> : <span />}
+        {next ? <a href={'posts/' + next.data.abbrlink}>{next.data.title}</a> : <span />}
       </div>
     </main>
   </body>

@@ -25,7 +25,7 @@ posts.map((post: PostModel) => {
         {postObj[year].map((post) => (
           <li>
             <span class="day inline-block min-w-[80px]">{getMD(post.date)}</span>
-            <a href={post.abbrlink}>{post.title}</a>
+            <a href={'posts/' + post.abbrlink}>{post.title}</a>
           </li>
         ))}
       </ul>
