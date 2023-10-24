@@ -1,0 +1,64 @@
+---
+import type { PostMatter, PostModel } from '@interfaces/post-model'
+import { getMD, getYear } from '@utils/date-helper'
+
+interface Props {
+  posts: PostModel[]
+}
+
+const { posts } = Astro.props
+
+const postObj: Record<string, PostMatter[]> = {}
+
+posts.map((post: PostModel) => {
+  const year = getYear(post.data.date)
+  postObj[year] ? '' : (postObj[year] = [])
+  postObj[year].push(post.data)
+})
+---
+
+{
+  Object.keys(postObj).map((year) => (
+    <>
+      <h1 class="year">{year}</h1>
+      <ul>
+        {postObj[year].map((post) => (
+          <li>
+            <span class="day inline-block min-w-[80px]">{getMD(post.date)}</span>
+            <a href={post.abbrlink}>{post.title}</a>
+          </li>
+        ))}
+      </ul>
+    </>
+  ))
+}
+<style lang="less">
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    li {
+      padding: 5px;
+    }
+  }
+  .year {
+    background: linear-gradient(to right, rgb(201, 214, 255), rgb(226, 226, 226));
+    padding: 8px;
+  }
+  .day {
+    position: relative;
+    padding-left: 10px;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      display: inline-block;
+      border: 1px solid lightblue;
+      width: 5px;
+      height: 5px;
+      border-radius: 100%;
+    }
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
 import BaseHead from '@components/base-head.astro'
 import NavHead from '@components/nav-head.astro'
+import PostList from '@components/post-list.astro'
 import { getAllPosts } from '@utils/all-posts'
 
 const allPosts = await getAllPosts()
@@ -13,24 +14,17 @@ const indexPosts = allPosts.slice(0, 12)
   <body>
     <NavHead />
     <main>
-      <section class="mb-5">
+      <section class="py-5">
         {
           uniqueTags.map((tag) => (
-            <a class="mr-3" href={'/tags/' + tag}>
+            <a class="mr-5 leading-10" href={'/tags/' + tag}>
               {tag}
             </a>
           ))
         }
       </section>
       <section>
-        {
-          indexPosts.map((post) => (
-            <div class="py-1">
-              <a href={'/posts/' + post.data.title}>{post.data.title}</a>
-            </div>
-          ))
-        }
-        <p></p>
+        <PostList posts={indexPosts} />
       </section>
     </main>
   </body>

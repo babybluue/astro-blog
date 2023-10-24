@@ -1,6 +1,7 @@
 ---
 import BaseHead from '@components/base-head.astro'
 import NavHead from '@components/nav-head.astro'
+import PostList from '@components/post-list.astro'
 import type { PostModel } from '@interfaces/post-model'
 import { getAllPosts } from '@utils/all-posts'
 
@@ -37,17 +38,9 @@ const { posts } = Astro.props
   <BaseHead title={tag ?? 'tag'} description="blog tag" />
   <NavHead />
   <main>
-    <section>{tag}</section>
+    <section class="py-5 text-2xl font-bold">{tag}</section>
     <section>
-      <ul>
-        {
-          posts.map((post: PostModel) => (
-            <li>
-              <a href={'/post/' + post.data.title}>{post.data.title}</a>
-            </li>
-          ))
-        }
-      </ul>
+      <PostList posts={posts} />
     </section>
   </main>
 </html>
