@@ -28,10 +28,7 @@ const { post, prev, next } = Astro.props
   <body>
     <NavHead />
     <main class="flex flex-col justify-between">
-      <div>
-        <h1 class="mb-2 text-center">{post.data.title}</h1>
-        <ContentRender post={post} />
-      </div>
+      <ContentRender post={post} />
 
       <div class="mt-5 flex justify-between gap-3">
         {prev ? <a href={prev.data.abbrlink}>{prev.data.title}</a> : <span />}

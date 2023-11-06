@@ -27,8 +27,7 @@ const description = 'blog list page'
     <ul>
       {
         page.data.map((post: PostModel) => (
-          <div class="mb-5 rounded-lg border p-5">
-            <h3 class="my-2">{post.data.title}</h3>
+          <div class="mb-5 rounded-lg border p-5 dark:border-[#525252]">
             <ContentRender post={post} />
           </div>
         ))

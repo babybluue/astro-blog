@@ -6,7 +6,7 @@ const { title, description } = Astro.props.frontmatter || Astro.props
 
 <html lang="zh">
   <BaseHead title={title} description={description} />
-  <body class="dark:bg-black">
+  <body>
     <slot />
   </body>
 </html>
