@@ -15,7 +15,7 @@ interface Props {
 export const getStaticPaths = async ({ paginate }: { paginate: PaginateFunction }) => {
   const blogs = (await getCollection('posts')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 
-  return paginate(blogs, { pageSize: 15 })
+  return paginate(blogs, { pageSize: 12 })
 }
 
 const { page } = Astro.props
@@ -36,4 +36,3 @@ const description = 'blog list page'
     </section>
   </main>
 </BaseLayout>
-<style lang="less"></style>

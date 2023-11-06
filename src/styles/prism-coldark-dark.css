@@ -47,13 +47,13 @@ pre[class*="language-"] {
 	overflow: auto;
 }
 
-:not(pre) > code[class*="language-"],
+:not(pre)>code[class*="language-"],
 pre[class*="language-"] {
 	background: #111b27;
 }
 
 /* Inline code */
-:not(pre) > code[class*="language-"] {
+:not(pre)>code[class*="language-"] {
 	padding: 0.1em 0.3em;
 	border-radius: 0.3em;
 	white-space: normal;
@@ -212,24 +212,24 @@ pre[class*="language-"] {
 /* overrides color-values for the Toolbar plugin
  * https://prismjs.com/plugins/toolbar/
  */
-div.code-toolbar > .toolbar.toolbar > .toolbar-item > a,
-div.code-toolbar > .toolbar.toolbar > .toolbar-item > button {
+div.code-toolbar>.toolbar.toolbar>.toolbar-item>a,
+div.code-toolbar>.toolbar.toolbar>.toolbar-item>button {
 	color: #111b27;
 	background: #6cb8e6;
 }
 
-div.code-toolbar > .toolbar.toolbar > .toolbar-item > a:hover,
-div.code-toolbar > .toolbar.toolbar > .toolbar-item > a:focus,
-div.code-toolbar > .toolbar.toolbar > .toolbar-item > button:hover,
-div.code-toolbar > .toolbar.toolbar > .toolbar-item > button:focus {
+div.code-toolbar>.toolbar.toolbar>.toolbar-item>a:hover,
+div.code-toolbar>.toolbar.toolbar>.toolbar-item>a:focus,
+div.code-toolbar>.toolbar.toolbar>.toolbar-item>button:hover,
+div.code-toolbar>.toolbar.toolbar>.toolbar-item>button:focus {
 	color: #111b27;
 	background: #6cb8e6da;
 	text-decoration: none;
 }
 
-div.code-toolbar > .toolbar.toolbar > .toolbar-item > span,
-div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:hover,
-div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:focus {
+div.code-toolbar>.toolbar.toolbar>.toolbar-item>span,
+div.code-toolbar>.toolbar.toolbar>.toolbar-item>span:hover,
+div.code-toolbar>.toolbar.toolbar>.toolbar-item>span:focus {
 	color: #111b27;
 	background: #8da1b9;
 }
@@ -249,7 +249,7 @@ div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:focus {
 	box-shadow: 0 1px #3c526d;
 }
 
-pre[id].linkable-line-numbers.linkable-line-numbers span.line-numbers-rows > span:hover:before {
+pre[id].linkable-line-numbers.linkable-line-numbers span.line-numbers-rows>span:hover:before {
 	background-color: #8da1b918;
 }
 
@@ -261,7 +261,7 @@ pre[id].linkable-line-numbers.linkable-line-numbers span.line-numbers-rows > spa
 	background: #0b121b7a;
 }
 
-.line-numbers .line-numbers-rows > span:before {
+.line-numbers .line-numbers-rows>span:before {
 	color: #8da1b9da;
 }
 
@@ -295,13 +295,13 @@ pre[id].linkable-line-numbers.linkable-line-numbers span.line-numbers-rows > spa
 /* overrides color-values for the Diff Highlight plugin
  * https://prismjs.com/plugins/diff-highlight/
  */
-pre.diff-highlight > code .token.token.deleted:not(.prefix),
-pre > code.diff-highlight .token.token.deleted:not(.prefix) {
+pre.diff-highlight>code .token.token.deleted:not(.prefix),
+pre>code.diff-highlight .token.token.deleted:not(.prefix) {
 	background-color: #cd66601f;
 }
 
-pre.diff-highlight > code .token.token.inserted:not(.prefix),
-pre > code.diff-highlight .token.token.inserted:not(.prefix) {
+pre.diff-highlight>code .token.token.inserted:not(.prefix),
+pre>code.diff-highlight .token.token.inserted:not(.prefix) {
 	background-color: #91d0761f;
 }
 
@@ -312,6 +312,63 @@ pre > code.diff-highlight .token.token.inserted:not(.prefix) {
 	border-right: 1px solid #0b121b;
 }
 
-.command-line .command-line-prompt > span:before {
+.command-line .command-line-prompt>span:before {
 	color: #8da1b9da;
+}
+
+
+pre {
+	overflow-x: auto;
+}
+
+/**
+ * Inspired by gatsby remark prism - https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/
+ * 1. Make the element just wide enough to fit its content.
+ * 2. Always fill the visible space in .code-highlight.
+ */
+.code-highlight {
+	float: left;
+	/* 1 */
+	min-width: 100%;
+	/* 2 */
+}
+
+.code-line {
+	display: block;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-left: -16px;
+	margin-right: -16px;
+	border-left: 4px solid rgba(220, 212, 212, 0);
+	/* Set placeholder for highlight accent border color to transparent */
+}
+
+.code-line.inserted {
+	background-color: rgba(16, 185, 129, 0.2);
+	/* Set inserted line (+) color */
+}
+
+.code-line.deleted {
+	background-color: rgba(239, 68, 68, 0.2);
+	/* Set deleted line (-) color */
+}
+
+.highlight-line {
+	margin-left: -16px;
+	margin-right: -16px;
+	background-color: rgba(55, 65, 81, 0.5);
+	/* Set highlight bg color */
+	border-left: 4px solid rgb(59, 130, 246);
+	/* Set highlight accent border color */
+}
+
+.line-number::before {
+	display: inline-block;
+	width: 1rem;
+	text-align: right;
+	margin-right: 16px;
+	margin-left: -8px;
+	color: rgb(156, 163, 175);
+	/* Line number color */
+	content: attr(line);
 }

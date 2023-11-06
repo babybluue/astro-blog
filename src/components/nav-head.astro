@@ -22,6 +22,21 @@ const navLinks: NavLink[] = [
           </li>
         ))
       }
+      <div class="theme-icon cursor-pointer"></div>
     </ul>
   </nav>
 </header>
+
+<script>
+  const themeIcon = document.querySelector('.theme-icon')
+
+  if (themeIcon) {
+    const currentTheme = localStorage.theme ?? 'light'
+    themeIcon.textContent = currentTheme === 'light' ? 'dark' : 'light'
+    themeIcon.addEventListener('click', () => {
+      const currentTheme = localStorage.theme ?? 'light'
+      themeIcon.textContent = currentTheme === 'light' ? 'dark' : 'light'
+      localStorage.theme = currentTheme === 'light' ? 'dark' : 'light'
+    })
+  }
+</script>

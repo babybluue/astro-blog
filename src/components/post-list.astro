@@ -42,23 +42,12 @@ posts.map((post: PostModel) => {
     }
   }
   .year {
-    background: linear-gradient(to right, rgb(201, 214, 255), rgb(226, 226, 226));
-    padding: 8px;
+    padding: 5px;
+    font-weight: bold;
   }
   .day {
     position: relative;
     padding-left: 10px;
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      display: inline-block;
-      border: 1px solid lightblue;
-      width: 5px;
-      height: 5px;
-      border-radius: 100%;
-    }
+    font-weight: bold;
   }
 </style>

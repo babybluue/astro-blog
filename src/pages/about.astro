@@ -1,12 +1,13 @@
 ---
 import BaseHead from '@components/base-head.astro'
 import NavHead from '@components/nav-head.astro'
+import BaseLayout from '@layouts/base-layout.astro'
 ---
 
-<html lang="zh">
+<BaseLayout>
   <BaseHead title="about" description="who am i" />
   <body>
     <NavHead />
     <main></main>
   </body>
-</html>
+</BaseLayout>

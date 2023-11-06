@@ -3,6 +3,7 @@ import BaseHead from '@components/base-head.astro'
 import ContentRender from '@components/content-render.astro'
 import NavHead from '@components/nav-head.astro'
 import type { PostModel } from '@interfaces/post-model'
+import BaseLayout from '@layouts/base-layout.astro'
 import { getAllPosts } from '@utils/all-posts'
 
 interface Props {
@@ -22,20 +23,20 @@ export async function getStaticPaths() {
 const { post, prev, next } = Astro.props
 ---
 
-<html lang="zh">
+<BaseLayout>
   <BaseHead title={post.data.title} description={post.data.descriptions ?? ''} />
   <body>
     <NavHead />
     <main class="flex flex-col justify-between">
       <div>
-        <h1>{post.data.title}</h1>
+        <h1 class="mb-2 text-center">{post.data.title}</h1>
         <ContentRender post={post} />
       </div>
 
       <div class="mt-5 flex justify-between gap-3">
-        {prev ? <a href={'posts/' + prev.data.abbrlink}>{prev.data.title}</a> : <span />}
-        {next ? <a href={'posts/' + next.data.abbrlink}>{next.data.title}</a> : <span />}
+        {prev ? <a href={prev.data.abbrlink}>{prev.data.title}</a> : <span />}
+        {next ? <a href={next.data.abbrlink}>{next.data.title}</a> : <span />}
       </div>
     </main>
   </body>
-</html>
+</BaseLayout>

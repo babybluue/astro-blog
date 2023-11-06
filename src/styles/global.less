@@ -24,11 +24,11 @@
 }
 
 html {
+  font-size: 16px;
 }
 
 body {
   font-family: roboto-slab, RobotoSlab, SimHei, Songti, serif;
-  font-size: 16px;
   line-height: 1.7;
   min-height: 100vh;
   width: 100vw;
@@ -58,4 +58,19 @@ main {
   @media screen and (max-width: 900px) {
     width: 95%;
   }
+}
+
+pre {
+  border-radius: 10px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+blockquote {
+  border-left: 5px solid black;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px 10px 10px 10px;
+  background-color: #9a9a9a;
 }

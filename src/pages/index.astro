@@ -2,6 +2,7 @@
 import BaseHead from '@components/base-head.astro'
 import NavHead from '@components/nav-head.astro'
 import PostList from '@components/post-list.astro'
+import BaseLayout from '@layouts/base-layout.astro'
 import { getAllPosts } from '@utils/all-posts'
 
 const allPosts = await getAllPosts()
@@ -9,15 +10,15 @@ const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())].f
 const indexPosts = allPosts.slice(0, 12)
 ---
 
-<html lang="zh">
+<BaseLayout>
   <BaseHead title="babyblue" description="my blog" />
-  <body>
+  <body class="dark:bg-black">
     <NavHead />
     <main>
-      <section class="py-5">
+      <section class="mb-5 flex flex-wrap gap-4">
         {
           uniqueTags.map((tag) => (
-            <a class="mr-5 leading-10" href={'/tags/' + tag}>
+            <a class=" leading-3" href={'/tags/' + tag}>
               {tag}
             </a>
           ))
@@ -28,4 +29,4 @@ const indexPosts = allPosts.slice(0, 12)
       </section>
     </main>
   </body>
-</html>
+</BaseLayout>
