@@ -366,7 +366,7 @@ pre {
 	display: inline-block;
 	width: 1rem;
 	text-align: right;
-	margin-right: 16px;
+	margin-right: 1rem;
 	margin-left: -8px;
 	color: rgb(156, 163, 175);
 	/* Line number color */
