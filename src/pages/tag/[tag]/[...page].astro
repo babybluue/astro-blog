@@ -1,16 +1,17 @@
 ---
+import type { Page, PaginateFunction } from 'astro'
+
 import BaseHead from '@components/base-head.astro'
 import NavHead from '@components/nav-head.astro'
 import PostList from '@components/post-list.astro'
-import type { PostModel } from '@interfaces/post-model'
 import BaseLayout from '@layouts/base-layout.astro'
 import { getAllPosts } from '@utils/all-posts'
 
 interface Props {
-  posts: PostModel[]
+  page: Page
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths = async ({ paginate }: { paginate: PaginateFunction }) => {
   const allPosts = await getAllPosts()
 
   const uniqueTags = [
@@ -22,17 +23,14 @@ export async function getStaticPaths() {
     ),
   ]
 
-  return uniqueTags.map((tag) => {
+  return uniqueTags.flatMap((tag) => {
     const filteredPosts = allPosts.filter((post) => post.data.tags && post.data.tags.includes(tag))
-    return {
-      params: { tag },
-      props: { posts: filteredPosts },
-    }
+    return paginate(filteredPosts, { params: { tag }, pageSize: 8 })
   })
 }
 
 const { tag } = Astro.params
-const { posts } = Astro.props
+const { page } = Astro.props
 ---
 
 <BaseLayout>
@@ -41,7 +39,12 @@ const { posts } = Astro.props
   <main>
     <section class="py-5 text-2xl font-bold">{tag}</section>
     <section>
-      <PostList posts={posts} />
+      <PostList posts={page.data} />
+    </section>
+    <section class="mt-5 flex items-center gap-4 px-5">
+      <a href={page.url.prev}>Prev</a>
+      <span>{page.currentPage}</span>
+      <a href={page.url.next}>Next</a>
     </section>
   </main>
 </BaseLayout>

@@ -12,8 +12,8 @@ interface Props {
 }
 
 export const getStaticPaths = async ({ paginate }: { paginate: PaginateFunction }) => {
-  const notes = await getCollection('notes')
-  return paginate(notes, { pageSize: 3 })
+  const notes = (await getCollection('notes')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  return paginate(notes, { pageSize: 6 })
 }
 
 const { page } = Astro.props
