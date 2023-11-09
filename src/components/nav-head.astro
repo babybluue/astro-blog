@@ -7,9 +7,17 @@ interface NavLink {
 const navLinks: NavLink[] = [
   { title: 'Index', url: '/' },
   { title: 'Notes', url: '/notes' },
+  { title: 'Tags', url: '/tags' },
   { title: 'Archive', url: '/archive' },
   { title: 'About', url: '/about' },
 ]
+
+const isCurrentPage = (url: string) => {
+  const pathname = Astro.url.pathname
+  if (url === pathname) return true
+  if (pathname.includes(url) && url !== '/') return true
+  return false
+}
 ---
 
 <header class="sticky top-0 z-10 text-primary">
@@ -17,7 +25,7 @@ const navLinks: NavLink[] = [
     <ul class="flex h-full items-center justify-start gap-10">
       {
         navLinks.map((nav: NavLink) => (
-          <li class:list={[{ 'text-gray-500': nav.url === Astro.url.pathname }]}>
+          <li class:list={[{ 'text-gray-500': isCurrentPage(nav.url) }]}>
             <a href={nav.url}>{nav.title}</a>
           </li>
         ))

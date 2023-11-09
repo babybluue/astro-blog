@@ -6,7 +6,7 @@ import BaseLayout from '@layouts/base-layout.astro'
 import { getAllPosts } from '@utils/all-posts'
 
 const allPosts = await getAllPosts()
-const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())].filter((tag) => tag)
+
 const indexPosts = allPosts.slice(0, 10)
 ---
 
@@ -14,15 +14,6 @@ const indexPosts = allPosts.slice(0, 10)
   <BaseHead title="babyblue" description="my blog" />
   <NavHead />
   <main>
-    <section class="mb-5 flex flex-wrap gap-4">
-      {
-        uniqueTags.map((tag) => (
-          <a class=" leading-3" href={'/tag/' + tag}>
-            {tag}
-          </a>
-        ))
-      }
-    </section>
     <section>
       <PostList posts={indexPosts} />
     </section>

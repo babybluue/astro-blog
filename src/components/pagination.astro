@@ -1,0 +1,13 @@
+---
+import type { Page } from 'astro'
+
+interface Props {
+  page: Page
+}
+
+const { page } = Astro.props
+---
+
+<a href={page.url.prev} class:list={[{ 'text-gray-500': !page.url.prev }]}>Prev</a>
+<span>{page.currentPage}</span>
+<a href={page.url.next} class:list={[{ 'text-gray-500': !page.url.next }]}>Next</a>

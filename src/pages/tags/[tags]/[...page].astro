@@ -3,6 +3,7 @@ import type { Page, PaginateFunction } from 'astro'
 
 import BaseHead from '@components/base-head.astro'
 import NavHead from '@components/nav-head.astro'
+import Pagination from '@components/pagination.astro'
 import PostList from '@components/post-list.astro'
 import BaseLayout from '@layouts/base-layout.astro'
 import { getAllPosts } from '@utils/all-posts'
@@ -25,26 +26,24 @@ export const getStaticPaths = async ({ paginate }: { paginate: PaginateFunction 
 
   return uniqueTags.flatMap((tag) => {
     const filteredPosts = allPosts.filter((post) => post.data.tags && post.data.tags.includes(tag))
-    return paginate(filteredPosts, { params: { tag }, pageSize: 8 })
+    return paginate(filteredPosts, { params: { tags: tag }, pageSize: 8 })
   })
 }
 
-const { tag } = Astro.params
+const { tags } = Astro.params
 const { page } = Astro.props
 ---
 
 <BaseLayout>
-  <BaseHead title={tag ?? 'tag'} description="blog tag" />
+  <BaseHead title={tags ?? 'tag'} description="blog tag" />
   <NavHead />
   <main>
-    <section class="py-5 text-2xl font-bold">{tag}</section>
+    <section class="py-5 text-2xl font-bold">{tags}</section>
     <section>
       <PostList posts={page.data} />
     </section>
     <section class="mt-5 flex items-center gap-4 px-5">
-      <a href={page.url.prev}>Prev</a>
-      <span>{page.currentPage}</span>
-      <a href={page.url.next}>Next</a>
+      <Pagination page={page} />
     </section>
   </main>
 </BaseLayout>

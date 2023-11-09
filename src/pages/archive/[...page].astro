@@ -3,8 +3,10 @@ import type { Page, PaginateFunction } from 'astro'
 import { getCollection } from 'astro:content'
 
 import NavHead from '@components/nav-head.astro'
+import Pagination from '@components/pagination.astro'
 import PostList from '@components/post-list.astro'
 import BaseLayout from '@layouts/base-layout.astro'
+import { getAllPosts } from '@utils/all-posts'
 
 interface Props {
   page: Page
@@ -13,7 +15,7 @@ interface Props {
 export const getStaticPaths = async ({ paginate }: { paginate: PaginateFunction }) => {
   const blogs = (await getCollection('posts')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 
-  return paginate(blogs, { pageSize: 10 })
+  return paginate(blogs, { pageSize: 8 })
 }
 
 const { page } = Astro.props
@@ -27,10 +29,9 @@ const description = 'blog list page'
     <section class="list">
       <PostList posts={page.data} />
     </section>
+
     <section class="mt-5 flex items-center gap-4 px-5">
-      <a href={page.url.prev}>Prev</a>
-      <span>{page.currentPage}</span>
-      <a href={page.url.next}>Next</a>
+      <Pagination page={page} />
     </section>
   </main>
 </BaseLayout>

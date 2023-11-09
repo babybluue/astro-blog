@@ -3,7 +3,7 @@ module.exports = {
   singleQuote: true,
   semi: false,
   endOfLine: 'auto',
-  importOrder: ['^(astro|@astrojs)(.*)$', '', '^@[a-z]+/(.*)$', '^@assets/(.*)$'],
+  importOrder: ['^(astro|@astrojs)(.*)$', '', '^[a-zA-Z]+(.*)$', '^@[a-z]+/(.*)$', '^@assets/(.*)$'],
   overrides: [
     {
       files: '*.astro',

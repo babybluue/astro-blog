@@ -1,0 +1,34 @@
+---
+import BaseHead from '@components/base-head.astro'
+import NavHead from '@components/nav-head.astro'
+import BaseLayout from '@layouts/base-layout.astro'
+import { getAllPosts } from '@utils/all-posts'
+
+const allPosts = await getAllPosts()
+
+const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())].filter((tag) => tag) as string[]
+const tagContent = uniqueTags.map((tag) => {
+  const tagPost = allPosts.filter((post) => post.data.tags && post.data.tags.includes(tag))
+  return {
+    tag: `${tag?.slice(0, 1).toUpperCase()}${tag?.slice(1)}`,
+    count: tagPost.length,
+  }
+})
+---
+
+<BaseLayout>
+  <BaseHead title="tag" description="blog tag" />
+  <NavHead />
+  <main>
+    <section class="flex flex-wrap gap-y-2">
+      {
+        tagContent.map((item) => (
+          <div class="mr-2 flex justify-between gap-2 rounded-full border px-3">
+            <a href={'/tags/' + item.tag}>{item.tag}</a>
+            <span>{item.count}</span>
+          </div>
+        ))
+      }
+    </section>
+  </main>
+</BaseLayout>

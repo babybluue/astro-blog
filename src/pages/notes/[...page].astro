@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content'
 
 import ContentRender from '@components/content-render.astro'
 import NavHead from '@components/nav-head.astro'
+import Pagination from '@components/pagination.astro'
 import type { PostModel } from '@interfaces/post-model'
 import BaseLayout from '@layouts/base-layout.astro'
 
@@ -24,19 +25,15 @@ const description = 'blog list page'
 <BaseLayout title={title} description={description}>
   <NavHead />
   <main>
-    <ul>
-      {
-        page.data.map((post: PostModel) => (
-          <div class="mb-5 rounded-lg border p-5 dark:border-[#525252]">
-            <ContentRender post={post} />
-          </div>
-        ))
-      }
-    </ul>
-    <div class="mt-5 flex justify-end gap-3">
-      {page.url.prev ? <a href={page.url.prev}>Prev</a> : null}
-      {page.currentPage}
-      {page.url.next ? <a href={page.url.next}>Next</a> : null}
-    </div>
+    {
+      page.data.map((post: PostModel) => (
+        <section class="mb-5 rounded-lg border p-5 dark:border-[#525252]">
+          <ContentRender post={post} />
+        </section>
+      ))
+    }
+    <section class="mt-5 flex justify-end gap-3">
+      <Pagination page={page} />
+    </section>
   </main>
 </BaseLayout>
