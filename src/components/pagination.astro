@@ -8,6 +8,6 @@ interface Props {
 const { page } = Astro.props
 ---
 
-<a href={page.url.prev} class:list={[{ 'text-gray-500': !page.url.prev }]}>Prev</a>
-<span>{page.currentPage}</span>
-<a href={page.url.next} class:list={[{ 'text-gray-500': !page.url.next }]}>Next</a>
+{page.url.prev ? <a href={page.url.prev}>Prev</a> : null}
+{!page.url.prev && !page.url.next ? null : page.currentPage}
+{page.url.next ? <a href={page.url.next}>Next</a> : null}

@@ -34,8 +34,7 @@ const { tags } = Astro.params
 const { page } = Astro.props
 ---
 
-<BaseLayout>
-  <BaseHead title={tags ?? 'tag'} description="blog tag" />
+<BaseLayout title={tags ?? 'tag'} description="blog tag">
   <NavHead />
   <main>
     <section class="py-5 text-2xl font-bold">{tags}</section>

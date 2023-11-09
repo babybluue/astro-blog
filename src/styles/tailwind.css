@@ -14,7 +14,7 @@
   h3,
   h5,
   h6 {
-    @apply my-3
+    @apply py-3
   }
 
 

@@ -23,16 +23,31 @@ export async function getStaticPaths() {
 const { post, prev, next } = Astro.props
 ---
 
-<BaseLayout>
-  <BaseHead title={post.data.title} description={post.data.descriptions ?? ''} />
+<BaseLayout title={post.data.title} description={post.data.descriptions ?? ''}>
   <body>
     <NavHead />
     <main class="flex flex-col justify-between">
       <ContentRender post={post} />
 
-      <div class="mt-5 flex justify-between gap-3">
-        {prev ? <a href={prev.data.abbrlink}>{prev.data.title}</a> : <span />}
-        {next ? <a href={next.data.abbrlink}>{next.data.title}</a> : <span />}
+      <div class="mt-5 flex justify-between gap-3 border-t py-2">
+        {
+          prev ? (
+            <a href={prev.data.abbrlink} class="w-[45%] truncate text-left">
+              {prev.data.title}
+            </a>
+          ) : (
+            <span />
+          )
+        }
+        {
+          next ? (
+            <a href={next.data.abbrlink} class="w-[45%] truncate text-right">
+              {next.data.title}
+            </a>
+          ) : (
+            <span />
+          )
+        }
       </div>
     </main>
   </body>

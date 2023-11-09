@@ -10,21 +10,20 @@ const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())].f
 const tagContent = uniqueTags.map((tag) => {
   const tagPost = allPosts.filter((post) => post.data.tags && post.data.tags.includes(tag))
   return {
-    tag: `${tag?.slice(0, 1).toUpperCase()}${tag?.slice(1)}`,
+    tag,
     count: tagPost.length,
   }
 })
 ---
 
-<BaseLayout>
-  <BaseHead title="tag" description="blog tag" />
+<BaseLayout title="tag" description="blog tag">
   <NavHead />
   <main>
-    <section class="flex flex-wrap gap-y-2">
+    <section class="flex flex-wrap gap-y-3">
       {
         tagContent.map((item) => (
-          <div class="mr-2 flex justify-between gap-2 rounded-full border px-3">
-            <a href={'/tags/' + item.tag}>{item.tag}</a>
+          <div class="mr-4 flex justify-between gap-2 rounded-full border px-3">
+            <a href={'/tags/' + item.tag}>{`${item.tag?.slice(0, 1).toUpperCase()}${item.tag?.slice(1)}`}</a>
             <span>{item.count}</span>
           </div>
         ))

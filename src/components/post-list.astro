@@ -20,11 +20,11 @@ posts.map((post: PostModel) => {
 {
   Object.keys(postObj).map((year) => (
     <>
-      <h1 class="year">{year}</h1>
+      <h1 class="text-lg font-bold">{year}</h1>
       <ul>
         {postObj[year].map((post) => (
           <li>
-            <span class="day inline-block min-w-[80px]">{getMD(post.date)}</span>
+            <span class="relative inline-block min-w-[80px] pl-3 font-bold">{getMD(post.date)}</span>
             <a href={'/posts/' + post.abbrlink}>{post.title}</a>
           </li>
         ))}
@@ -41,10 +41,7 @@ posts.map((post: PostModel) => {
       padding: 5px;
     }
   }
-  .year {
-    padding: 5px;
-    font-weight: bold;
-  }
+
   .day {
     position: relative;
     padding-left: 10px;

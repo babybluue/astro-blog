@@ -62,10 +62,10 @@ html.dark:root {
 
 body {
   font-family: roboto-slab, RobotoSlab, SimHei, Songti, serif;
-  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
   background-color: var(--background-primary-color);
   color: var(--text-primary-color);
-  // overflow-x: hidden;
   .prettier-scrollbar();
 }
 
@@ -89,7 +89,7 @@ nav {
 
 main {
   min-height: calc(100vh - 100px);
-  padding: 1.2rem 0;
+  letter-spacing: 1px;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -97,22 +97,13 @@ main {
 
 pre {
   border-radius: 5px;
+  letter-spacing: normal;
   &::-webkit-scrollbar {
     display: none;
   }
 }
 
 article {
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    letter-spacing: 1px;
-  }
-
   ul {
     list-style: disc;
   }
