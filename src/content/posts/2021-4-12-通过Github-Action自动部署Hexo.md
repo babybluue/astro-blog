@@ -93,18 +93,18 @@ $ ssh-keygen -t rsa
 npm ci 相当于 npm install，但速度快于 npm install
 
 ```bash
-    mkdir -p ~/.ssh/
-    echo "$DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_rsa
-    chmod 600 ~/.ssh/id_rsa
-    #客户端的私钥需要放在当前管理员路径下的.ssh 目录，默认命名 id_rsa，将其权限设置为 600，仅允许文件所有者读取。
-    #变量 DEPLOY_KEY 加双引号，避免不必要的转义
-    ssh-keyscan github.com >> ~/.ssh/known_hosts
-    #获取服务器的域名 github.com 的公钥哈希值，并将其保存到文件 known_hosts，设为已知主机。
+mkdir -p ~/.ssh/
+echo "$DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+chmod 600 ~/.ssh/id_rsa
+#客户端的私钥需要放在当前管理员路径下的.ssh 目录，默认命名 id_rsa，将其权限设置为 600，仅允许文件所有者读取。
+#变量 DEPLOY_KEY 加双引号，避免不必要的转义
+ssh-keyscan github.com >> ~/.ssh/known_hosts
+#获取服务器的域名 github.com 的公钥哈希值，并将其保存到文件 known_hosts，设为已知主机。
 ```
 
 **更新：意外发现文章时间显示不正确，在配置文件里添加时区就好了 env:TZ: Asia/Shanghai**
 
 ---
 
-参考链接:
+参考链接:  
 [阮一峰-SSH 教程](https://wangdoc.com/ssh/)

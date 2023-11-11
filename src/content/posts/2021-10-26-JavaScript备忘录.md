@@ -169,7 +169,7 @@ tags:
 - 通过 reduce 将对象数组中某些属性值相同的对象去重
 
   ```JS
-    const newOrder = orderData.reduce((previous, current, index) => {
+  const newOrder = orderData.reduce((previous, current, index) => {
     if (index == 0) {
       previous.push(current);
     } else {
@@ -252,13 +252,13 @@ tags:
 - JS 原生深拷贝方法 structuredClone()
 
   ```JS
-    const person1 = { name: 'zhou', age: 43 };
-    const person2 = { name: 'li', age: 42, member: person1 };
-    const person3 = structuredClone(person2);
-    console.log(person3);
-    person1.name = 'wang';
-    console.log(person2.member); // {name: 'wang', age: 43}
-    console.log(person3.member); // {name: 'zhou', age: 43}
+  const person1 = { name: 'zhou', age: 43 };
+  const person2 = { name: 'li', age: 42, member: person1 };
+  const person3 = structuredClone(person2);
+  console.log(person3);
+  person1.name = 'wang';
+  console.log(person2.member); // {name: 'wang', age: 43}
+  console.log(person3.member); // {name: 'zhou', age: 43}
   ```
 
   [MDN-structuredClone()](https://developer.mozilla.org/zh-CN/docs/Web/API/structuredClone)
@@ -266,21 +266,21 @@ tags:
 - 字面量定义对象时，用表达式作为对象的属性名
 
   ```JS
-    const keyName = 'name'
+  const keyName = 'name'
 
-    const obj = {
-      [keyName]: 'lijialong',
-    }
+  const obj = {
+    [keyName]: 'lijialong',
+  }
   ```
 
 - 字符串与数字之间的转换
 
   ```JS
-    const num = 123
-    const str = '123'
+  const num = 123
+  const str = '123'
 
-    num + ''; //数字转字符串
-    + str; //字符串转数字
+  num + ''; //数字转字符串
+  + str; //字符串转数字
 
   ```
 
@@ -289,9 +289,9 @@ tags:
   > 可选链操作符 ( ?. ) 允许读取位于连接对象链深处的属性的值，而不必明确验证链中的每个引用是否有效。?. 操作符的功能类似于 . 链式操作符，不同之处在于，在引用为空 (nullish ) (null 或者 undefined) 的情况下不会引起错误，该表达式短路返回值是 undefined。与函数调用一起使用时，如果给定的函数不存在，则返回 undefined。
 
   ```JS
-    const person={ li: { sex : 'man' } }
-    console.log(person.zhang.sex) // Uncaught TypeError: Cannot read properties of undefined (reading 'sex')
-    console.log(person.zhang?.sex) // undefined
+  const person={ li: { sex : 'man' } }
+  console.log(person.zhang.sex) // Uncaught TypeError: Cannot read properties of undefined (reading 'sex')
+  console.log(person.zhang?.sex) // undefined
   ```
 
 - 空值合并运算符 nullish coalescing operator (??)
@@ -300,14 +300,14 @@ tags:
   > 与逻辑或操作符（||）不同，逻辑或操作符会在左侧操作数为假值时返回右侧操作数。也就是说，如果使用 || 来为某些变量设置默认值，可能会遇到意料之外的行为。比如为假值（例如，'' 或 0）时
 
   ```JS
-    const name = '' || 'lisi' // name = 'lisi'
-    const name = '' ?? 'zhangsan' // name = 'zhangsan'
+  const name = '' || 'lisi' // name = 'lisi'
+  const name = '' ?? 'zhangsan' // name = 'zhangsan'
 
-    const number = 0 || 1000 // number = 1000
-    const number = 0 ?? 1000 // number = 0
+  const number = 0 || 1000 // number = 1000
+  const number = 0 ?? 1000 // number = 0
   ```
 
 ---
 
-参考链接:
+参考链接:  
 [JavaScript Tip](https://markodenic.com/javascript-tips/)

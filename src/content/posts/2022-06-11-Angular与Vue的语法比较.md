@@ -230,5 +230,4 @@ export class childCom{
     this.deleteEvent.emit(index);
   }
 }
-
 ```

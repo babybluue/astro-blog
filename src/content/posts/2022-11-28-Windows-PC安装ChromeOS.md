@@ -72,5 +72,6 @@ Brunch 根据官方 recovery 用来制作 ChromeOS 镜像，以支持在 Windows
 
 ---
 
-[到底什么是 ChromeOS](https://zhuanlan.zhihu.com/p/169828368)
+参考链接：  
+[到底什么是 ChromeOS](https://zhuanlan.zhihu.com/p/169828368)  
 [Brunch Framework](https://github.com/sebanc/brunch)
