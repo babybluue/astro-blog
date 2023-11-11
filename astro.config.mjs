@@ -9,6 +9,9 @@ import remarkRehype from 'remark-rehype'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://babybluue.github.io',
+  prefetch: {
+    prefetchAll: true,
+  },
   markdown: {
     syntaxHighlight: 'prism',
     remarkPlugins: [remarkRehype],

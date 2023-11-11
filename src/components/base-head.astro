@@ -3,6 +3,8 @@ import '@styles/global.less'
 import '@styles/tailwind.css'
 import '@styles/prism-coldark-dark.css'
 
+import { ViewTransitions } from 'astro:transitions'
+
 interface Props {
   title: string
   description: string
@@ -22,7 +24,7 @@ const { title, description, image = '/blog-placeholder.jpg' } = Astro.props
   <meta name="generator" content={Astro.generator} />
 
   <!-- Font preloads -->
-  <link rel="preload" href="/fonts/roboto-slab.woff2" as="font" type="font/woff2" crossorigin />
+  <link href="/fonts/roboto-slab.woff2" as="font" type="font/woff2" crossorigin />
 
   <!-- Canonical URL -->
   <link rel="canonical" href={canonicalURL} />
@@ -45,4 +47,6 @@ const { title, description, image = '/blog-placeholder.jpg' } = Astro.props
   <meta property="twitter:title" content={title} />
   <meta property="twitter:description" content={description} />
   <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+  <ViewTransitions />
 </head>

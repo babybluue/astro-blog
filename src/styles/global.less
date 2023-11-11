@@ -95,6 +95,22 @@ main {
   }
 }
 
+:is(p) code {
+  background-color: var(--code-background);
+  color: var(--code-color);
+  padding: 0 0.4rem;
+  margin: 0 0.2rem;
+  border-radius: 5px;
+  display: inline-flex;
+  white-space: nowrap;
+  overflow-x: scroll;
+  max-width: 100%;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 pre {
   border-radius: 5px;
   letter-spacing: normal;
