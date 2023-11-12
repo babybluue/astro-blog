@@ -46,6 +46,12 @@ const isCurrentPage = (url: string) => {
       </svg>
     </button>
   </nav>
+  <script is:inline>
+    localStorage.theme === 'dark' ? document.documentElement.classList.add('dark') : ''
+    document.addEventListener('astro:after-swap', () => {
+      localStorage.theme === 'dark' ? document.documentElement.classList.add('dark') : ''
+    })
+  </script>
   <script>
     document.addEventListener('astro:page-load', () => {
       const theme = (() => {
@@ -75,12 +81,6 @@ const isCurrentPage = (url: string) => {
       }
 
       document.getElementById('themeToggle')?.addEventListener('click', handleToggleClick)
-    })
-
-    document.addEventListener('astro:after-swap', () => {
-      localStorage.theme === 'dark'
-        ? document.documentElement.classList.add('dark')
-        : document.documentElement.classList.add('light')
     })
   </script>
 </header>
