@@ -1,20 +1,83 @@
 ---
-import BaseHead from '@components/base-head.astro'
 import NavHead from '@components/nav-head.astro'
 import PostList from '@components/post-list.astro'
 import BaseLayout from '@layouts/base-layout.astro'
-import { getAllPosts } from '@utils/all-posts'
-
-const allPosts = await getAllPosts()
-
-const indexPosts = allPosts.slice(0, 10)
 ---
 
 <BaseLayout title="babyblue" description="my blog">
   <NavHead />
   <main>
     <section>
-      <PostList posts={indexPosts} />
+      <div id="typed-strings">
+        <div class="flex flex-col gap-2">
+          <p>
+            <span class="mr-2 text-[#98c379]">➜ y^50a^50r^50n^50</span>
+            <span>i^50n^50s^50t^50a^50l^50l^400 &nbsp;</span>
+          </p>
+          <p>yarn install v1.22.19</p>
+          <p>
+            <span class="mr-2 text-[#6e6f72]">[1/4]</span>
+            <span>Resolving packages.^200.^100.</span>
+          </p>
+          <p>
+            <span class="mr-2 text-[#6e6f72]">[2/4]</span>
+            <span>Fetching packages.^300.^200.</span>
+          </p>
+          <p>
+            <span class="mr-2 text-[#6e6f72]">[3/4]</span>
+            <span>Linking dependencies.^200.^100.</span>
+          </p>
+          <p>
+            <span class="mr-2 text-[#6e6f72]">[4/4]</span>
+            <span>Building fresh packages.^100.^100.</span>
+          </p>
+          <p>Done in 12.41s.</p>
+          <p>
+            <span class="mr-2 text-[#98c379]">➜ y^50a^50r^50n^50&nbsp;</span>
+            <span>d^50e^50v^400 &nbsp;</span>
+          </p>
+          <p>yarn run v1.22.19</p>
+          <p class="text-[#6e6f72]">$ astro dev</p>
+          <p class="flex gap-2">
+            <span>🚀</span>
+            <span class="bg-[#98c379] px-4 leading-normal text-black">astro</span>
+            <span class="text-[#98c379]">v3.5.0</span>
+            <span class="text-[#6e6f72]">started in 1089ms</span>
+          </p>
+          <div class="ml-4 border-l-[4px] border-l-[#6e6f72] pl-2">
+            <p>
+              <span class="inline-block w-[90px]">Local</span>
+              <span class="text-[#56b6c2]">http://localhost:4321/</span>
+            </p>
+            <p>
+              <span class="inline-block w-[90px]">Network</span>
+              <span class="text-[#6e6f72]"> use --host to expose</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="typed" class="flex flex-col gap-2"></div>
     </section>
   </main>
+
+  <script>
+    import Typed from 'typed.js'
+
+    document.addEventListener('astro:page-load', () => {
+      new Typed('#typed', {
+        stringsElement: '#typed-strings',
+        typeSpeed: 1,
+        backSpeed: 0,
+        loop: false,
+        fadeOut: true,
+      })
+    })
+
+    document.addEventListener('astro:after-swap', () => {
+      const typed = document.querySelector('#typed-strings')
+      if (typed) {
+        typed.setAttribute('style', 'height:1px;width:1px;overflow:hidden')
+      }
+    })
+  </script>
 </BaseLayout>

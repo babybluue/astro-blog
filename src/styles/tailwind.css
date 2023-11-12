@@ -2,22 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  * {
-    font-size: 16px;
-  }
-
-  p,
-  h1,
-  h2,
-  h3,
-  h5,
-  h6 {
-    @apply py-3
-  }
-
-
-
-}
+@layer base {}
 
 @layer components {}
