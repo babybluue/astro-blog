@@ -1,6 +1,5 @@
 ---
 import NavHead from '@components/nav-head.astro'
-import PostList from '@components/post-list.astro'
 import BaseLayout from '@layouts/base-layout.astro'
 ---
 
@@ -11,32 +10,32 @@ import BaseLayout from '@layouts/base-layout.astro'
       <div id="typed-strings">
         <div class="flex flex-col gap-2">
           <p>
-            <span class="mr-2 text-[#98c379]">➜ y^50a^50r^50n^50</span>
-            <span>i^50n^50s^50t^50a^50l^50l^400 &nbsp;</span>
+            <span class="mr-2 text-[#98c379]">➜ y^50a^50r^50n</span>
+            <span>i^50n^50s^50t^50a^50l^50l</span>
           </p>
           <p>yarn install v1.22.19</p>
           <p>
             <span class="mr-2 text-[#6e6f72]">[1/4]</span>
-            <span>Resolving packages.^200.^100.</span>
+            <span>Resolving packages.^200.^1000.</span>
           </p>
           <p>
             <span class="mr-2 text-[#6e6f72]">[2/4]</span>
-            <span>Fetching packages.^300.^200.</span>
+            <span>Fetching packages.^1300.^200.</span>
           </p>
           <p>
             <span class="mr-2 text-[#6e6f72]">[3/4]</span>
-            <span>Linking dependencies.^200.^100.</span>
+            <span>Linking dependencies.^400.^1600.</span>
           </p>
           <p>
             <span class="mr-2 text-[#6e6f72]">[4/4]</span>
-            <span>Building fresh packages.^100.^100.</span>
+            <span>Building fresh packages.^100.^2000.</span>
           </p>
           <p>Done in 12.41s.</p>
           <p>
-            <span class="mr-2 text-[#98c379]">➜ y^50a^50r^50n^50&nbsp;</span>
-            <span>d^50e^50v^400 &nbsp;</span>
+            <span class="mr-2 text-[#98c379]">➜ y^50a^50r^50n</span>
+            <span>d^50e^50v</span>
           </p>
-          <p>yarn run v1.22.19</p>
+          <p>^1000yarn run v1.22.19</p>
           <p class="text-[#6e6f72]">$ astro dev</p>
           <p class="flex gap-2">
             <span>🚀</span>
@@ -66,7 +65,7 @@ import BaseLayout from '@layouts/base-layout.astro'
     document.addEventListener('astro:page-load', () => {
       new Typed('#typed', {
         stringsElement: '#typed-strings',
-        typeSpeed: 1,
+        typeSpeed: 10,
         backSpeed: 0,
         loop: false,
         fadeOut: true,
