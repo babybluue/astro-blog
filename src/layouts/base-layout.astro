@@ -8,5 +8,55 @@ const { title, description } = Astro.props.frontmatter || Astro.props
   <BaseHead title={title} description={description} />
   <body>
     <slot />
+    <svg
+      class="nav-icon fixed bottom-5 right-5 hidden cursor-pointer transition-all"
+      viewBox="0 0 1024 1024"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      p-id="9313"
+      width="45"
+      height="45"
+    >
+      <path
+        d="M535.12 442.432v210.016a16 16 0 0 1-16 16h-16.16a16 16 0 0 1-16-16V440.208l-32.88 32.864a16 16 0 0 1-11.312 4.688h-28.304a14.464 14.464 0 0 1-10.24-24.688l97.824-97.808a11.136 11.136 0 0 1 15.744 0l97.808 97.808a14.464 14.464 0 0 1-10.24 24.688h-28.288a16 16 0 0 1-11.312-4.688l-30.64-30.64zM512 800c159.056 0 288-128.944 288-288s-128.944-288-288-288-288 128.944-288 288 128.944 288 288 288z m0 48c-185.568 0-336-150.432-336-336s150.432-336 336-336 336 150.432 336 336-150.432 336-336 336z"
+        p-id="9314"></path>
+    </svg>
+    <script>
+      const pageScroll = () => {
+        const navIcon = document.querySelector('.nav-icon')
+        if (!navIcon) return
+        if (document.documentElement.scrollHeight !== document.documentElement.clientHeight) {
+          navIcon.classList.remove('hidden')
+        }
+        window.addEventListener('scroll', () => {
+          navIcon.classList.remove('hidden')
+          if (window.scrollY !== 0) {
+            //开始滑动
+            navIcon.classList.add('to-down', 'rotate-0')
+          } else {
+            //最上面
+            navIcon.classList.add('rotate-180')
+            navIcon.classList.remove('to-down', 'rotate-0')
+          }
+        })
+
+        navIcon.addEventListener('click', () => {
+          // 页面总高
+          const totalH = document.body.scrollHeight || document.documentElement.scrollHeight
+          if (navIcon.classList.contains('to-down')) {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth',
+            })
+          } else {
+            window.scrollTo({
+              top: totalH,
+              behavior: 'smooth',
+            })
+          }
+        })
+      }
+      document.addEventListener('astro:page-load', () => pageScroll())
+    </script>
   </body>
 </html>
