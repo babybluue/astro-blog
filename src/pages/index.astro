@@ -63,24 +63,24 @@ import BaseLayout from '@layouts/base-layout.astro'
     import Typed from 'typed.js'
 
     document.addEventListener('astro:page-load', () => {
-      new Typed('#typed', {
-        stringsElement: '#typed-strings',
-        typeSpeed: 10,
-        backSpeed: 0,
-        loop: false,
-        fadeOut: true,
-      })
+      if (document.querySelector('#typed')) {
+        new Typed('#typed', {
+          stringsElement: '#typed-strings',
+          typeSpeed: 10,
+          backSpeed: 0,
+          loop: false,
+          fadeOut: true,
+        })
+      }
     })
   </script>
   <script is:inline>
-    const typed = document.querySelector('#typed-strings')
-    if (typed) {
-      typed.setAttribute('style', 'height:1px;width:1px;overflow:hidden')
+    if (document.querySelector('#typed-strings')) {
+      document.querySelector('#typed-strings').setAttribute('style', 'height:1px;width:1px;overflow:hidden')
     }
     document.addEventListener('astro:after-swap', () => {
-      const typed = document.querySelector('#typed-strings')
-      if (typed) {
-        typed.setAttribute('style', 'height:1px;width:1px;overflow:hidden')
+      if (document.querySelector('#typed-strings')) {
+        document.querySelector('#typed-strings').setAttribute('style', 'height:1px;width:1px;overflow:hidden')
       }
     })
   </script>
