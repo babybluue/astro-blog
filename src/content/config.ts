@@ -8,8 +8,7 @@ const posts = defineCollection({
     title: z.string(),
     date: z.date(),
     abbrlink: z.string(),
-    updated: z.date(),
-    tags: z.array(z.string()).or(z.string()).or(z.null()).optional(),
+    tags: z.array(z.string()),
     descriptions: z.string().optional(),
   }),
 })
@@ -22,8 +21,7 @@ const notes = defineCollection({
     title: z.string(),
     date: z.date(),
     abbrlink: z.string(),
-    updated: z.date(),
-    tags: z.array(z.string()).or(z.string()).or(z.null()).optional(),
+    tags: z.array(z.string()),
     descriptions: z.string().optional(),
   }),
 })

@@ -3,7 +3,8 @@ title: 隐秘的callback 隐秘的快乐
 abbrlink: 45645f90
 date: 2021-05-08T17:15:38.000Z
 updated: 2021-05-08T17:15:38.000Z
-tags: null
+tags:
+  - 随想
 ---
 
 讲代码的时候讲到 callback,旁边的大哥和我一样都想到脱口秀大会.

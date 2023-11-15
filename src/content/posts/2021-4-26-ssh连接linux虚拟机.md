@@ -1,9 +1,9 @@
 ---
 title: ssh连接linux虚拟机
-tags: SSH
 abbrlink: 1b816091
 date: 2021-04-26T15:00:25.000Z
-updated: 2021-04-26T15:00:25.000Z
+tags:
+  - SSH
 ---
 
 SSH 的软件架构是服务器-客户端模式（Server - Client）。在这个架构中，SSH 软件分成两个部分：向服务器发出请求的部分，称为客户端（client），OpenSSH 的实现为 ssh；接收客户端发出的请求的部分，称为服务器（server），OpenSSH 的实现为 sshd。

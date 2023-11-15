@@ -1,5 +1,5 @@
 // 格式化日期 2023/10/24 07:43:40
-const getFormatDate = (date: Date) => {
+export const getFormatDate = (date: Date) => {
   const localDate = date.getTime() + date.getTimezoneOffset() * 60 * 1000
   return new Date(localDate).toISOString().slice(0, 19).replace('T', ' ').replaceAll('-', '/')
 }

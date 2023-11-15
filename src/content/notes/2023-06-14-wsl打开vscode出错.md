@@ -1,9 +1,9 @@
 ---
 title: WSL打开VSCode出错
-tags: vscode
 abbrlink: 966fb4be
 date: 2023-06-14T17:08:43.000Z
-updated: 2023-06-14T17:08:43.000Z
+tags:
+  - VSCode
 ---
 
 在WSL命令行中输入命令`code .`应该会呼出Windows的VSCode,但是却提示错误

@@ -2,8 +2,8 @@
 title: JavaScript操作Dom元素
 abbrlink: 3ff28d3c
 date: 2021-11-12T00:49:03.000Z
-updated: 2021-11-12T00:49:03.000Z
-tags: JavaScript
+tags:
+  - JavaScript
 ---
 
 ```HTML

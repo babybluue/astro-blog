@@ -2,7 +2,6 @@
 title: JavaScript 备忘录
 abbrlink: 9765cad4
 date: 2021-10-26T10:48:49.000Z
-updated: 2022-05-13T00:15:49.000Z
 tags:
   - JavaScript
   - 备忘录

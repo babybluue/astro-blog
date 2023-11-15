@@ -1,15 +1,18 @@
 ---
 import type { PostModel } from '@interfaces/post-model'
+import { getFormatDate } from '@utils/date-helper'
 
 interface Props {
   post: PostModel
+  from?: string
 }
 
-const { post } = Astro.props
+const { post, from } = Astro.props
 const { Content } = await post.render()
 ---
 
 <article>
-  <h3 class="my-2">{post.data.title}</h3>
+  <h3 class:list={['mt-2', { 'text-center': from && from === 'post' }]}>{post.data.title}</h3>
+  {from && from === 'post' ? <div class="text-right text-xs text-gray-400">{getFormatDate(post.data.date)}</div> : ''}
   <Content />
 </article>

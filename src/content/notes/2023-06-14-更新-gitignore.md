@@ -1,9 +1,9 @@
 ---
 title: 更新.gitignore
-tags: git
 abbrlink: efc43189
 date: 2023-06-14T17:30:43.000Z
-updated: 2023-06-14T17:30:43.000Z
+tags:
+  - Git
 ---
 
 如何应用.gitignore文件的更新。

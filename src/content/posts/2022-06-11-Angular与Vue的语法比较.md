@@ -1,11 +1,10 @@
 ---
 title: Angular与Vue的语法比较
+abbrlink: 956d8401
+date: 2022-06-11T13:48:14.000Z
 tags:
   - Angular
   - Vue
-abbrlink: 956d8401
-date: 2022-06-11T13:48:14.000Z
-updated: 2022-06-11T13:48:14.000Z
 ---
 
 最近在看 Vue 文档，发现 Vue 与我现在使用的 Angular 在语法上有许多相似之处，于是决定对照着 Vue 官方文档，比较一下两个框架的语法结构。

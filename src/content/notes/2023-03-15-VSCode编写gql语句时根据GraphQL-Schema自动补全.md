@@ -2,8 +2,9 @@
 title: VSCode编写gql语句时根据GraphQL Schema自动补全
 abbrlink: ce03c2ea
 date: 2023-03-15T18:42:56.000Z
-updated: 2023-03-15T18:42:56.000Z
-tags: vscode
+tags:
+  - VSCode
+  - GraphQL
 ---
 
 在使用 postman 测试 GraphQL 接口时发现 postman 有个 auto-fetch 的功能，可以自动拉取 GraphQL Schema 帮助补全 gql 语句。既然 postman 能够实现这个功能，那么 VSCode 一定有现成的对应方案，为什么我还要手动写 gql 语句呢。

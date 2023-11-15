@@ -7,6 +7,7 @@ import NavHead from '@components/nav-head.astro'
 import Pagination from '@components/pagination.astro'
 import type { PostModel } from '@interfaces/post-model'
 import BaseLayout from '@layouts/base-layout.astro'
+import { getFormatDate } from '@utils/date-helper'
 
 interface Props {
   page: Page
@@ -28,6 +29,15 @@ const description = 'blog list page'
     {
       page.data.map((post: PostModel) => (
         <section class="mb-5 rounded-lg border p-5 dark:border-[#525252]">
+          <div class="text-xs">
+            <span class="text-gray-400">{getFormatDate(post.data.date)}</span>
+            {post.data.tags?.map((tag: string) => (
+              <a class="mx-2" href={'/tags/' + tag}>
+                {tag}
+              </a>
+            ))}
+          </div>
+
           <ContentRender post={post} />
         </section>
       ))
