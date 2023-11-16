@@ -18,19 +18,21 @@ posts.map((post: PostModel) => {
 ---
 
 {
-  Object.keys(postObj).map((year) => (
-    <>
-      <h1 class="text-lg font-bold">{year}</h1>
-      <ul>
-        {postObj[year].map((post) => (
-          <li>
-            <span class="relative inline-block min-w-[80px] pl-3 font-bold">{getMD(post.date)}</span>
-            <a href={'/posts/' + post.abbrlink}>{post.title}</a>
-          </li>
-        ))}
-      </ul>
-    </>
-  ))
+  Object.keys(postObj)
+    .sort((a, b) => +b - +a)
+    .map((year) => (
+      <>
+        <h1 class="text-lg font-bold">{year}</h1>
+        <ul>
+          {postObj[year].map((post) => (
+            <li>
+              <span class="relative inline-block min-w-[80px] pl-3 font-bold">{getMD(post.date)}</span>
+              <a href={'/posts/' + post.abbrlink}>{post.title}</a>
+            </li>
+          ))}
+        </ul>
+      </>
+    ))
 }
 <style lang="less">
   ul {
