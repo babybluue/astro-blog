@@ -37,17 +37,6 @@ const latestPost = (await getAllPosts())[0]
     </section>
     <section class="overflow-hidden rounded-md border p-3 pt-0 dark:border-[#525252]">
       <ContentRender post={latestPost} />
-      <div class="text-right">
-        <a href={`/posts/${latestPost.data.abbrlink}`} class="mt-2 inline-block rounded-full bg-primary px-5 py-1"
-          >查看</a
-        >
-      </div>
     </section>
   </main>
 </BaseLayout>
-<style is:global>
-  article {
-    max-height: 250px;
-    overflow: hidden;
-  }
-</style>

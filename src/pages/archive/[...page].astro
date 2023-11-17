@@ -14,7 +14,7 @@ interface Props {
 export const getStaticPaths = async ({ paginate }: { paginate: PaginateFunction }) => {
   const blogs = (await getCollection('posts')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 
-  return paginate(blogs, { pageSize: 10 })
+  return paginate(blogs, { pageSize: 8 })
 }
 
 const { page } = Astro.props
@@ -24,7 +24,7 @@ const description = 'blog list page'
 
 <BaseLayout title={title} description={description}>
   <NavHead />
-  <main class="flex flex-col justify-between">
+  <main>
     <section class="list">
       <PostList posts={page.data} />
     </section>
