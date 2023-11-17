@@ -13,5 +13,8 @@ export const formatedTime = (date: Date) => getFormatDate(date).split(' ')[1]
 // 年份 2023
 export const getYear = (date: Date) => formatedYMD(date).split('/')[0]
 
+// 年月 2023-01
+export const getYM = (date: Date) => formatedYMD(date).split('/').slice(0, 2).join('-')
+
 // 日月 10/24
 export const getMD = (date: Date) => formatedYMD(date).split('/').slice(1, 3).join('/')
