@@ -19,10 +19,10 @@ const tagContent = uniqueTags.map((tag) => {
 <BaseLayout title="tag" description="blog tag">
   <NavHead />
   <main>
-    <section class="flex flex-wrap gap-y-5 py-10">
+    <section class="flex flex-wrap justify-center gap-5 px-2 py-5">
       {
         tagContent.map((item) => (
-          <div class="mr-4 flex justify-between">
+          <div class="flex justify-between">
             <a href={'/tags/' + item.tag}>{`${item.tag?.slice(0, 1).toUpperCase()}${item.tag?.slice(1)}`}</a>
             <sup class="mt-1 flex h-[14px] w-[14px] items-center justify-center rounded-full border text-[10px]  ">
               {item.count}

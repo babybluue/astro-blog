@@ -19,7 +19,11 @@ const latestPost = (await getAllPosts())[0]
 <BaseLayout title="babyblue" description="my blog">
   <main>
     <section class="flex flex-col items-center justify-center">
-      <Image src={avatarImg} alt="" class="mt-10 aspect-square w-[100px] rounded-full" />
+      <Image
+        src={avatarImg}
+        alt=""
+        class="avatar mt-10 aspect-square w-[100px] cursor-pointer rounded-full transition-all"
+      />
       <span class="my-5">Yellow</span>
       <span class="px-10 text-center">
         我个人的一个秘密是在需要极大快乐和悲伤的公众场合却达不到这种快乐和悲伤应有的水平，因而内心惊恐万状，汗下如雨
@@ -39,4 +43,21 @@ const latestPost = (await getAllPosts())[0]
       <ContentRender post={latestPost} />
     </section>
   </main>
+  <script>
+    document.addEventListener('astro:page-load', () => {
+      const avatar = document.querySelector('.avatar')
+      avatar?.addEventListener('mouseenter', () => {
+        avatar.classList.add('rotate-[360deg]')
+      })
+      avatar?.addEventListener('mouseleave', () => {
+        avatar.classList.remove('rotate-[360deg]')
+      })
+      avatar?.addEventListener('touchstart', () => {
+        avatar.classList.add('rotate-[360deg]')
+      })
+      avatar?.addEventListener('touchend', () => {
+        avatar.classList.remove('rotate-[360deg]')
+      })
+    })
+  </script>
 </BaseLayout>
