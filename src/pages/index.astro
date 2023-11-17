@@ -1,11 +1,53 @@
 ---
-import NavHead from '@components/nav-head.astro'
+import { Image } from 'astro:assets'
+
+import avatarImg from '@assets/avatar.jpg'
+import ContentRender from '@components/content-render.astro'
+import ThemeButton from '@components/theme-button.astro'
 import BaseLayout from '@layouts/base-layout.astro'
+import { getAllPosts } from '@utils/all-posts'
+
+const links = [
+  { url: '/notes', title: '笔记' },
+  { url: '/tags', title: '标签' },
+  { url: '/archive', title: '归档' },
+]
+
+const latestPost = (await getAllPosts())[0]
 ---
 
 <BaseLayout title="babyblue" description="my blog">
-  <NavHead />
   <main>
-    <section></section>
+    <section class="flex flex-col items-center justify-center">
+      <Image src={avatarImg} alt="" class="mt-10 aspect-square w-[100px] rounded-full" />
+      <span class="my-5">Yellow</span>
+      <span class="px-10 text-center">
+        我个人的一个秘密是在需要极大快乐和悲伤的公众场合却达不到这种快乐和悲伤应有的水平，因而内心惊恐万状，汗下如雨
+      </span>
+    </section>
+    <section class="my-10 flex items-center justify-center gap-10">
+      {
+        links.map((item) => (
+          <a href={item.url} class="text-primary">
+            {item.title}
+          </a>
+        ))
+      }
+      <ThemeButton class="absolute right-0" />
+    </section>
+    <section class="overflow-hidden rounded-md border p-3 pt-0 dark:border-[#525252]">
+      <ContentRender post={latestPost} />
+      <div class="text-right">
+        <a href={`/posts/${latestPost.data.abbrlink}`} class="mt-2 inline-block rounded-full bg-primary px-5 py-1"
+          >查看</a
+        >
+      </div>
+    </section>
   </main>
 </BaseLayout>
+<style is:global>
+  article {
+    max-height: 250px;
+    overflow: hidden;
+  }
+</style>
