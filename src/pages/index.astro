@@ -6,6 +6,7 @@ import ContentRender from '@components/content-render.astro'
 import ThemeButton from '@components/theme-button.astro'
 import BaseLayout from '@layouts/base-layout.astro'
 import { getAllPosts } from '@utils/all-posts'
+import { formatedYMD, getFormatDate } from '@utils/date-helper'
 
 const links = [
   { url: '/notes', title: '笔记' },
@@ -13,7 +14,7 @@ const links = [
   { url: '/archive', title: '归档' },
 ]
 
-const latestPost = (await getAllPosts())[0]
+const latestPost = (await getAllPosts()).slice(0, 3)
 ---
 
 <BaseLayout title="babyblue" description="my blog">
@@ -39,8 +40,25 @@ const latestPost = (await getAllPosts())[0]
       }
       <ThemeButton class="absolute right-0" />
     </section>
-    <section class="overflow-hidden rounded-md border p-3 pt-0 dark:border-[#525252]">
-      <ContentRender post={latestPost} />
+    <section class="m-auto w-[70%] pt-5">
+      {
+        latestPost.map((post) => (
+          <div class="py-2">
+            <h1>
+              <a href={`/posts/${post.data.abbrlink}`}>{post.data.title}</a>
+            </h1>
+            <div class="text-sm text-gray-400">{post.data.descriptions}</div>
+            <div class="py-2 text-xs">
+              <span class="text-gray-400">{getFormatDate(post.data.date)}</span>
+              {post.data.tags?.map((tag: string) => (
+                <a class="mx-2" href={'/tags/' + tag}>
+                  {tag}
+                </a>
+              ))}
+            </div>
+          </div>
+        ))
+      }
     </section>
   </main>
   <script>
