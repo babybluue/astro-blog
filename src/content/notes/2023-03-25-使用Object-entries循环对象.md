@@ -15,7 +15,7 @@ const obj = [
     age: 38,
   },
 ]
-for (const [name, age] of obj.entries(obj)) {
+for (const [name, age] of Object.entries(obj)) {
   console.log(name, age)
 }
 ```

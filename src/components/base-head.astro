@@ -5,6 +5,8 @@ import '@styles/prism-coldark-dark.css'
 
 import { ViewTransitions } from 'astro:transitions'
 
+import { pwaInfo } from 'virtual:pwa-info'
+
 interface Props {
   title: string
   description: string
@@ -21,6 +23,8 @@ const { title, description, image = '/blog-placeholder.jpg' } = Astro.props
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/pwa_512.png" sizes="192x192" />
+  <meta name="theme-color" content="#ffffff" />
   <meta name="generator" content={Astro.generator} />
 
   <!-- Font preloads -->
@@ -49,4 +53,5 @@ const { title, description, image = '/blog-placeholder.jpg' } = Astro.props
   <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
   <ViewTransitions />
+  {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
 </head>

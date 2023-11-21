@@ -1,5 +1,6 @@
 ---
 import BaseHead from '@components/base-head.astro'
+import ReloadPrompt from '@components/reload-prompt.astro'
 
 const { title, description } = Astro.props.frontmatter || Astro.props
 ---
@@ -8,6 +9,7 @@ const { title, description } = Astro.props.frontmatter || Astro.props
   <BaseHead title={title} description={description} />
   <body>
     <slot />
+    <ReloadPrompt />
     <svg
       class="nav-icon fixed bottom-5 right-5 hidden cursor-pointer transition-all"
       viewBox="0 0 1024 1024"
