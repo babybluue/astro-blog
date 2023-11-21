@@ -26,7 +26,7 @@ const latestPost = (await getAllPosts()).slice(0, 3)
         class="avatar mt-10 aspect-square w-[100px] cursor-pointer select-none rounded-full transition-all"
       />
       <span class="my-5">Yellow</span>
-      <span class="px-10 text-center">
+      <span class="px-10 text-center md:px-5">
         我个人的一个秘密是在需要极大快乐和悲伤的公众场合却达不到这种快乐和悲伤应有的水平，因而内心惊恐万状，汗下如雨
       </span>
     </section>
@@ -40,7 +40,7 @@ const latestPost = (await getAllPosts()).slice(0, 3)
       }
       <ThemeButton class="absolute right-0" />
     </section>
-    <section class="m-auto w-[70%] pt-5">
+    <section class="m-auto w-[70%] pt-5 md:w-[90%]">
       {
         latestPost.map((post) => (
           <div class="py-2">
