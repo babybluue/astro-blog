@@ -26,6 +26,9 @@ const { title, description, image = '/blog-placeholder.jpg' } = Astro.props
   <link rel="apple-touch-icon" href="/pwa_512.png" sizes="192x192" />
   <meta name="theme-color" content="#ffffff" />
   <meta name="generator" content={Astro.generator} />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1f1f1f" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
+  <meta name="color-scheme" content="light dark" />
 
   <!-- Font preloads -->
   <link href="/fonts/roboto-slab.woff2" as="font" type="font/woff2" crossorigin />
