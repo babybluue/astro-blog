@@ -60,18 +60,20 @@ html.dark:root {
   .darkMode();
 }
 
-body,
 html {
-  font-size: 16px;
-  font-family: roboto-slab, RobotoSlab, SimHei, Songti, serif;
   width: 100vw;
   overflow-x: hidden;
-  background-color: var(--background-primary-color);
-  color: var(--text-primary-color);
-  .prettier-scrollbar();
+  font-size: 16px;
   @media screen and (max-width: 900px) {
     font-size: 14px;
   }
+}
+
+body {
+  font-family: roboto-slab, RobotoSlab, SimHei, Songti, serif;
+  background-color: var(--background-primary-color);
+  color: var(--text-primary-color);
+  .prettier-scrollbar();
 }
 
 main,
