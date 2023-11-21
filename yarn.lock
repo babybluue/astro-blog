@@ -7405,7 +7405,7 @@ vfile@^6.0.0:
     unist-util-stringify-position "^4.0.0"
     vfile-message "^4.0.0"
 
-"vite-plugin-pwa@>=0.16.5 <1", vite-plugin-pwa@^0.17.0:
+"vite-plugin-pwa@>=0.16.5 <1":
   version "0.17.0"
   resolved "https://registry.yarnpkg.com/vite-plugin-pwa/-/vite-plugin-pwa-0.17.0.tgz#315648e0589e892b0e0e30e13175aa3c76990ee5"
   integrity sha512-cOyEG8EEc7JHmyMapTnjK2j0g2BIC3ErlmOHyGzVu8hqjyF9Jt6yWMmVNFtpA6v/NNyzP28ARf3vwzIAzR1kaw==
