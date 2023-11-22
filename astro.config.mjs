@@ -31,6 +31,7 @@ export default defineConfig({
         short_name: 'Yellow',
         description: 'Yellow, my blog website',
         theme_color: '#ffffff',
+        background_color: '#ffffff',
         display: 'standalone',
         icons: [
           {
