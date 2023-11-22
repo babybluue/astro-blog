@@ -25,6 +25,9 @@ export default defineConfig({
     AstroPWA({
       registerType: 'prompt',
       devOptions: { enabled: true },
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,jpg,svg,woff2}'],
+      },
       includeAssets: ['favicon.ico', 'pwa_192.png'],
       manifest: {
         name: 'Yellow - blog',
