@@ -45,11 +45,10 @@
 }
 
 @font-face {
-  font-family: 'roboto-slab';
-  src: url('/fonts/roboto-slab.woff2');
+  font-family: 'HarmonyOS_Sans';
+  src: url('/fonts/HarmonyOS_Sans_SC_Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
 }
 
 html:root {
@@ -63,14 +62,15 @@ html.dark:root {
 html {
   width: 100vw;
   overflow-x: hidden;
-  font-size: 16px;
+  font-size: 15px;
   @media screen and (max-width: 900px) {
     font-size: 14px;
   }
 }
 
 body {
-  font-family: roboto-slab, RobotoSlab, SimHei, Songti, serif;
+  font-family: HarmonyOS_Sans, Arial, Helvetica, sans-serif;
+  line-height: 24px !important;
   background-color: var(--background-primary-color);
   color: var(--text-primary-color);
   .prettier-scrollbar();

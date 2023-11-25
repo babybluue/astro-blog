@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets'
 
 import avatarImg from '@assets/avatar.jpg'
-import ContentRender from '@components/content-render.astro'
 import ThemeButton from '@components/theme-button.astro'
 import BaseLayout from '@layouts/base-layout.astro'
 import { getAllPosts } from '@utils/all-posts'
@@ -18,7 +17,7 @@ const links = [
 const latestPost = (await getAllPosts()).slice(0, 3)
 ---
 
-<BaseLayout title="babyblue" description="my blog">
+<BaseLayout title="Yellow" description="The index page of blog, Yellow">
   <main>
     <section class="flex flex-col items-center justify-center">
       <Image
