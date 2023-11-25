@@ -107,8 +107,10 @@ main {
   }
 }
 
-a:hover {
-  color: #56b6c2;
+@media (any-hover: hover) {
+  a:hover {
+    color: #56b6c2;
+  }
 }
 
 :is(p) code {
