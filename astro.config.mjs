@@ -26,7 +26,7 @@ export default defineConfig({
       registerType: 'prompt',
       devOptions: { enabled: true },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,svg,png,txt,webp}'],
+        globPatterns: ['**/*.{js,css,html,ico,svg,png,txt,ttf,webp}'],
       },
       includeAssets: ['favicon.ico', 'pwa_192.png'],
       manifest: {

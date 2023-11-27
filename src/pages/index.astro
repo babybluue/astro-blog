@@ -1,7 +1,5 @@
 ---
-import { Image } from 'astro:assets'
-
-import avatarImg from '@assets/avatar.jpg'
+import AvatarImage from '@components/avatar-image.astro'
 import ThemeButton from '@components/theme-button.astro'
 import BaseLayout from '@layouts/base-layout.astro'
 import { getAllPosts } from '@utils/all-posts'
@@ -20,14 +18,10 @@ const latestPost = (await getAllPosts()).slice(0, 3)
 <BaseLayout title="Yellow" description="The index page of blog, Yellow">
   <main>
     <section class="flex flex-col items-center justify-center">
-      <Image
-        src={avatarImg}
-        alt=""
-        class="avatar mt-10 aspect-square w-[100px] cursor-pointer select-none rounded-full transition-all"
-      />
+      <AvatarImage />
       <span class="my-5">Yellow</span>
       <span class="px-10 text-center max-[768px]:px-5">
-        我个人的一个秘密是在需要极大快乐和悲伤的公众场合却达不到这种快乐和悲伤应有的水平，因而内心惊恐万状，汗下如雨
+        "我个人的一个秘密是在需要极大快乐和悲伤的公众场合却达不到这种快乐和悲伤应有的水平，因而内心惊恐万状，汗下如雨"
       </span>
     </section>
     <section class="my-10 flex items-center justify-center gap-10">
@@ -61,21 +55,4 @@ const latestPost = (await getAllPosts()).slice(0, 3)
       }
     </section>
   </main>
-  <script>
-    document.addEventListener('astro:page-load', () => {
-      const avatar = document.querySelector('.avatar')
-      avatar?.addEventListener('mouseenter', () => {
-        avatar.classList.add('rotate-[360deg]')
-      })
-      avatar?.addEventListener('mouseleave', () => {
-        avatar.classList.remove('rotate-[360deg]')
-      })
-      avatar?.addEventListener('touchstart', () => {
-        avatar.classList.add('rotate-[360deg]')
-      })
-      avatar?.addEventListener('touchend', () => {
-        avatar.classList.remove('rotate-[360deg]')
-      })
-    })
-  </script>
 </BaseLayout>

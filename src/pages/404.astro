@@ -1,0 +1,26 @@
+---
+import AvatarImage from '@components/avatar-image.astro'
+import ThemeButton from '@components/theme-button.astro'
+import BaseLayout from '@layouts/base-layout.astro'
+
+const links = [
+  { url: '/', title: '首页' },
+  { url: '/notes', title: '笔记' },
+  { url: '/tags', title: '标签' },
+  { url: '/archive', title: '归档' },
+]
+---
+
+<BaseLayout title="Yellow" description="The index page of blog, Yellow">
+  <main>
+    <section class="flex flex-col items-center justify-center">
+      <AvatarImage />
+      <span class="my-5">Yellow</span>
+    </section>
+    <section class="my-10 flex items-center justify-center gap-10">
+      {links.map((item) => <a href={item.url}>{item.title}</a>)}
+      <ThemeButton class="absolute right-0" />
+    </section>
+    <section class="flex justify-center py-5 text-4xl">404</section>
+  </main>
+</BaseLayout>
