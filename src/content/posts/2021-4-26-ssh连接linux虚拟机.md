@@ -1,12 +1,13 @@
 ---
-title: ssh连接linux虚拟机
+title: ssh 连接 Linux 虚拟机
 abbrlink: 1b816091
 date: 2021-04-26T15:00:25.000Z
+description: 学习使用 ssh 连接 Linux 虚拟机
 tags:
   - SSH
 ---
 
-SSH 的软件架构是服务器-客户端模式（Server - Client）。在这个架构中，SSH 软件分成两个部分：向服务器发出请求的部分，称为客户端（client），OpenSSH 的实现为 ssh；接收客户端发出的请求的部分，称为服务器（server），OpenSSH 的实现为 sshd。
+SSH 的软件架构是服务器 - 客户端模式（Server - Client）。在这个架构中，SSH 软件分成两个部分：向服务器发出请求的部分，称为客户端（client），OpenSSH 的实现为 ssh；接收客户端发出的请求的部分，称为服务器（server），OpenSSH 的实现为 sshd。
 
 <!--more-->
 
@@ -70,7 +71,7 @@ $ chmod 600 ~/.ssh/id_rsa.pub
   -i 是指定公钥文件，公钥文件可以不指定路径和.pub 后缀名，命令会自动在~/.ssh 目录下寻找
 
 - 关闭密码登录
-  启用密钥登录后，可以关闭服务器的密码登录，打开服务器 sshd 的配置文件/etc/ssh/sshd_config,将 PasswordAuthentication 设置为 no，重启 sshd
+  启用密钥登录后，可以关闭服务器的密码登录，打开服务器 sshd 的配置文件/etc/ssh/sshd_config，将 PasswordAuthentication 设置为 no，重启 sshd
   ```bash
   # 重启
   $ sudo systemctl restart sshd.service
