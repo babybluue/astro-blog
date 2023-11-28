@@ -31,18 +31,22 @@ const { post, prev, next } = Astro.props
       <div class="mt-5 flex justify-between gap-3 py-2">
         {
           prev ? (
-            <a href={prev.data.abbrlink} class="w-[45%] truncate text-left">
-              {prev.data.title}
-            </a>
+            <div class="border">
+              <a href={prev.data.abbrlink} class="w-[45%] truncate text-left">
+                {prev.data.title}
+              </a>
+            </div>
           ) : (
             <span />
           )
         }
         {
           next ? (
-            <a href={next.data.abbrlink} class="w-[45%] truncate text-right">
-              {next.data.title}
-            </a>
+            <div class="border">
+              <a href={next.data.abbrlink} class="w-[45%] truncate text-right">
+                {next.data.title}
+              </a>
+            </div>
           ) : (
             <span />
           )

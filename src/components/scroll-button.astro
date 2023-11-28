@@ -1,5 +1,5 @@
 <svg
-  class="nav-icon fixed bottom-10 right-5 hidden cursor-pointer transition-all"
+  class="nav-icon dark:fill-primary-white fill-primary-dark fixed bottom-10 right-5 hidden rotate-180 cursor-pointer transition-all"
   viewBox="0 0 1024 1024"
   version="1.1"
   xmlns="http://www.w3.org/2000/svg"
@@ -22,6 +22,7 @@
       navIcon.classList.remove('hidden')
       if (window.scrollY !== 0) {
         //开始滑动
+        navIcon.classList.remove('rotate-180')
         navIcon.classList.add('to-down', 'rotate-0')
       } else {
         //最上面
