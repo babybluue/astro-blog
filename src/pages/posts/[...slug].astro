@@ -38,7 +38,7 @@ const { post, prev, next } = Astro.props
               {prev.data.title}
             </a>
           ) : (
-            <span />
+            <span class="flex-1" />
           )
         }
         {
@@ -50,7 +50,7 @@ const { post, prev, next } = Astro.props
               {next.data.title}
             </a>
           ) : (
-            <span />
+            <span class="flex-1" />
           )
         }
       </div>
