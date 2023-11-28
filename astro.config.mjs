@@ -24,9 +24,9 @@ export default defineConfig({
     tailwind({ applyBaseStyles: false }),
     AstroPWA({
       registerType: 'prompt',
-      devOptions: { enabled: true },
+      devOptions: { enabled: true, navigateFallbackAllowlist: [/^index.html$/] },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,svg,png,txt,ttf,webp}'],
+        globPatterns: ['**/*.{js,css,html,ico,svg,png,txt,ttf,webp}', '*.html'],
       },
       includeAssets: ['favicon.ico', 'pwa_192.png'],
       manifest: {
