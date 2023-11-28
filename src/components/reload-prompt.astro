@@ -30,7 +30,7 @@
       if (pwaToast.classList.contains('inline-block')) pwaRefreshBtn.removeEventListener('click', refreshCallback)
 
       pwaToast.classList.remove('inline-block')
-      pwaToast.classList.add('hidden`')
+      pwaToast.classList.add('hidden')
     }
 
     const showPwaToast = () => {
@@ -43,10 +43,11 @@
     }
 
     pwaCloseBtn.addEventListener('click', () => hidePwaToast(true))
-    pwaRefreshBtn.addEventListener('click', refreshCallback)
+
     refreshSW = registerSW({
       immediate: true,
       onNeedRefresh() {
+        console.log('update')
         showPwaToast()
       },
     })

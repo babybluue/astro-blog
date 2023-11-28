@@ -21,7 +21,7 @@ const latestPost = (await getAllPosts()).slice(0, 3)
       <AvatarImage />
       <span class="my-5">Yellow</span>
       <span class="px-10 text-center max-[768px]:px-5">
-        "我个人的一个秘密是在需要极大快乐和悲伤的公众场合却达不到这种快乐和悲伤应有的水平，因而内心惊恐万状，汗下如雨"
+        "我个人的一个秘密是在需要极大快乐和悲伤的公众场合却达不到这种快乐和悲伤应有的水平，因而内心惊恐万状，汗如雨下"
       </span>
     </section>
     <section class="my-10 flex items-center justify-center gap-10">
@@ -34,7 +34,7 @@ const latestPost = (await getAllPosts()).slice(0, 3)
       }
       <ThemeButton class="absolute right-0" />
     </section>
-    <section class="m-auto w-[75%] pt-5 max-[768px]:w-[95%]">
+    <section class="m-auto w-[75%] max-[768px]:w-[95%]">
       {
         latestPost.map((post) => (
           <div class="mb-2 rounded-lg border p-5 dark:border-[#525252]">
