@@ -28,7 +28,7 @@ const description = 'blog list page'
   <main>
     {
       page.data.map((post: PostModel) => (
-        <section class="mb-5 rounded-lg border p-5 dark:border-[#525252]">
+        <section class="dark:border-primary-gray mb-5 rounded-lg border p-5">
           <div class="text-xs">
             <span class="text-gray-400">{getFormatDate(post.data.date)}</span>
             {post.data.tags?.map((tag: string) => (

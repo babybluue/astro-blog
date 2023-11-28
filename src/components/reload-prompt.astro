@@ -4,7 +4,9 @@
   role="alert"
   aria-labelledby="toast-message"
 >
-  <div class="flex min-w-[300px] flex-wrap gap-5 rounded-xl border border-gray-500 bg-[#1f1f1f] px-5 py-2">
+  <div
+    class="dark:bg-primary-dark dark:border-primary-gray bg-primary-white flex min-w-[300px] flex-wrap gap-5 rounded-xl border px-5 py-2"
+  >
     <span id="toast-message">检测到页面内容有更新更新，是否刷新页面</span>
     <button id="pwa-refresh" class="hover:text-primary" aria-label="yes">是</button>
     <button id="pwa-close" class="hover:text-primary" aria-label="no">否</button>

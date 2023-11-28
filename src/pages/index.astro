@@ -37,7 +37,7 @@ const latestPost = (await getAllPosts()).slice(0, 3)
     <section class="m-auto w-[75%] max-[768px]:w-[95%]">
       {
         latestPost.map((post) => (
-          <div class="mb-2 rounded-lg border p-5 dark:border-[#525252]">
+          <div class="dark:border-primary-gray mb-2 rounded-lg border p-5">
             <h1 class="pb-1">
               <a href={`/posts/${post.data.abbrlink}`}>{post.data.title}</a>
             </h1>
