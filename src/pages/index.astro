@@ -13,9 +13,12 @@ const links = [
 ]
 
 const latestPost = (await getAllPosts()).slice(0, 3)
+
+const title = 'Yellow'
+const description = '首页-Yellow'
 ---
 
-<BaseLayout title="Yellow" description="The index page of blog, Yellow">
+<BaseLayout title={title} description={description}>
   <main>
     <section class="flex flex-col items-center justify-center">
       <AvatarImage />

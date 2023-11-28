@@ -14,9 +14,12 @@ const tagContent = uniqueTags.map((tag) => {
     count: tagPost.length,
   }
 })
+
+const title = '标签'
+const description = '标签页面-Yellow'
 ---
 
-<BaseLayout title="tag" description="blog tag">
+<BaseLayout title={title} description={description}>
   <NavHead />
   <main>
     <section class="flex flex-wrap gap-5 px-2 py-5">

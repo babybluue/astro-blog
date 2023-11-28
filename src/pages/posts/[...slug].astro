@@ -28,25 +28,27 @@ const { post, prev, next } = Astro.props
     <main class="flex flex-col justify-between">
       <ContentRender post={post} from="post" />
 
-      <div class="mt-5 flex justify-between gap-3 py-2">
+      <div class="mt-5 flex flex-wrap justify-between gap-3 py-2">
         {
           prev ? (
-            <div class="border">
-              <a href={prev.data.abbrlink} class="w-[45%] truncate text-left">
-                {prev.data.title}
-              </a>
-            </div>
+            <a
+              class="dark:border-primary-gray w-[45%] truncate rounded-lg border px-5 py-2 text-left"
+              href={prev.data.abbrlink}
+            >
+              {prev.data.title}
+            </a>
           ) : (
             <span />
           )
         }
         {
           next ? (
-            <div class="border">
-              <a href={next.data.abbrlink} class="w-[45%] truncate text-right">
-                {next.data.title}
-              </a>
-            </div>
+            <a
+              class="dark:border-primary-gray w-[45%] justify-items-end truncate rounded-lg border px-5 py-2 text-right"
+              href={next.data.abbrlink}
+            >
+              {next.data.title}
+            </a>
           ) : (
             <span />
           )

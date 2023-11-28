@@ -9,9 +9,12 @@ const links = [
   { url: '/tags', title: '标签' },
   { url: '/archive', title: '归档' },
 ]
+
+const title = '404 Not Found'
+const description = '找不到页面-Yellow'
 ---
 
-<BaseLayout title="Yellow" description="The index page of blog, Yellow">
+<BaseLayout title={title} description={description}>
   <main>
     <section class="flex flex-col items-center justify-center">
       <AvatarImage />
