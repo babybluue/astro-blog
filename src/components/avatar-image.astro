@@ -12,17 +12,29 @@ import avatarImg from '@assets/avatar.jpg'
 <script>
   document.addEventListener('astro:page-load', () => {
     const avatar = document.querySelector('.avatar')
+
     avatar?.addEventListener('mouseenter', () => {
       avatar.classList.add('rotate-[360deg]')
     })
+
     avatar?.addEventListener('mouseleave', () => {
       avatar.classList.remove('rotate-[360deg]')
     })
-    avatar?.addEventListener('touchstart', () => {
-      avatar.classList.add('rotate-[360deg]')
-    })
-    avatar?.addEventListener('touchend', () => {
-      avatar.classList.remove('rotate-[360deg]')
-    })
+
+    avatar?.addEventListener(
+      'touchstart',
+      () => {
+        avatar.classList.add('rotate-[360deg]')
+      },
+      { passive: true },
+    )
+
+    avatar?.addEventListener(
+      'touchend',
+      () => {
+        avatar.classList.remove('rotate-[360deg]')
+      },
+      { passive: true },
+    )
   })
 </script>

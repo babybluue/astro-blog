@@ -25,11 +25,11 @@ posts.map((post: PostModel) => {
         <li>
           <div class="flex items-center gap-2 py-2">
             <span class="inline-block h-2 w-2 rounded-full bg-gray-500" />
-            <span class=" font-bold">{year}</span>
+            <span class="font-bold">{year}</span>
           </div>
           {postObj[year].map((post) => (
             <div class="ml-8 flex items-center py-2">
-              <div class="w-full pb-2">
+              <div class="w-full">
                 <span class="mr-5 inline-block text-sm">{getMD(post.date)}</span>
                 <a href={'/posts/' + post.abbrlink}>{post.title}</a>
               </div>
