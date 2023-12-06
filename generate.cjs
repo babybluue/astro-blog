@@ -4,7 +4,11 @@ const { crc32 } = require('crc')
 const { stringify } = require('yaml')
 const matter = require('gray-matter')
 
-const dir = resolve(__dirname, './src/content/posts')
+const postDir = resolve(__dirname, './src/content/posts')
+const draftDir = resolve(__dirname, './src/content/drafts')
+const noteDir = resolve(__dirname, './src/content/notes')
+
+let dir = draftDir
 
 const localDateTimeString = (date) => new Date(date.getTime() + 288e5).toISOString().slice(0, 19).replace('T', ' ')
 
@@ -36,14 +40,21 @@ const getArgv = async () => {
   const obj = {}
   argv.map((item, index) => {
     if (item.startsWith('--')) {
-      obj[item.slice(2, item.length)] = argv[index + 1]
+      const content = item.slice(2, item.length).split('=')
+      obj[content[0]] = content[1]
     }
   })
 
+  if (obj['dir'] === 'post') {
+    dir = postDir
+  }
+  if (obj['dir'] === 'note') {
+    dir = noteDir
+  }
+  console.log(obj)
   const frontMatter = {}
   frontMatter.title = obj['title']
   frontMatter.date = new Date()
-  frontMatter.category = obj['type']
   frontMatter.abbrlink = await abbrlinkHelper(frontMatter)
 
   const filename = `${localDateTimeString(new Date()).slice(0, 10)}-${frontMatter.title}`

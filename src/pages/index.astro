@@ -40,7 +40,7 @@ const description = '首页-Yellow'
     <section class="m-auto w-[75%] max-[768px]:w-[95%]">
       {
         latestPost.map((post) => (
-          <div class="dark:border-primary-gray mb-2 rounded-lg border p-5">
+          <div class="mb-2 rounded-lg border p-5 dark:border-primary-gray">
             <h1 class="pb-1">
               <a href={`/posts/${post.data.abbrlink}`}>{post.data.title}</a>
             </h1>

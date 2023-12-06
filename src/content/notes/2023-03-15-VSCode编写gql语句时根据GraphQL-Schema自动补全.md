@@ -1,5 +1,5 @@
 ---
-title: VSCode编写gql语句时根据GraphQL Schema自动补全
+title: VSCode 编写 gql 语句时根据 GraphQL Schema 自动补全
 abbrlink: ce03c2ea
 date: 2023-03-15T18:42:56.000Z
 tags:

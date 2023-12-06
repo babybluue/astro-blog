@@ -6,7 +6,7 @@ tags:
   - Git
 ---
 
-如何应用.gitignore文件的更新。
+如何应用.gitignore 文件的更新。
 
 ```bash
 git rm -r --cached .  #清除缓存
