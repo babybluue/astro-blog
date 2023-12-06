@@ -20,10 +20,10 @@
 
 - app.vue 程序入口
 
-  ```vue
+  ```js
   <template>
     <div>
-      <!-- 使用layout -->
+      <!-- 使用 layout -->
       <NuxtLayout name="default">
         <NuxtPage />
       </NuxtLayout>
@@ -37,19 +37,19 @@
 
 - layouts/ 页面布局，展示 page 页面的容器。default.vue 作默认 layout
 
-- assets/ 存放静态文件(css/image)  
+- assets/ 存放静态文件 (css/image)  
   css 全局需要在 nuxt.config 里面添加 css 路径
 
 - 添加插件
 
-- 链接本地文件,将静态文件存放在 public 目录下
+- 链接本地文件，将静态文件存放在 public 目录下
 
   ```json
-  app: {
-    head: {
-      script: [{ src: '/miniature.earth.core.js' }, { src: '/script.js' }],
+    app: {
+      head: {
+        script: [{ src: '/miniature.earth.core.js' }, { src: '/script.js' }],
+      },
     },
-  },
 
   ```
 
@@ -131,7 +131,7 @@ yarn lint
 #### 问题
 
 - nuxt-i18n 导致页面一直 404[参考链接](https://github.com/nuxt-modules/i18n/issues/139)
-  当设置 locales 时需要添加 defaultLocale,因为 i18n 会根据 locales 生成不同的路由，此时路由会覆盖默认路由，比如/about 会替换成/about\_\_en
+  当设置 locales 时需要添加 defaultLocale，因为 i18n 会根据 locales 生成不同的路由，此时路由会覆盖默认路由，比如/about 会替换成/about\_\_en
   [nuxt/i18n-routing](https://v8.i18n.nuxtjs.org/guide/routing-strategies)
 
   ```ts
