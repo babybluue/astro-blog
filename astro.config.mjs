@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import { defineConfig } from 'astro/config'
 
+import rehypeExternalLinks from 'rehype-external-links'
 import rehypePrism from 'rehype-prism-plus/all'
 import remarkRehype from 'remark-rehype'
 
@@ -16,7 +17,10 @@ export default defineConfig({
   markdown: {
     syntaxHighlight: 'prism',
     remarkPlugins: [remarkRehype],
-    rehypePlugins: [[rehypePrism, { showLineNumbers: true }]],
+    rehypePlugins: [
+      [rehypePrism, { showLineNumbers: true }],
+      [rehypeExternalLinks, { rel: 'nofollow', target: '_blank' }],
+    ],
   },
   integrations: [
     mdx(),
