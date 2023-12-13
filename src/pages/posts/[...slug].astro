@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 const { post, prev, next } = Astro.props
 ---
 
-<BaseLayout title={post.data.title} description={post.data.descriptions ?? ''}>
+<BaseLayout title={post.data.title} description={post.data.description ?? ''}>
   <body>
     <NavHead />
     <main class="flex flex-col justify-between">
@@ -32,7 +32,7 @@ const { post, prev, next } = Astro.props
         {
           prev ? (
             <a
-              class="dark:border-primary-gray w-[50%] flex-1 truncate rounded-lg border px-4 py-1 text-left"
+              class="w-[50%] flex-1 truncate rounded-lg border px-4 py-1 text-left dark:border-primary-gray"
               href={prev.data.abbrlink}
             >
               {prev.data.title}
@@ -44,7 +44,7 @@ const { post, prev, next } = Astro.props
         {
           next ? (
             <a
-              class="dark:border-primary-gray flex-1 justify-items-end truncate rounded-lg border px-4 py-1 text-right"
+              class="flex-1 justify-items-end truncate rounded-lg border px-4 py-1 text-right dark:border-primary-gray"
               href={next.data.abbrlink}
             >
               {next.data.title}

@@ -1,15 +1,14 @@
 ---
-title: 使用superagent获取豆瓣信息
+title: 使用 superagent 获取豆瓣信息
 abbrlink: 32164ea2
 date: 2022-06-29T11:02:17.000Z
+description: 练习使用 superagent 和 cheerio 两个 JavaScript 库爬取豆瓣网页。
 tags:
   - JavaScript
 ---
 
 想到在博客上插入一个豆瓣卡片以显示豆瓣主页信息，记得在 Hexo 插件库里面有这种功能的插件，但仔细看了看发现它们又太复杂，于是对照着一个插件的源码自己试着写了一下。  
 我的目的是想获取我的豆瓣上面书影音数量，使用 superagent 发起网络请求，cheerio 解析页面获取数据，这两个包我之前也没有了解过，于是在这里记录一下。
-
-<!-- more -->
 
 - BaseSpider.js
 

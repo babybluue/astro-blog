@@ -2,7 +2,7 @@
 title: 通过 Chrome Devtool 在 PC 端调试安卓设备网页
 abbrlink: 9f6a5371
 date: 2023-04-24T22:55:29.000Z
-descriptions: 前端开发页面时调试移动设备的页面。
+description: 前端开发如何使用 Chrome Devtool 调试移动设备网页。
 tags:
   - Chrome
   - 前端

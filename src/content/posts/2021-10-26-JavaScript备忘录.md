@@ -2,6 +2,7 @@
 title: JavaScript 备忘录
 abbrlink: 9765cad4
 date: 2021-10-26T10:48:49.000Z
+description: JavaScript 常用的方法/技巧总结
 tags:
   - JavaScript
   - 备忘录
@@ -26,7 +27,7 @@ tags:
 - JS 可以直接使用 id 选择器的名字
 
   ```html
-  <div id="vae">大家好,我是vae</div>
+  <div id="vae">大家好，我是 vae</div>
   <script>
     console.log(vae)
   </script>
@@ -83,33 +84,33 @@ tags:
   }
   ```
 
-- slice()方法
+- slice() 方法
   arr.slice([begin[, end]]) 返回一个新的数组对象，是一个由 begin 和 end 决定的原数组的浅拷贝（包括 begin，不包括 end）。原始数组不会被改变。
   begin 和 end 的取值按照索引，从 0 开始。
 
   ```JavaScript
   const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
 
-  //不指明begin和end会返回原始数组的拷贝值
+  //不指明 begin 和 end 会返回原始数组的拷贝值
   animals.slice() //['ant', 'bison', 'camel', 'duck', 'elephant'];
 
 
-  //指明begin，从该索引值开始取到最后一个元素
+  //指明 begin，从该索引值开始取到最后一个元素
   animals.slice(3)//[ 'duck', 'elephant' ]
-  //begin为负数时，按照指定的倒数位置取到最后一个元素
+  //begin 为负数时，按照指定的倒数位置取到最后一个元素
   animals.slice(-2)//[ 'duck', 'elephant' ]
   animals.slice(-1)//['elepant']
 
-  //指明end，从begin取到end之前索引的元素，不包括end位置
+  //指明 end，从 begin 取到 end 之前索引的元素，不包括 end 位置
   animals.slice(0,1)//[ 'ant' ]
   animals.slice(3,5)//[ 'duck', 'elephant' ]
-  //如果end是负数，并且倒数位置取到的元素仍在begin之后且存在，正常截取否则返回空数组
+  //如果 end 是负数，并且倒数位置取到的元素仍在 begin 之后且存在，正常截取否则返回空数组
   animals.slice(0,-1)//[ 'ant', 'bison', 'camel', 'duck' ]
   anmails.slice(3,-1)//[ 'duck' ]
   ```
 
-- splice()方法
-  array.splice(start[, deleteCount[, item1[, item2[, ...]]]]) 通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。
+- splice() 方法
+  array.splice(start[, deleteCount[, item1[, item2[, ...]]]]) 通过删除或替换现有元素或者原地添加新的元素来修改数组，并以数组形式返回被修改的内容。此方法会改变原数组。
 
   start​
   指定修改的开始位置（从 0 计数）。如果超出了数组的长度，则从数组末尾开始添加内容；如果是负值，则表示从数组末位开始的第几位；如果负数的绝对值大于数组的长度，则表示开始位置为第 0 位。
@@ -121,7 +122,7 @@ tags:
   如果 deleteCount 是 0 或者负数，则不移除元素。这种情况下，至少应添加一个新元素。
 
   item1, item2, ... 可选
-  要添加进数组的元素,从 start 位置开始。如果不指定，则 splice() 将只删除数组元素。
+  要添加进数组的元素，从 start 位置开始。如果不指定，则 splice() 将只删除数组元素。
 
   ```JavaScript
   const months = ['Jan', 'March', 'April', 'June'];
@@ -139,14 +140,14 @@ tags:
   console.log(months) // ['Jan', ,'abc','def','April', 'June']
   ```
 
-- reduce()方法
+- reduce() 方法
 
   ```JS
   //语法
   arr.reduce((previousValue, currentValue, currentIndex, array) => { /* ... */ }, initialValue)
-  //previousValue上一次调用的返回值，如果是第一次调用并且没有指定初始值则为arr[0]
-  //currentValue当前处理的值，如果是第一次调用且没有指定初始值则为arr[1]
-  //currentIndex当前处理的索引，如果没有指定初始值，从索引1开始
+  //previousValue 上一次调用的返回值，如果是第一次调用并且没有指定初始值则为 arr[0]
+  //currentValue 当前处理的值，如果是第一次调用且没有指定初始值则为 arr[1]
+  //currentIndex 当前处理的索引，如果没有指定初始值，从索引 1 开始
 
   const arrTest=[1,2,3,4,5,6]
   arrTest.reduct((prev,curr)=>console.log(prev,curr))
@@ -214,10 +215,10 @@ tags:
   };
   ```
 
-- encodeURI()与 encodeURIComponent()
+- encodeURI() 与 encodeURIComponent()
 
-  encodeURIComponent()转义除了 A-Z a-z 0-9 - \_ . ! ~ \* ' ( )的所有字符，而 encodeURI()会保留一些特殊和有意义的符合，以及数字字母。  
-   一般 encodeURI()用来可以用来转义简单 URL，encodeURIComponent()用来转义 URL 复杂参数。
+  encodeURIComponent() 转义除了 A-Z a-z 0-9 - \_ . ! ~ \* ' ( ) 的所有字符，而 encodeURI() 会保留一些特殊和有意义的符合，以及数字字母。  
+   一般 encodeURI() 用来可以用来转义简单 URL，encodeURIComponent() 用来转义 URL 复杂参数。
 
   ```JS
   var set1 = ";,/?:@&=+$";  // 保留字符
@@ -308,5 +309,5 @@ tags:
 
 ---
 
-参考链接:  
+参考链接：
 [JavaScript Tip](https://markodenic.com/javascript-tips/)

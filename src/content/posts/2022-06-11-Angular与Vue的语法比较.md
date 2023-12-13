@@ -1,7 +1,8 @@
 ---
-title: Angular与Vue的语法比较
+title: Angular 与 Vue 的语法比较
 abbrlink: 956d8401
 date: 2022-06-11T13:48:14.000Z
+description: 两个前端框架 Angular 和 Vue 在语法上的异同比较。
 tags:
   - Angular
   - Vue
@@ -61,7 +62,7 @@ tags:
 #### Class 与 Style 绑定
 
 因为 class 列表和内联样式都是元素的 attribute，在 Vue 中绑定 Class 和 Style 只需要通过 v-bind 指令绑定 class 和 style 属性即可，Vue 对此做了专门的增强，表达式结果的类型除了字符串之外，还可以是对象或数组。  
-而在 Angular 中，可以通过[class]="className" [style]="styleObject"的形式绑定，也可以利用 ngClass 和 ngStyle 指令绑定。但是前者(属性绑定方法)只能接受字符串，ngClass 可以接受对象或数组，ngStyle 可以接受对象表达式。
+而在 Angular 中，可以通过[class]="className" [style]="styleObject"的形式绑定，也可以利用 ngClass 和 ngStyle 指令绑定。但是前者 (属性绑定方法) 只能接受字符串，ngClass 可以接受对象或数组，ngStyle 可以接受对象表达式。
 
 ```HTML
 <!-- const isActive = true; -->
@@ -135,7 +136,7 @@ Vue 与 Angular 都可以对数组和对象的内容进行渲染，但是二者�
 
 #### 事件处理
 
-Vue 对于事件使用@修饰，即@click="doSomething"，Angular 使用(click)="doSomething"的形式。但是 Vue 有许多事件修饰符要比 Angular 灵活一些。
+Vue 对于事件使用@修饰，即@click="doSomething"，Angular 使用 (click)="doSomething"的形式。但是 Vue 有许多事件修饰符要比 Angular 灵活一些。
 
 ```HTML
 <!-- Vue -->

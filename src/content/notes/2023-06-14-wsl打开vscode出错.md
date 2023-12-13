@@ -2,6 +2,7 @@
 title: WSL 打开 VSCode 出错
 abbrlink: 966fb4be
 date: 2023-06-14T17:08:43.000Z
+description: 'Setting up server environment: Looking for /home/xxx/.vscode-server/server-env-setup. Not found.'
 tags:
   - VSCode
 ---

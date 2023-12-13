@@ -9,7 +9,7 @@ const posts = defineCollection({
     date: z.date(),
     abbrlink: z.string(),
     tags: z.array(z.string()),
-    descriptions: z.string().optional(),
+    description: z.string().optional(),
   }),
 })
 
@@ -22,7 +22,7 @@ const notes = defineCollection({
     date: z.date(),
     abbrlink: z.string(),
     tags: z.array(z.string()),
-    descriptions: z.string().optional(),
+    description: z.string().optional(),
   }),
 })
 

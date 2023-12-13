@@ -2,6 +2,7 @@
 title: 使用 Object.entries 循环对象
 abbrlink: 282cecd0
 date: 2023-03-25T12:01:49.000Z
+description: JavaScript 使用 Object.entries() 方法代替 Object.keys()
 tags:
   - JavaScript
 ---

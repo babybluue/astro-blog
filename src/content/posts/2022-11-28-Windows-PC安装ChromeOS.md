@@ -1,12 +1,13 @@
 ---
-title: Windows PC安装ChromeOS
+title: Windows PC 安装 ChromeOS
 abbrlink: fc1b1c9c
 date: 2022-11-28T15:25:27.000Z
+description: 联想小新 air13 系 Windows 电脑使用 Brunch 框架安装 ChromeOS 过程。
 tags:
   - ChromeOS
 ---
 
-记录一下我老旧的联想小新 air13 安装 ChromeOS 的过程.
+记录一下我老旧的联想小新 air13 安装 ChromeOS 的过程。
 
 #### ChromeOS
 
@@ -37,7 +38,7 @@ Brunch 根据官方 recovery 用来制作 ChromeOS 镜像，以支持在 Windows
 5.  解压刚才下载的两个文件
 
     ```bash
-    #将filename 替换成自己的文件名称
+    #将 filename 替换成自己的文件名称
     tar zxvf brunch_filename.tar.gz
     unzip chromeos_filename.bin.zip
     ```
@@ -45,7 +46,7 @@ Brunch 根据官方 recovery 用来制作 ChromeOS 镜像，以支持在 Windows
 6.  利用 Brunch 生成镜像文件
 
     ```bash
-    # 将filename替换成自己的文件名称
+    # 将 filename 替换成自己的文件名称
     sudo bash chromeos-install.sh -src chromeos_filename.bin -dst chromeos.img
     ```
 
@@ -64,7 +65,7 @@ Brunch 根据官方 recovery 用来制作 ChromeOS 镜像，以支持在 Windows
 5. 命令行输入
 
    ```bash
-   # 替换disk为自己的硬盘名称，如nvme0n1
+   # 替换 disk 为自己的硬盘名称，如 nvme0n1
    sudo chromeos-install -dst /dev/disk
    ```
 

@@ -1,7 +1,8 @@
 ---
-title: 页面增加dark/light模式
+title: 页面增加 dark/light 模式
 abbrlink: 6f92f412
 date: 2022-04-20T23:48:07.000Z
+description: 使用 prefer-color-schema 和 match media 属性纯手工为博客实现黑夜模式。
 tags:
   - JavaScript
   - CSS
@@ -22,7 +23,7 @@ html{
 
 - filter
   CSS 属性 filter 将模糊或颜色偏移等图形效果应用于元素。滤镜通常用于调整图像、背景和边框的渲染。
-  **blur(1px) 函数**用于模糊图像；**brightness(0.5)函数** 用于调整图像的亮度；**contrast(2) 函数**用于调整图像的对比度；**grayscale(1) 函数**用于调整图像的灰度；**hue-rotate() 函数**用于旋转图像的色相；**invert(1) 函数**用于反转图像的颜色；**opacity(0.5) 函数**用于调整图像的不透明度；**saturate(100) 函数**用于调整图像的饱和度；**sepia(0.5) 函数**用于调整图像的褐色；**drop-shadow(x 偏移, y 偏移, 模糊大小, 色值) 函数**用于为图像添加阴影。
+  **blur(1px) 函数**用于模糊图像；**brightness(0.5) 函数** 用于调整图像的亮度；**contrast(2) 函数**用于调整图像的对比度；**grayscale(1) 函数**用于调整图像的灰度；**hue-rotate() 函数**用于旋转图像的色相；**invert(1) 函数**用于反转图像的颜色；**opacity(0.5) 函数**用于调整图像的不透明度；**saturate(100) 函数**用于调整图像的饱和度；**sepia(0.5) 函数**用于调整图像的褐色；**drop-shadow(x 偏移，y 偏移，模糊大小，色值) 函数**用于为图像添加阴影。
 
 #### @media 查询
 
@@ -213,5 +214,5 @@ html[data-theme="light"]:root {
 
 ---
 
-参考链接:  
+参考链接：
 [一文搞懂前端多主题适配方案](https://juejin.cn/post/7049384448256639006)
