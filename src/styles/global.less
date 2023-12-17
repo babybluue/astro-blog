@@ -34,6 +34,7 @@ html {
   width: 100vw;
   overflow-x: hidden;
   font-size: 15px;
+
   @media screen and (max-width: 900px) {
     font-size: 14px;
   }
@@ -54,6 +55,7 @@ nav {
   @media screen and (max-width: 1000px) {
     width: 80%;
   }
+
   @media screen and (max-width: 768px) {
     width: 90%;
   }
@@ -62,6 +64,7 @@ nav {
 main {
   min-height: calc(100vh - 100px);
   letter-spacing: 1px;
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -82,6 +85,7 @@ main {
   overflow-x: scroll;
   max-width: 100%;
   scrollbar-width: none;
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -90,6 +94,7 @@ main {
 pre {
   border-radius: 0.3rem;
   letter-spacing: normal;
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -104,11 +109,37 @@ article {
   h6 {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
+    font-weight: bold;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.17rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  h5 {
+    font-size: 0.83rem;
+  }
+
+  h6 {
+    font-size: 0.67rem;
   }
 
   ul {
     list-style: disc;
   }
+
   ol {
     list-style: decimal;
   }
@@ -117,9 +148,11 @@ article {
   ul {
     list-style-position: inside;
   }
+
   li {
     padding: 0.125rem 0;
   }
+
   li > ul {
     padding-left: 1.25rem;
   }
@@ -160,6 +193,7 @@ blockquote {
   :is(p) code {
     background-color: #282c34;
   }
+
   blockquote {
     border-left-color: #fcfcfc;
     background-color: #2a2a2a;
