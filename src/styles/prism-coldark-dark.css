@@ -356,7 +356,7 @@ pre {
 .highlight-line {
 	margin-left: -16px;
 	margin-right: -16px;
-	background-color: rgba(55, 65, 81, 0.5);
+	color: red;
 	/* Set highlight bg color */
 	border-left: 4px solid rgb(59, 130, 246);
 	/* Set highlight accent border color */
