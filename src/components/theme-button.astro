@@ -13,6 +13,10 @@
   </svg>
 </button>
 <script is:inline>
+  if(!localStorage.theme){
+    const isDark=window.matchMedia('(prefers-color-scheme: dark)').matches
+    localStorage.setItem('theme', isDark ? 'dark' : 'light')
+  }
   localStorage.theme === 'dark' ? document.documentElement.classList.add('dark') : ''
   document.addEventListener('astro:after-swap', () => {
     localStorage.theme === 'dark' ? document.documentElement.classList.add('dark') : ''
