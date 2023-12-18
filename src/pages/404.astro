@@ -11,14 +11,13 @@ const links = [
 ]
 
 const title = '404 Not Found'
-const description = '找不到页面-Yellow'
+const description = '找不到页面-didmax'
 ---
 
 <BaseLayout title={title} description={description}>
   <main>
     <section class="flex flex-col items-center justify-center">
       <AvatarImage />
-      <span class="my-5">Yellow</span>
     </section>
     <section class="my-10 flex items-center justify-center gap-10 text-primary">
       {links.map((item) => <a href={item.url}>{item.title}</a>)}

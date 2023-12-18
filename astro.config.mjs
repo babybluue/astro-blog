@@ -34,9 +34,9 @@ export default defineConfig({
       },
       includeAssets: ['favicon.ico', 'pwa_192.png'],
       manifest: {
-        name: 'Yellow - blog',
-        short_name: 'Yellow',
-        description: 'Yellow, my blog website',
+        name: 'didmax - blog',
+        short_name: 'didmax',
+        description: 'didmax, my blog website',
         theme_color: '#ffffff',
         background_color: '#ffffff',
         display: 'standalone',

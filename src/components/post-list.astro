@@ -23,9 +23,8 @@ posts.map((post: PostModel) => {
       .sort((a, b) => +b - +a)
       .map((year) => (
         <li>
-          <div class="flex items-center gap-2 py-2">
-            <span class="inline-block h-2 w-2 rounded-full bg-gray-500" />
-            <span class="font-bold">{year}</span>
+          <div class="flex items-center gap-2 py-1">
+            <span>{year}</span>
           </div>
           {postObj[year].map((post) => (
             <div class="ml-8 flex items-center py-2">
