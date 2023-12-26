@@ -24,7 +24,10 @@ export default defineConfig({
   },
   integrations: [
     mdx(),
-    sitemap(),
+    sitemap({
+      changefreq: 'weekly',
+      priority: 0.7,
+    }),
     tailwind({ applyBaseStyles: false }),
     AstroPWA({
       registerType: 'prompt',
