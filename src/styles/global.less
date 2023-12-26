@@ -27,14 +27,14 @@
   src: url('/fonts/harmony_sans.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: 'HarmonyOS_Sans';
   src: url('/fonts/harmony_sans_bold.woff2') format('woff2');
   font-weight: bold;
-  font-display: swap;
+  font-display: block;
 }
 
 html {
@@ -69,7 +69,7 @@ nav {
 }
 
 main {
-  min-height: calc(100vh - 100px);
+  min-height: calc(100dvh - 80px);
   letter-spacing: 1px;
 
   &::-webkit-scrollbar {
