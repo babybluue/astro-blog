@@ -34,7 +34,8 @@ export default defineConfig({
       devOptions: { enabled: true },
       workbox: {
         navigateFallback: '/404',
-        navigateFallbackDenylist: [/\*.xml/],
+
+        navigateFallbackDenylist: [/\.xml$/],
         globPatterns: ['**/*.{js,css,html,ico,svg,png,txt,ttf,webp,woff2}'],
       },
       includeAssets: ['favicon.ico', 'pwa_192.png'],
