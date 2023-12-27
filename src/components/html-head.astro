@@ -57,8 +57,17 @@ const { title, description, image = '/blog-placeholder.jpg' } = Astro.props
   <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
   <meta name="google-site-verification" content="EwKbWAkIz2NsZBNC5_L-mzNEVRl_J8ZwAjMo2MMF9HE" />
+  <!-- Google tag (gtag.js) -->
+  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-LJVD1SC1TE"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || []
+    function gtag() {
+      dataLayer.push(arguments)
+    }
+    gtag('js', new Date())
 
-  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "73ef9635d86d4a7fb62033ac2f0f9890"}'></script><!-- End Cloudflare Web Analytics -->
+    gtag('config', 'G-LJVD1SC1TE')
+  </script>
 
   <ViewTransitions />
   {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
