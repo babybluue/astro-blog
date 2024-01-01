@@ -34,7 +34,7 @@ export default defineConfig({
       devOptions: { enabled: true },
       workbox: {
         navigateFallback: '/404',
-        globPatterns: ['**/*.{js,css,html,ico,svg,png,txt,ttf,webp,woff2,xml}'],
+        globPatterns: ['**/*.{js,css,html,ico,svg,png,jpg,txt,ttf,webp,woff2,xml}'],
       },
       includeAssets: ['favicon.ico', 'pwa_192.png'],
       manifest: {
