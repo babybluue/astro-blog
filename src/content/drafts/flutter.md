@@ -2,7 +2,7 @@
 
 ##### Style
 
-包导入顺序 dart:>package:>relative path,与 exports 分开，合理区分
+包导入顺序 dart:>package:>relative path，与 exports 分开，合理区分
 
 ##### Doc comments
 
@@ -97,7 +97,7 @@ Dart 分成 Native platform 和 Web platform，因此 Dart 中 Native 指的是�
 - Text style 属性给文字添加样式
 - Row/Column 创建 flex 布局
 - Stack 相对定位布局，在 Stack 子元素中添加 Positioned widget 可以设置绝对定位
-- Container 矩形元素，可以通过 boxDecoration 修饰(颜色/背景/边框等)
+- Container 矩形元素，可以通过 boxDecoration 修饰 (颜色/背景/边框等)
 - Flexible 子元素尺寸可以根据 flex 布局灵活调整
 - Expanded 强制子元素填充空白
 
@@ -203,7 +203,7 @@ Dart 分成 Native platform 和 Web platform，因此 Dart 中 Native 指的是�
 
 #### QA
 
-- 修改 flutter 组件(Material/Cuppertino)默认语言 [Flutter International](https://docs.flutter.dev/accessibility-and-localization/internationalization)
+- 修改 flutter 组件 (Material/Cuppertino) 默认语言 [Flutter International](https://docs.flutter.dev/accessibility-and-localization/internationalization)
 
   ```bash
    flutter pub add flutter_localizations --sdk=flutter
@@ -289,7 +289,7 @@ Dart 分成 Native platform 和 Web platform，因此 Dart 中 Native 指的是�
   `flutter pub run build_runner watch`
 
   ```dart
-  //@riverpod 注释默认生成autoDispose类型，停止监听时自动销毁
+  //@riverpod 注释默认生成 autoDispose 类型，停止监听时自动销毁
   @Riverpod(keepAlive: true)
   class Me extends _$Me {
     @override
@@ -315,3 +315,6 @@ Dart 分成 Native platform 和 Web platform，因此 Dart 中 Native 指的是�
   delete pubspec.lock
   flutter pub get
   ```
+
+- 关闭键盘
+  `FocusScope.of(context).requestFocus(FocusNode());`
