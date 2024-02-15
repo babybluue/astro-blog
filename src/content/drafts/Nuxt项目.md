@@ -40,6 +40,21 @@
 - assets/ 存放静态文件 (css/image)  
   css 全局需要在 nuxt.config 里面添加 css 路径
 
+- 最小化打包内容
+
+  ```ts
+    // 删除打包后的 404/200 页面
+    nitro: {
+      prerender: {
+        ignore: ["/404.html", "/200.html"],
+      },
+    }
+    // 删除 payload.json 文件
+    ssr:false
+  ```
+
+  在 app.vue 同级下新建 error.vue，删除 build 目录下的 400/500 js/css文件
+
 - 添加插件
 
 - 链接本地文件，将静态文件存放在 public 目录下
