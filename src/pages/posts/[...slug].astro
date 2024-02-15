@@ -35,7 +35,7 @@ const { post, prev, next } = Astro.props
               class="w-[50%] flex-1 truncate rounded-lg border px-4 py-1 text-left dark:border-primary-gray"
               href={prev.data.abbrlink}
             >
-              {'/posts/'+prev.data.title}
+              {prev.data.title}
             </a>
           ) : (
             <span class="flex-1" />
@@ -45,7 +45,7 @@ const { post, prev, next } = Astro.props
           next ? (
             <a
               class="flex-1 justify-items-end truncate rounded-lg border px-4 py-1 text-right dark:border-primary-gray"
-              href={'/posts/'+next.data.abbrlink}
+              href={'/posts/' + next.data.abbrlink}
             >
               {next.data.title}
             </a>
