@@ -70,5 +70,5 @@ const { title, description, image = '/blog-placeholder.jpg' } = Astro.props
   </script>
 
   <ViewTransitions />
-  <!-- {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />} -->
+  {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
 </head>
