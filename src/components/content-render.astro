@@ -13,6 +13,12 @@ const { Content } = await post.render()
 
 <article>
   <h4 class:list={['mt-2', { 'text-center': from && from === 'post' }]}>{post.data.title}</h4>
-  {from && from === 'post' ? <div class="text-right text-xs text-gray-400">{getFormatDate(post.data.date)}</div> : ''}
+  {
+    from && from === 'post' ? (
+      <div class="my-2 text-right text-xs text-gray-400">{getFormatDate(post.data.date)}</div>
+    ) : (
+      ''
+    )
+  }
   <Content />
 </article>
