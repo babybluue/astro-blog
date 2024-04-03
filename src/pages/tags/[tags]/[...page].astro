@@ -38,7 +38,7 @@ const { page } = Astro.props
 <BaseLayout title={tags ?? 'tag'} description="blog tag">
   <NavHead />
   <main>
-    <section class="py-5 text-2xl font-bold">{tags}</section>
+    <section class="py-5 text-2xl font-bold first-letter:uppercase">{tags}</section>
     <section>
       <PostList posts={page.data} />
     </section>
