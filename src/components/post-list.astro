@@ -1,40 +1,27 @@
 ---
 import type { PostMatter, PostModel } from '@interfaces/post-model'
-import { getMD, getYM } from '@utils/date-helper'
+import { formatedYMD } from '@utils/date-helper'
 
 interface Props {
   posts: PostModel[]
 }
 
 const { posts } = Astro.props
-
-const postObj: Record<string, PostMatter[]> = {}
-
-posts.map((post: PostModel) => {
-  const year = getYM(post.data.date)
-  postObj[year] ? '' : (postObj[year] = [])
-  postObj[year].push(post.data)
-})
 ---
 
-<ul>
-  {
-    Object.keys(postObj)
-      .sort((a, b) => +b - +a)
-      .map((year) => (
-        <li>
-          <div class="flex items-center gap-2 py-1">
-            <span>{year}</span>
+<div>
+  <div class="mt-5 grid grid-cols-2 gap-2 max-[768px]:flex max-[768px]:flex-col">
+    {
+      posts.map((post) => (
+        <div class="flex items-center py-2 max-[768px]:ml-0">
+          <div class="flex w-full flex-col max-[768px]:flex-row max-[768px]:items-center">
+            <span class="mr-5 inline-block text-sm">{formatedYMD(post.data.date)}</span>
+            <a href={'/posts/' + post.data.abbrlink} class="truncate">
+              {post.data.title}
+            </a>
           </div>
-          {postObj[year].map((post) => (
-            <div class="ml-8 flex items-center py-2">
-              <div class="w-full">
-                <span class="mr-5 inline-block text-sm">{getMD(post.date)}</span>
-                <a href={'/posts/' + post.abbrlink}>{post.title}</a>
-              </div>
-            </div>
-          ))}
-        </li>
+        </div>
       ))
-  }
-</ul>
+    }
+  </div>
+</div>

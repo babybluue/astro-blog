@@ -28,7 +28,7 @@ export default defineConfig({
     tailwind({ applyBaseStyles: false }),
     AstroPWA({
       registerType: 'prompt',
-      devOptions: { enabled: true },
+      devOptions: { enabled: false },
       workbox: {
         navigateFallback: '/404',
         globPatterns: ['**/*'],
