@@ -1,18 +1,18 @@
 ---
 import type { Page, PaginateFunction } from 'astro'
-import { getCollection } from 'astro:content'
 
 import NavHead from '@components/nav-header.astro'
 import Pagination from '@components/pagination.astro'
 import PostList from '@components/post-list.astro'
 import BaseLayout from '@layouts/base-layout.astro'
+import { getAllPosts } from '@utils/all-posts'
 
 interface Props {
   page: Page
 }
 
 export const getStaticPaths = async ({ paginate }: { paginate: PaginateFunction }) => {
-  const blogs = (await getCollection('posts')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  const blogs = await getAllPosts()
 
   return paginate(blogs, { pageSize: 12 })
 }
