@@ -7,16 +7,16 @@ tags:
   - 前端
 ---
 
-Github、Vercel、Cloudflare 都能免费部署网站，且操作简单，Github Page 部署方法网上一大堆，Vercel 与 Couldflare 只要授权 Github 博客仓库访问权限就可建立关联，代码提交自动发布。
+Github、Vercel、Cloudflare 都能免费部署网站，且操作简单，Github Page 部署方法网上一大堆，Vercel 与 Cloudflare 只要授权 Github 博客仓库访问权限就可建立关联，代码提交自动发布。
 
 三者功能相似，部署的网站分别通过域名\*.github.io、\*.vercel.app、\*.pages.dev 访问，且都支持自定义域名跳转。但是 github.io 和 vercel.app 在大陆访问效果不佳，pages.dev 可以裸连，因此这里选择 pages.dev 曲线救国。
 
 ![memo](/images/58b82c0a.jpg)
 
-- 在使用 Couldflare 部署打包时遇到错误提示
+- 在使用 Cloudflare 部署打包时遇到错误提示
 
-  ```bash {1}
+  ```bash language-{1}
     The lockfile would have been modified by this install, which is explicitly forbidden.
   ```
 
-  这是因为线上环境与本地环境的 yarn 版本不一致导致的，可以在项目的环境变量添加 YARN_VERSION 指定线上 yarn 版本。(NODE_VERSION 指定 node 版本)
+这是因为线上环境与本地环境的 yarn 版本不一致导致的，可以在项目的环境变量添加 YARN_VERSION 指定线上 yarn 版本。(NODE_VERSION 指定 node 版本)

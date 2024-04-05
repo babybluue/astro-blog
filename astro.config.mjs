@@ -5,7 +5,7 @@ import tailwind from '@astrojs/tailwind'
 import { defineConfig } from 'astro/config'
 
 import rehypeExternalLinks from 'rehype-external-links'
-import rehypePrism from 'rehype-prism-plus/all'
+import rehypePrism from 'rehype-prism-plus'
 import remarkRehype from 'remark-rehype'
 
 // https://astro.build/config
