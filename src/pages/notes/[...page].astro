@@ -28,8 +28,8 @@ const description = '笔记页面-didmax'
   <main>
     {
       page.data.map((post: PostModel) => (
-        <section class="dark:border-primary-gray mb-5 rounded-lg border p-5">
-          <div class="text-xs pb-2">
+        <section class="mb-5 rounded-lg border p-5 dark:border-primary-gray">
+          <div class="pb-2 text-xs">
             <span class="text-gray-400">{getFormatDate(post.data.date)}</span>
             {post.data.tags?.map((tag: string) => (
               <a class="mx-2" href={'/tags/' + tag}>

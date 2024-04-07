@@ -20,13 +20,13 @@ const description = '首页-didmax'
 
 <BaseLayout title={title} description={description}>
   <main>
-    <section class='flex flex-col items-center justify-center'>
+    <section class="flex flex-col items-center justify-center">
       <AvatarImage />
-      <span class='px-10 text-center max-[768px]:px-5'>
+      <div class="px-10 text-center max-[768px]:px-5">
         "我个人的一个秘密是在需要极大快乐和悲伤的公众场合却达不到这种快乐和悲伤应有的水平，因而内心惊恐万状，汗如雨下"
-      </span>
+      </div>
     </section>
-    <section class='my-10 flex items-center justify-center gap-10 min-[1500px]:my-20'>
+    <section class="my-10 flex items-center justify-center gap-10 min-[1500px]:my-20">
       {
         links.map((item, index) => (
           <a href={item.url} class={index === 0 ? 'text-gray-500' : 'text-primary'}>
@@ -34,20 +34,20 @@ const description = '首页-didmax'
           </a>
         ))
       }
-      <ThemeButton class='absolute right-0' />
+      <ThemeButton class="absolute right-0" />
     </section>
-    <section class='m-auto w-[85%] max-[768px]:w-[95%]'>
+    <section class="m-auto w-[85%] max-[768px]:w-[95%]">
       {
         latestPost.map((post) => (
-          <div class='mb-2 rounded-lg border p-5 dark:border-primary-gray'>
-            <h1 class='pb-1'>
+          <div class="mb-2 rounded-lg border p-5 dark:border-primary-gray">
+            <h1 class="pb-1">
               <a href={`/posts/${post.data.abbrlink}`}>{post.data.title}</a>
             </h1>
-            <div class='text-sm'>{post.data.description}</div>
-            <div class='pt-1 text-xs'>
-              <span class='text-gray-400'>{getFormatDate(post.data.date)}</span>
+            <div class="text-sm">{post.data.description}</div>
+            <div class="pt-1 text-xs">
+              <span class="text-gray-400">{getFormatDate(post.data.date)}</span>
               {post.data.tags?.map((tag: string) => (
-                <a class='mx-2' href={'/tags/' + tag}>
+                <a class="mx-2" href={'/tags/' + tag}>
                   {tag}
                 </a>
               ))}
