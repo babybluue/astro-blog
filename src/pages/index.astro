@@ -3,7 +3,8 @@ import AvatarImage from '@components/avatar-image.astro'
 import ThemeButton from '@components/theme-button.astro'
 import BaseLayout from '@layouts/base-layout.astro'
 import { getAllPosts } from '@utils/all-posts'
-import { getFormatDate } from '@utils/date-helper'
+import { formatedTime, formatedYMD, getFormatDate } from '@utils/date-helper'
+import { getPostLink } from '@utils/post-link'
 
 const links = [
   { url: '/', title: '首页' },
@@ -12,7 +13,7 @@ const links = [
   { url: '/archive', title: '归档' },
 ]
 
-const latestPost = (await getAllPosts()).slice(0, 5)
+const latestPost = (await getAllPosts()).slice(0, 8)
 
 const title = 'didmax'
 const description = '首页-didmax'
@@ -36,25 +37,19 @@ const description = '首页-didmax'
       }
       <ThemeButton class="absolute right-0" />
     </section>
-    <section class="m-auto w-[85%] max-[768px]:w-[95%]">
-      {
-        latestPost.map((post) => (
-          <div class="mb-2 rounded-lg border p-5 dark:border-primary-gray">
-            <h1 class="pb-1">
-              <a href={`/posts/${post.data.abbrlink}`}>{post.data.title}</a>
-            </h1>
-            <div class="text-sm">{post.data.description}</div>
-            <div class="mt-3 text-xs">
-              <span class="text-gray-400">{getFormatDate(post.data.date)}</span>
-              {post.data.tags?.map((tag: string) => (
-                <a class="mx-2" href={'/tags/' + tag}>
-                  {tag}
-                </a>
-              ))}
+    <section class="m-auto flex w-[85%] justify-center max-[768px]:w-[95%]">
+      <div class="w-[75%] max-[500px]:w-[90%]">
+        {
+          latestPost.map((post) => (
+            <div class="flex justify-between gap-x-3 py-2">
+              <span>{formatedYMD(post.data.date)}</span>
+              <a class=" truncate" href={getPostLink(post)}>
+                {post.data.title}
+              </a>
             </div>
-          </div>
-        ))
-      }
+          ))
+        }
+      </div>
     </section>
   </main>
 </BaseLayout>

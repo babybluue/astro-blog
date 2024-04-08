@@ -1,6 +1,7 @@
 ---
 import type { PostMatter, PostModel } from '@interfaces/post-model'
 import { formatedYMD } from '@utils/date-helper'
+import { getPostLink } from '@utils/post-link'
 
 interface Props {
   posts: PostModel[]
@@ -16,7 +17,7 @@ const { posts } = Astro.props
         <div class="flex items-center py-2 max-[768px]:ml-0">
           <div class="flex w-full flex-col max-[768px]:flex-row max-[768px]:items-center">
             <span class="mr-5 inline-block text-sm">{formatedYMD(post.data.date)}</span>
-            <a href={'/posts/' + post.data.abbrlink} class="truncate">
+            <a href={getPostLink(post)} class="truncate">
               {post.data.title}
             </a>
           </div>
