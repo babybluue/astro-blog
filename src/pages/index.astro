@@ -44,7 +44,7 @@ const description = '首页-didmax'
               <a href={`/posts/${post.data.abbrlink}`}>{post.data.title}</a>
             </h1>
             <div class="text-sm">{post.data.description}</div>
-            <div class="pt-1 text-xs">
+            <div class="mt-3 text-xs">
               <span class="text-gray-400">{getFormatDate(post.data.date)}</span>
               {post.data.tags?.map((tag: string) => (
                 <a class="mx-2" href={'/tags/' + tag}>
