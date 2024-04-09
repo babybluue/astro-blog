@@ -38,14 +38,14 @@ const description = '首页-didmax'
       <ThemeButton class="absolute right-0" />
     </section>
     <section class="m-auto flex w-[85%] justify-center max-[768px]:w-[95%]">
-      <div class="w-[75%] max-[500px]:w-[90%] min-[1500px]:w-[50%]">
+      <div class="w-[75%] max-[500px]:w-[90%] min-[1500px]:w-[55%]">
         {
           latestPost.map((post) => (
             <div class="flex justify-between gap-x-3 py-2">
-              <span>{formatedYMD(post.data.date)}</span>
-              <a class=" truncate" href={getPostLink(post)}>
+              <a class="flex-1 truncate" href={getPostLink(post)}>
                 {post.data.title}
               </a>
+              <span>{formatedYMD(post.data.date)}</span>
             </div>
           ))
         }
