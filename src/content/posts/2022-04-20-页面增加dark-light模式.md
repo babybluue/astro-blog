@@ -15,9 +15,9 @@ tags:
 
 #### CSS 一键反转
 
-```CSS
-html{
-    filter: invert(1) hue-rotate(180deg);
+```css
+html {
+  filter: invert(1) hue-rotate(180deg);
 }
 ```
 
@@ -33,7 +33,7 @@ prefers-color-scheme CSS 媒体特性用于检测用户是否有将系统的主�
 - light 表示用户已告知系统他们选择使用浅色主题的界面。
 - dark 表示用户已告知系统他们选择使用暗色主题的界面。
 
-```CSS
+```css
 @media (prefers-color-scheme: dark){
     .theme-icon
          background-image: url('/images/dark.png')
@@ -49,32 +49,32 @@ prefers-color-scheme CSS 媒体特性用于检测用户是否有将系统的主�
 
 为了更好的修改和维护，也可以分别设置 dark.css、light.css 文件，style.css 存放为其他通用的样式，使用 CSS 变量定义不同的主题颜色。
 
-```CSS
+```css
 /* dark.css */
 :root {
-    --background-color:#1f1f1f;
-    --text-color: #ccc;
-    --link-color: #ececec;
+  --background-color: #1f1f1f;
+  --text-color: #ccc;
+  --link-color: #ececec;
 }
 
 /* light.css */
 :root {
-    --background-color: #fff;
-    --text-color: #404040;
-    --link-color:#2196f3;
+  --background-color: #fff;
+  --text-color: #404040;
+  --link-color: #2196f3;
 }
 
 /* style.css */
 body {
-    background-color: var(--background-color);
-    color:var(--text-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 a {
-    color: var(--link-color);
+  color: var(--link-color);
 }
 ```
 
-```HTML
+```html
 <!-- 引入样式 -->
 <link rel="stylesheet" href="/style.css">
 <link rel="stylesheet" href="/dark.css" media="(prefers-color-scheme: dark)">
@@ -89,24 +89,20 @@ a {
 
 前面分别为 light/dark 模式设置了不同颜色的变量，为了控制在不同模式下响应的变量，可以通过属性选择器控制根节点 CSS 变量。
 
-```CSS
-html[data-theme="dark"]:root {
-    --progress-color:linear-gradient(to right, #c2e59c, #64b3f4)
-    --background-color:#1f1f1f
-    --text-color: #ccc;
+```css
+html[data-theme='dark']:root {
+  --progress-color: linear-gradient(to right, #c2e59c, #64b3f4) --background-color: #1f1f1f --text-color: #ccc;
 }
 
-html[data-theme="light"]:root{
-    --progress-color:linear-gradient(to right, #c2e59c, #64b3f4)
-    --background-color: #fff;
-    --text-color: #404040;
+html[data-theme='light']:root {
+  --progress-color: linear-gradient(to right, #c2e59c, #64b3f4) --background-color: #fff;
+  --text-color: #404040;
 }
-
 ```
 
 在页面初始化时通过 JS 获取系统的主题方案以修改 data-theme 的值，同时也可以响应用户的点击切换 light/dark 模式
 
-```HTML
+```js
 <script>
   //切换主题
   const toggleTheme = (isDarkMode) => {
@@ -156,9 +152,9 @@ buttonEl.addEventListener("click", () => {
 鉴于能用 CSS 解决的问题咱就不用 JS 原则，在站点初次加载时，可以优先使用媒体查询的方式获取系统的主题，设置页面的 light/dark 模式，在用户未主动交互前将一直使用这种方式，直到用户主动选择了页面的 light/dark 模式。  
 用户作出主题选择之后，将为 html 设置 data-theme 属性，此后页面的 light/dark 模式将根据该属性设置。
 
-```HTML
+```js
 <script>
-  //获取localStorage检查用户是否主动选择了light/dark
+  //获取 localStorage 检查用户是否主动选择了 light/dark
   const theme = localStorage.getItem('theme');
   if (theme) {
     document.documentElement.setAttribute('data-theme', theme);
@@ -166,50 +162,49 @@ buttonEl.addEventListener("click", () => {
 </script>
 ```
 
-```CSS
+```css
 /* theme-data 判断 */
-html[data-theme="dark"]:root {
-    --progress-color:linear-gradient(to right, #c2e59c, #64b3f4);
-    --background-color:#1f1f1f;
-    --text-color: #ccc;
+html[data-theme='dark']:root {
+  --progress-color: linear-gradient(to right, #c2e59c, #64b3f4);
+  --background-color: #1f1f1f;
+  --text-color: #ccc;
 }
-html[data-theme="light"]:root {
-    --progress-color:linear-gradient(to right, #c2e59c, #64b3f4);
-    --background-color: #fff;
-    --text-color: #404040;
+html[data-theme='light']:root {
+  --progress-color: linear-gradient(to right, #c2e59c, #64b3f4);
+  --background-color: #fff;
+  --text-color: #404040;
 }
 /* 媒体查询判断 */
 @media (prefers-color-scheme: dark) {
-    :root{
-        --progress-color:linear-gradient(to right, #c2e59c, #64b3f4);
-        --background-color:#1f1f1f;
-        --text-color: #ccc;
-    }
+  :root {
+    --progress-color: linear-gradient(to right, #c2e59c, #64b3f4);
+    --background-color: #1f1f1f;
+    --text-color: #ccc;
+  }
 }
 @media (prefers-color-scheme: light) {
-    :root{
-        --progress-color:linear-gradient(to right, #c2e59c, #64b3f4);
-        --background-color: #fff;
-        --text-color: #404040;
-    }
+  :root {
+    --progress-color: linear-gradient(to right, #c2e59c, #64b3f4);
+    --background-color: #fff;
+    --text-color: #404040;
+  }
 }
-
 ```
 
 #### 其他
 
 - theme-color 移动设备浏览器将根据所设定的建议颜色来改变用户界面。
 
-```HTML
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1f1f1f" />
+```html
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1f1f1f" />
 ```
 
 - color-scheme 当用户选择其中一种配色方案时，操作系统会对用户界面进行调整。这包括表单控件、滚动条和 CSS 系统颜色的使用值。
   如果用户样式表里已经设定了相应的颜色，则会优先应用用户的样式表设置。
 
-```HTML
-    <meta name="color-scheme" content="dark light" />
+```html
+<meta name="color-scheme" content="dark light" />
 ```
 
 ---

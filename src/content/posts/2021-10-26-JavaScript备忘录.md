@@ -77,9 +77,9 @@ tags:
 
 - 清除所有的计时器
 
-  ```JavaScript
-  for(i=0; i<1000; i++) {
-    clearTimeout(i);
+  ```js
+  for (i = 0; i < 1000; i++) {
+    clearTimeout(i)
     clearInterval(i)
   }
   ```
@@ -88,25 +88,24 @@ tags:
   arr.slice([begin[, end]]) 返回一个新的数组对象，是一个由 begin 和 end 决定的原数组的浅拷贝（包括 begin，不包括 end）。原始数组不会被改变。
   begin 和 end 的取值按照索引，从 0 开始。
 
-  ```JavaScript
-  const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+  ```js
+  const animals = ['ant', 'bison', 'camel', 'duck', 'elephant']
 
   //不指明 begin 和 end 会返回原始数组的拷贝值
   animals.slice() //['ant', 'bison', 'camel', 'duck', 'elephant'];
 
-
   //指明 begin，从该索引值开始取到最后一个元素
-  animals.slice(3)//[ 'duck', 'elephant' ]
+  animals.slice(3) //[ 'duck', 'elephant' ]
   //begin 为负数时，按照指定的倒数位置取到最后一个元素
-  animals.slice(-2)//[ 'duck', 'elephant' ]
-  animals.slice(-1)//['elepant']
+  animals.slice(-2) //[ 'duck', 'elephant' ]
+  animals.slice(-1) //['elepant']
 
   //指明 end，从 begin 取到 end 之前索引的元素，不包括 end 位置
-  animals.slice(0,1)//[ 'ant' ]
-  animals.slice(3,5)//[ 'duck', 'elephant' ]
+  animals.slice(0, 1) //[ 'ant' ]
+  animals.slice(3, 5) //[ 'duck', 'elephant' ]
   //如果 end 是负数，并且倒数位置取到的元素仍在 begin 之后且存在，正常截取否则返回空数组
-  animals.slice(0,-1)//[ 'ant', 'bison', 'camel', 'duck' ]
-  anmails.slice(3,-1)//[ 'duck' ]
+  animals.slice(0, -1) //[ 'ant', 'bison', 'camel', 'duck' ]
+  anmails.slice(3, -1) //[ 'duck' ]
   ```
 
 - splice() 方法
@@ -124,8 +123,8 @@ tags:
   item1, item2, ... 可选
   要添加进数组的元素，从 start 位置开始。如果不指定，则 splice() 将只删除数组元素。
 
-  ```JavaScript
-  const months = ['Jan', 'March', 'April', 'June'];
+  ```js
+  const months = ['Jan', 'March', 'April', 'June']
 
   //省略删除数量，将会删除索引后的整个数组
   months.splice(0) //返回值 ['Jan', 'March', 'April', 'June']
@@ -133,10 +132,10 @@ tags:
   months.splice(1) // 返回值 ['March', 'April', 'June']
   console.log(months) //['Jan']
 
-  months.splice(0,0,'abc','def','ghi') //返回值 []
+  months.splice(0, 0, 'abc', 'def', 'ghi') //返回值 []
   console.log(months) //['abc','def','ghi','Jan','March','April','June']
 
-  months.splice(1,1,'abc','def') //返回值 [ 'March' ]
+  months.splice(1, 1, 'abc', 'def') //返回值 [ 'March' ]
   console.log(months) // ['Jan', ,'abc','def','April', 'June']
   ```
 

@@ -7,25 +7,20 @@ tags:
   - JavaScript
 ---
 
-```HTML
+```html
 <div class="container">
-    <div class="box">1</div>
-    <div class="box">2</div>
-    <div class="box">3</div>
+  <div class="box">1</div>
+  <div class="box">2</div>
+  <div class="box">3</div>
 </div>
 
 <script>
-  const box1 = document.querySelector(".box:first-child");
-  const box2 = document.querySelector(".box:nth-child(2)");
-  const box3 = document.querySelector(".box:last-child");
-  const subDiv = document.createElement("div");
-  subDiv.setAttribute(
-        "style",
-        "background:lightblue;width:200px;height:200px"
-      );
+  const box1 = document.querySelector('.box:first-child')
+  const box2 = document.querySelector('.box:nth-child(2)')
+  const box3 = document.querySelector('.box:last-child')
+  const subDiv = document.createElement('div')
+  subDiv.setAttribute('style', 'background:lightblue;width:200px;height:200px')
 </script>
-
-
 ```
 
 <!-- more -->
@@ -39,13 +34,12 @@ tags:
   Node.nodeType
   返回一个与该节点类型对应的无符号短整型的值，例如 ElementNode=>1 TextNode=>3 CommentNode=>8 DocumentNode=>9
 
-  ```JavaScript
-  const container=document.querySelector('.container')
+  ```js
+  const container = document.querySelector('.container')
   console.log(container.nodeName) // 'DIV'
   console.log(container.nodeType) // 1
   console.log(container.childNodes) // [text, div.box, text, div.box, text, div.box, text]
   console.log(container.childNodes[0].textContent) // '\n      ' 换行
-
   ```
 
 - insertBefore()
@@ -54,26 +48,26 @@ tags:
 
   > 这意味着一个节点不能同时位于文档的两个点中。因此，如果节点已经有父节点，则首先删除该节点，然后将其插入到新位置。在将节点追加到新父节点之前，可以使用 Node.cloneNode() 复制节点。注意，使用 cloneNode() 创建的节点副本不会自动与原始节点保持同步。
 
-  ```JavaScript
-    //在 box2 前插入新元素
-    box2.parentNode.insertBefore(subDiv, box2);
-    //在 box1 前插入 box3，box3 从原来的位置移动到新位置
-    box1.parentNode.insertBefore(box3, box1);
+  ```js
+  //在 box2 前插入新元素
+  box2.parentNode.insertBefore(subDiv, box2)
+  //在 box1 前插入 box3，box3 从原来的位置移动到新位置
+  box1.parentNode.insertBefore(box3, box1)
   ```
 
 - after()
 
   > Element.after() 方法会在其父节点的子节点列表中插入一些 Node 或 DOMString 对象。插入位置为该节点之后。DOMString 对象会被以 Text 的形式插入。如果给定的子节点是对文档中现有节点的引用，同样会将其从当前位置移动到新位置。
 
-  ```JavaScript
-  box2.after(subDiv);
+  ```js
+  box2.after(subDiv)
   ```
 
 - remove()
 
   > Element.remove() 把对象从它所属的 DOM 树中删除。
 
-  ```JavaScript
+  ```js
   box2.remove()
   ```
 
@@ -81,20 +75,20 @@ tags:
 
   > Node.replaceChild() 方法用指定的节点替换当前节点的一个子节点，并返回被替换掉的节点。
 
-  ```JavaScript
-    //subDiv 替换 box2
-    box2.parentNode.replaceChild(subDiv, box2);
-    //box3 替换 box1，box3 从原来的位置移动到 box1
-    box1.parentNode.replaceChild(box3, box1);
+  ```js
+  //subDiv 替换 box2
+  box2.parentNode.replaceChild(subDiv, box2)
+  //box3 替换 box1，box3 从原来的位置移动到 box1
+  box1.parentNode.replaceChild(box3, box1)
   ```
 
 - append()
 
   > Element.append 方法在 Element 的最后一个子节点之后插入一组 Node 对象或 DOMString 对象。
 
-  ```JavaScript
-    //按照顺序插入到 container 末尾，box2 位置移动
-    container.append(subDiv, box2);
+  ```js
+  //按照顺序插入到 container 末尾，box2 位置移动
+  container.append(subDiv, box2)
   ```
 
 - appendChild()
@@ -103,9 +97,9 @@ tags:
 
   > 这意味着，一个节点不可能同时出现在文档的不同位置。所以，如果某个节点已经拥有父节点，在被传递给此方法后，它首先会被移除，再被插入到新的位置。若要保留已在文档中的节点，可以先使用 Node.cloneNode() 方法来为它创建一个副本，再将副本附加到目标父节点下。请注意，用 cloneNode 制作的副本不会自动保持同步。
 
-  ```JavaScript
-    container.appendChild(subDiv);
-    container.appendChild(box1);
+  ```js
+  container.appendChild(subDiv)
+  container.appendChild(box1)
   ```
 
 - append() 与 appendChild() 差异：
@@ -130,7 +124,7 @@ tags:
 
 1. 替换子元素的父元素 (保留子元素)
 
-   ```JavaScript
+   ```js
    const container=document.querySelector('.container')
    const newFragment=document.createDocumentFragment()
    const newDiv=document.createElement('div')
@@ -156,54 +150,54 @@ tags:
 
    另外在 for 循环通过 append 插入元素`newDiv.append(container.children[i].cloneNode())`，如果不克隆 (cloneNode()) 该子元素的话，实际上插入的子元素只有 box1 和 box3。`newDiv.append(container.children[i])`在插入第一个子元素时，导致 box1 在原来的节点发生了移动，因此原来的 container 节点现在只剩下 box2 和 box3 两个元素。
 
-```JavaScript
-const container = document.querySelector(".container");
-const allBox = document.querySelectorAll(".box");
+```js
+const container = document.querySelector('.container')
+const allBox = document.querySelectorAll('.box')
 for (i = 0; i < allBox.length; i++) {
-  allBox[i].textContent = i;
-  const div = document.createElement("div");
-  div.setAttribute("style", "border:1px solid green;width:100px;height:100px");
+  allBox[i].textContent = i
+  const div = document.createElement('div')
+  div.setAttribute('style', 'border:1px solid green;width:100px;height:100px')
   if (i == 0) {
-    allBox[i].parentNode.insertBefore(allBox[i + 1], allBox[i]);
+    allBox[i].parentNode.insertBefore(allBox[i + 1], allBox[i])
   }
   if (i == 1) {
     // allBox[i].remove();
   }
   if (i == 2) {
-    allBox[i].after(allBox[i - 1].cloneNode(true));
+    allBox[i].after(allBox[i - 1].cloneNode(true))
     // allBox[i].parentNode.replaceChild(div, allBox[i]);
   }
 }
 
-const table = document.querySelector("table");
-const trs = document.querySelectorAll("table tr");
+const table = document.querySelector('table')
+const trs = document.querySelectorAll('table tr')
 trs.forEach((tr, indextr) => {
-  const tds = tr.querySelectorAll("td");
-  const divChild = tr.querySelectorAll("td:nth-child(2) div");
+  const tds = tr.querySelectorAll('td')
+  const divChild = tr.querySelectorAll('td:nth-child(2) div')
 
   if (divChild.length > 1) {
     for (i = 0; i < divChild.length; i++) {
-      const newTr = document.createElement("tr");
+      const newTr = document.createElement('tr')
       tds.forEach((td, indextd) => {
-        const child = td.querySelectorAll("div");
+        const child = td.querySelectorAll('div')
         if (child.length !== 0) {
-          const newTd = document.createElement("td");
-          console.log(child[0].innerHTML);
-          newTd.append(child[i].cloneNode(true));
-          newTr.append(newTd);
+          const newTd = document.createElement('td')
+          console.log(child[0].innerHTML)
+          newTd.append(child[i].cloneNode(true))
+          newTr.append(newTd)
         } else if (i == 0) {
-          const newTd = document.createElement("td");
-          td.parentNode.replaceChild(newTd, td);
-          newTd.append(td.textContent);
-          newTd.setAttribute("rowspan", divChild.length);
-          newTr.append(newTd);
+          const newTd = document.createElement('td')
+          td.parentNode.replaceChild(newTd, td)
+          newTd.append(td.textContent)
+          newTd.setAttribute('rowspan', divChild.length)
+          newTr.append(newTd)
         }
-        tr.parentNode.insertBefore(newTr, tr);
-      });
+        tr.parentNode.insertBefore(newTr, tr)
+      })
     }
-    tr.remove();
+    tr.remove()
   }
-});
+})
 ```
 
 ---
