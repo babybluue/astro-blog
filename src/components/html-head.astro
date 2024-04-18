@@ -58,7 +58,7 @@ const { title, description, image = '/blog-placeholder.jpg' } = Astro.props
   <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
   <!-- Google tag (gtag.js) -->
-  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-LJVD1SC1TE"></script>
+  <!-- <script is:inline async src="https://www.googletagmanager.com/gtag/js"></script>
   <script is:inline>
     window.dataLayer = window.dataLayer || []
     function gtag() {
@@ -66,8 +66,8 @@ const { title, description, image = '/blog-placeholder.jpg' } = Astro.props
     }
     gtag('js', new Date())
 
-    gtag('config', 'G-LJVD1SC1TE')
-  </script>
+    gtag('config', '')
+  </script> -->
 
   <ViewTransitions />
   {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}

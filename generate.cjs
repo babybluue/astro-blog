@@ -1,14 +1,10 @@
-const { readdir, readFile, writeFile } = require('fs/promises')
+const { readdir, readFile, writeFile, mkdir, access } = require('fs/promises')
 const { resolve } = require('path')
 const { crc32 } = require('crc')
 const { stringify } = require('yaml')
 const matter = require('gray-matter')
 
-const postDir = resolve(__dirname, './src/content/posts')
-const draftDir = resolve(__dirname, './src/content/drafts')
-const noteDir = resolve(__dirname, './src/content/notes')
-
-let dir = draftDir
+let dir = resolve(__dirname, './src/content/drafts')
 
 const localDateTimeString = (date) => new Date(date.getTime() + 288e5).toISOString().slice(0, 19).replace('T', ' ')
 
@@ -45,17 +41,21 @@ const getArgv = async () => {
     }
   })
 
-  if (obj['dir'] === 'post') {
-    dir = postDir
+  if (obj['dir']) {
+    dir = resolve(__dirname, `./src/content/${obj['dir']}`)
   }
-  if (obj['dir'] === 'note') {
-    dir = noteDir
+  try {
+    await access(dir)
+  } catch {
+    await mkdir(dir)
   }
-  console.log(obj)
+
   const frontMatter = {}
   frontMatter.title = obj['title']
   frontMatter.date = new Date()
   frontMatter.abbrlink = await abbrlinkHelper(frontMatter)
+  frontMatter.tags = []
+  frontMatter.description = ''
 
   const filename = `${localDateTimeString(new Date()).slice(0, 10)}-${frontMatter.title}`
   const newContent = `---\n${stringify(frontMatter)}---\n`
