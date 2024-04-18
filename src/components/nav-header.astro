@@ -12,7 +12,7 @@ const isCurrentPage = (url: string) => {
 
 <header class="sticky top-0 z-10 bg-primary-white bg-opacity-95 text-primary dark:bg-primary-dark dark:bg-opacity-95">
   <nav class="relative h-[90px]">
-    <ul class="flex h-full items-center justify-start gap-10">
+    <ul class="flex h-full items-center justify-start gap-10 whitespace-nowrap">
       {
         links.map((link) => (
           <li class:list={[{ 'text-gray-400': isCurrentPage(link.url) }]}>
@@ -21,7 +21,7 @@ const isCurrentPage = (url: string) => {
         ))
       }
     </ul>
-    <div class="absolute right-0 top-[50%] -translate-y-[50%]">
+    <div class="absolute right-1 top-[52%] -translate-y-[50%]">
       <ThemeButton />
     </div>
   </nav>
