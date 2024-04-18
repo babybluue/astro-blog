@@ -4,14 +4,8 @@ import ThemeButton from '@components/theme-button.astro'
 import BaseLayout from '@layouts/base-layout.astro'
 import { getAllPosts } from '@utils/all-posts'
 import { formatedYMD } from '@utils/date-helper'
+import { links } from '@utils/nav-link'
 import { getPostLink } from '@utils/post-link'
-
-const links = [
-  { url: '/', title: '首页' },
-  { url: '/notes', title: '笔记' },
-  { url: '/tags', title: '标签' },
-  { url: '/archive', title: '归档' },
-]
 
 const latestPost = (await getAllPosts()).slice(0, 8)
 

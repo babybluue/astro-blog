@@ -1,12 +1,6 @@
 ---
 import ThemeButton from '@components/theme-button.astro'
-
-const links = [
-  { url: '/', title: '首页' },
-  { url: '/notes', title: '笔记' },
-  { url: '/tags', title: '标签' },
-  { url: '/archive', title: '归档' },
-]
+import { links } from '@utils/nav-link'
 
 const isCurrentPage = (url: string) => {
   const pathname = Astro.url.pathname
