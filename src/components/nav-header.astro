@@ -21,7 +21,7 @@ const isCurrentPage = (url: string) => {
     <ul class="flex h-full items-center justify-start gap-10">
       {
         links.map((link) => (
-          <li class:list={[{ 'text-gray-500': isCurrentPage(link.url) }]}>
+          <li class:list={[{ 'text-gray-400': isCurrentPage(link.url) }]}>
             <a href={link.url}>{link.title}</a>
           </li>
         ))

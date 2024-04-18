@@ -3,7 +3,7 @@ import AvatarImage from '@components/avatar-image.astro'
 import ThemeButton from '@components/theme-button.astro'
 import BaseLayout from '@layouts/base-layout.astro'
 import { getAllPosts } from '@utils/all-posts'
-import { formatedTime, formatedYMD, getFormatDate } from '@utils/date-helper'
+import { formatedYMD } from '@utils/date-helper'
 import { getPostLink } from '@utils/post-link'
 
 const links = [
@@ -23,14 +23,14 @@ const description = '首页-didmax'
   <main>
     <section class="flex flex-col items-center justify-center">
       <AvatarImage />
-      <div class="px-10 text-center max-[768px]:px-5">
+      <div class="w-full px-10 text-center max-[768px]:px-5">
         "我个人的一个秘密是在需要极大快乐和悲伤的公众场合却达不到这种快乐和悲伤应有的水平，因而内心惊恐万状，汗如雨下"
       </div>
     </section>
     <section class="my-10 flex items-center justify-center gap-10 min-[1500px]:my-20">
       {
         links.map((item, index) => (
-          <a href={item.url} class={index === 0 ? 'text-gray-500' : 'text-primary'}>
+          <a href={item.url} class={index === 0 ? 'text-gray-400' : 'text-primary'}>
             {item.title}
           </a>
         ))
