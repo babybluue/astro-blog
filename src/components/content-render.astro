@@ -21,7 +21,7 @@ const { Content } = await post.render()
       <>
         <div class="my-2 text-right text-xs text-gray-400">
           {post.data.tags?.map((tag: string) => (
-            <a class="mx-2 text-xs no-underline" href={'/tags/' + tag}>
+            <a class="mx-1 text-xs no-underline" href={'/tags/' + tag}>
               #{tag}
             </a>
           ))}
