@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets'
-
 import ContentRender from '@components/content-render.astro'
 import NavHead from '@components/nav-header.astro'
 import type { PostModel } from '@interfaces/post-model'
@@ -28,8 +26,6 @@ const { post, prev, next } = Astro.props
   <body>
     <NavHead />
     <main class="flex flex-col justify-between">
-      {post.data.cover ? <Image src={post.data.cover} loading="eager" alt="" /> : ''}
-
       <ContentRender post={post} from="post" />
 
       <div class="mt-5 flex flex-wrap justify-between gap-x-24 py-2">
