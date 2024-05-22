@@ -1,6 +1,7 @@
 ---
 import ContentRender from '@components/content-render.astro'
 import NavHead from '@components/nav-header.astro'
+import PostPagination from '@components/post-pagination.astro'
 import type { PostModel } from '@interfaces/post-model'
 import BaseLayout from '@layouts/base-layout.astro'
 import { getAllPosts } from '@utils/all-posts'
@@ -28,32 +29,7 @@ const { post, prev, next } = Astro.props
     <main class="flex flex-col justify-between">
       <ContentRender post={post} from="post" />
 
-      <div class="mt-5 flex flex-wrap justify-between gap-x-24 py-2">
-        {
-          prev ? (
-            <a
-              class="w-[50%] flex-1 truncate rounded-lg border px-4 py-1 text-left dark:border-primary-gray"
-              href={prev.data.abbrlink}
-            >
-              {prev.data.title}
-            </a>
-          ) : (
-            <span class="flex-1" />
-          )
-        }
-        {
-          next ? (
-            <a
-              class="flex-1 justify-items-end truncate rounded-lg border px-4 py-1 text-right dark:border-primary-gray"
-              href={'/posts/' + next.data.abbrlink}
-            >
-              {next.data.title}
-            </a>
-          ) : (
-            <span class="flex-1" />
-          )
-        }
-      </div>
+      <PostPagination prev={prev} next={next} />
     </main>
   </body>
 </BaseLayout>

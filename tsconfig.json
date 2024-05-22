@@ -8,6 +8,7 @@
     ],
     "baseUrl": ".",
     "paths": {
+      "@constant": ["src/constant.ts"],
       "@components/*": ["src/components/*"],
       "@assets/*": ["src/assets/*"],
       "@images/*": ["src/images/*"],

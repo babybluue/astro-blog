@@ -1,4 +1,6 @@
 ---
+import { description, quote, title } from '@constant'
+
 import AvatarImage from '@components/avatar-image.astro'
 import ThemeButton from '@components/theme-button.astro'
 import BaseLayout from '@layouts/base-layout.astro'
@@ -8,9 +10,6 @@ import { links } from '@utils/nav-link'
 import { getPostLink } from '@utils/post-link'
 
 const latestPost = (await getAllPosts()).slice(0, 8)
-
-const title = 'didmax'
-const description = 'a blog host on cloudflare, records my work & life & read.'
 ---
 
 <BaseLayout title={title} description={description}>
@@ -18,7 +17,7 @@ const description = 'a blog host on cloudflare, records my work & life & read.'
     <section class="flex flex-col items-center justify-center">
       <AvatarImage />
       <div class="w-full px-10 text-center max-[768px]:px-0">
-        "我个人的一个秘密是在需要极大快乐和悲伤的公众场合却达不到这种快乐和悲伤应有的水平，因而内心惊恐万状，汗如雨下"
+        "{quote}"
       </div>
     </section>
     <section
