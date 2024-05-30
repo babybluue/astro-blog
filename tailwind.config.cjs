@@ -9,6 +9,9 @@ module.exports = {
         'primary-gray': '#525252',
         'primary-white': '#fcfcfc',
       },
+      borderColor: {
+        DEFAULT: '#b0bec5',
+      },
     },
   },
   plugins: [],
