@@ -14,7 +14,7 @@ const { Content } = await post.render()
 ---
 
 <article>
-  <h4 class:list={['mt-2', { 'text-center': from && from === 'post' }]}>{post.data.title}</h4>
+  <h5 class:list={['mt-2', { 'text-center': from && from === 'post' }]}>{post.data.title}</h5>
 
   {
     from && from === 'post' && (
