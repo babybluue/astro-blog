@@ -13,7 +13,7 @@ const latestPost = (await getAllPosts()).slice(0, 8)
 ---
 
 <BaseLayout title={title} description={description}>
-  <main>
+  <main class="min-h-[100dvh]">
     <section class="flex flex-col items-center justify-center">
       <AvatarImage />
       <div class="w-full px-10 text-center max-[768px]:px-0">
