@@ -57,18 +57,6 @@ const { title, description, cover } = Astro.props
   <meta property="twitter:description" content={description} />
   <meta property="twitter:image" content={new URL(cover ?? '/blog-placeholder.jpg', Astro.url)} />
 
-  <!-- Google tag (gtag.js) -->
-  <!-- <script is:inline async src="https://www.googletagmanager.com/gtag/js"></script>
-  <script is:inline>
-    window.dataLayer = window.dataLayer || []
-    function gtag() {
-      dataLayer.push(arguments)
-    }
-    gtag('js', new Date())
-
-    gtag('config', '')
-  </script> -->
-
   <ViewTransitions />
   {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
 </head>
