@@ -14,6 +14,19 @@ const { Content } = await post.render()
 ---
 
 <article>
+  {
+    from && from === 'note' && (
+      <div class="pb-2 text-xs">
+        <span class="text-gray-400">{getFormatDate(post.data.date)}</span>
+        {post.data.tags?.map((tag: string) => (
+          <a class="mx-2" href={'/tags/' + tag}>
+            {tag}
+          </a>
+        ))}
+      </div>
+    )
+  }
+
   <h5 class:list={['mt-2', { 'text-center': from && from === 'post' }]}>{post.data.title}</h5>
 
   {
