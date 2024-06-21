@@ -1,5 +1,6 @@
 ---
 import AvatarImage from '@components/basic/avatar-image.astro'
+import NavLink from '@components/basic/nav-link.astro'
 import ThemeButton from '@components/basic/theme-button.astro'
 import BaseLayout from '@layouts/base-layout.astro'
 
@@ -20,8 +21,7 @@ const description = '找不到页面-didmax'
       <AvatarImage />
     </section>
     <section class="my-10 flex items-center justify-center gap-10 text-primary">
-      {links.map((item) => <a href={item.url}>{item.title}</a>)}
-      <ThemeButton class="absolute right-0" />
+      <NavLink />
     </section>
     <section class="flex justify-center py-5 text-4xl">404</section>
   </main>
