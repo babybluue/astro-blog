@@ -1,12 +1,11 @@
 ---
 import { description, quote, title } from '@constant'
 
-import AvatarImage from '@components/avatar-image.astro'
-import ThemeButton from '@components/theme-button.astro'
+import AvatarImage from '@components/basic/avatar-image.astro'
+import NavLink from '@components/basic/nav-link.astro'
 import BaseLayout from '@layouts/base-layout.astro'
 import { getAllPosts } from '@utils/all-posts'
 import { formatedYMD } from '@utils/date-helper'
-import { links } from '@utils/nav-link'
 import { getPostLink } from '@utils/post-link'
 
 const latestPost = (await getAllPosts()).slice(0, 8)
@@ -21,16 +20,9 @@ const latestPost = (await getAllPosts()).slice(0, 8)
       </div>
     </section>
     <section
-      class="my-10 flex items-center justify-center gap-10 whitespace-nowrap max-[768px]:gap-5 min-[1500px]:my-20"
+      class="m-auto my-10 flex items-center justify-center gap-10 whitespace-nowrap max-[768px]:gap-5 min-[1500px]:my-20"
     >
-      {
-        links.map((item, index) => (
-          <a href={item.url} class={index === 0 ? 'text-gray-400' : 'text-primary'}>
-            {item.title}
-          </a>
-        ))
-      }
-      <ThemeButton class="absolute right-0" />
+      <NavLink />
     </section>
     <section class="m-auto flex w-[85%] justify-center max-[768px]:w-full">
       <div class="w-[75%] max-[500px]:w-[95%] min-[1500px]:w-[55%]">

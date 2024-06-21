@@ -27,7 +27,7 @@ const { post, prev, next } = Astro.props
   <body>
     <NavHead />
     <main class="flex flex-col justify-between">
-      <div class="rounded-lg border p-5 dark:border-primary-gray">
+      <div class="rounded-lg border p-5 dark:border-primary-gray max-[500px]:p-2">
         <ContentRender post={post} from="post" />
       </div>
 

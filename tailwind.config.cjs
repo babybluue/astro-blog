@@ -7,7 +7,7 @@ module.exports = {
         primary: '#56b6c2',
         'primary-dark': '#1f1f1f',
         'primary-gray': '#525252',
-        'primary-white': '#fcfcfc',
+        'primary-white': '#fcfcfcf2',
       },
       borderColor: {
         DEFAULT: '#b0bec5',

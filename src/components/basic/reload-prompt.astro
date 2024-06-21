@@ -17,8 +17,8 @@
 
   const reloadPrompt = () => {
     const pwaToast = document.querySelector<HTMLDivElement>('#pwa-toast')!
-    const pwaCloseBtn = pwaToast.querySelector<HTMLButtonElement>('#pwa-close')!
-    const pwaRefreshBtn = pwaToast.querySelector<HTMLButtonElement>('#pwa-refresh')!
+    const pwaCloseBtn = pwaToast?.querySelector<HTMLButtonElement>('#pwa-close')!
+    const pwaRefreshBtn = pwaToast?.querySelector<HTMLButtonElement>('#pwa-refresh')!
 
     let refreshSW: ((reloadPage?: boolean) => Promise<void>) | undefined
 

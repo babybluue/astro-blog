@@ -49,7 +49,7 @@ html {
 }
 
 body {
-  font-family: HarmonyOS_Sans, Arial, Helvetica, sans-serif;
+  font-family: monospace, HarmonyOS_Sans, Arial, Helvetica;
   line-height: 24px !important;
   .prettier-scrollbar();
 }
@@ -66,16 +66,33 @@ nav {
 
   @media screen and (max-width: 768px) {
     width: 95%;
-    padding: 0 0.625rem;
   }
 }
 
 main {
   min-height: calc(100dvh - 90px);
   letter-spacing: 1px;
+  padding: 0 0.625rem;
 
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+
+nav ul {
+  font-family: HarmonyOS_Sans, serif;
+  justify-content: space-between;
+}
+
+header nav ul {
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+    gap: 2.5rem;
+
+    li:last-child {
+      position: absolute;
+      right: 2rem;
+    }
   }
 }
 

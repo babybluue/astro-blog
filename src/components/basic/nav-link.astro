@@ -1,0 +1,24 @@
+---
+import ThemeButton from '@components/basic/theme-button.astro'
+import { links } from '@utils/nav-link'
+
+const isCurrentPage = (url: string) => {
+  const pathname = Astro.url.pathname
+  if (url === pathname) return true
+  if (pathname.includes(url) && url !== '/') return true
+  return false
+}
+---
+
+<nav>
+  <ul class="relative flex h-full w-full items-center rounded-full bg-white p-5 dark:bg-black">
+    {
+      links.map((link) => (
+        <li class:list={[{ 'text-gray-400': isCurrentPage(link.url) }]}>
+          <a href={link.url}>{link.title}</a>
+        </li>
+      ))
+    }
+    <li class="flex items-center"><ThemeButton /></li>
+  </ul>
+</nav>
