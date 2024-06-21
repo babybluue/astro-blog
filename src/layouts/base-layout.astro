@@ -8,7 +8,7 @@ const { title, description, cover } = Astro.props.frontmatter || Astro.props
 
 <html lang="zh">
   <BaseHead title={title} description={description} cover={cover ? cover.src : null} />
-  <body class="bg-primary-white text-primary-dark transition-colors duration-300 dark:bg-primary-dark dark:text-white">
+  <body class="bg-primary-white text-primary-dark dark:bg-primary-dark dark:text-white">
     <slot />
     <ReloadPrompt transition:persist />
     <ScrollButton />
