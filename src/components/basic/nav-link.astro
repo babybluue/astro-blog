@@ -11,7 +11,9 @@ const isCurrentPage = (url: string) => {
 ---
 
 <nav>
-  <ul class="relative flex h-full w-full items-center rounded-full bg-white p-5 dark:bg-black">
+  <ul
+    class="relative flex h-full w-full items-center rounded-full bg-white p-5 text-primary shadow-md dark:bg-[#0000004d]"
+  >
     {
       links.map((link) => (
         <li class:list={[{ 'text-gray-400': isCurrentPage(link.url) }]}>
