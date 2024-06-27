@@ -10,7 +10,7 @@ import remarkRehype from 'remark-rehype'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://didmax.pages.dev',
+  site: 'https://astro-blog-ecru-phi.vercel.app',
   prefetch: {
     prefetchAll: true,
   },
