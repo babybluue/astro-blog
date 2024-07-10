@@ -27,12 +27,12 @@ const { Content } = await post.render()
     )
   }
 
-  <h5 class:list={['mt-2', { 'text-center': from && from === 'post' }]}>{post.data.title}</h5>
+  <h5 data-pagefind-ignore class:list={['mt-2', { 'text-center': from && from === 'post' }]}>{post.data.title}</h5>
 
   {
     from && from === 'post' && (
       <>
-        <div class="my-2 text-right text-xs text-gray-400">
+        <div data-pagefind-ignore class="my-2 text-right text-xs text-gray-400">
           {post.data.tags?.map((tag: string) => (
             <a class="mx-1 text-xs no-underline" href={'/tags/' + tag}>
               #{tag}

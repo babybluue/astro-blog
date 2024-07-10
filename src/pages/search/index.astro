@@ -1,8 +1,41 @@
-<div id="search" transition:persist></div>
+---
+import NavHeader from '@components/nav-header.astro'
+import BaseLayout from '@layouts/base-layout.astro'
+---
+
+<BaseLayout title="search" description="search page">
+  <NavHeader />
+  <main class="flex flex-col justify-between">
+    <div id="search" transition:persist></div>
+  </main>
+</BaseLayout>
+
 <script>
   import { PagefindUI } from '@pagefind/default-ui'
 
   window.addEventListener('DOMContentLoaded', async (event) => {
-    new PagefindUI({ element: '#search', showSubResults: true })
+    new PagefindUI({
+      element: '#search',
+      showSubResults: false,
+      processResult: function (result: any) {
+        result.url = result.url.slice(0, -1)
+        return result
+      },
+    })
+
+    const input = document.querySelector('.pagefind-ui__search-input')
+    const button = document.querySelector('.pagefind-ui__search-clear')
+    const form = document.querySelector('form')
+    const div = document.createElement('div')
+    input?.classList.add('h-10', 'rounded-xl', 'px-4')
+    div.classList.add('flex', 'items-center', 'justify-center', 'gap-3')
+    div.append(input!, button!)
+    form?.insertBefore(div, form.firstChild)
   })
 </script>
+<style lang="less">
+  input {
+    height: 35px !important;
+    border-radius: 10px;
+  }
+</style>
