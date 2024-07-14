@@ -32,7 +32,7 @@ export default defineConfig({
       workbox: {
         navigateFallback: '/404',
         globPatterns: ['**/*'],
-        navigateFallbackDenylist: [/.*\.xml$/],
+        navigateFallbackDenylist: [/.*\.xml$/, /search/],
       },
       includeAssets: ['**/*'],
       manifest: {

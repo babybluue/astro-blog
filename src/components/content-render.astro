@@ -14,35 +14,21 @@ const { Content } = await post.render()
 ---
 
 <article>
-  {
-    from && from === 'note' && (
-      <div class="pb-2 text-xs">
-        <span class="text-gray-400">{getFormatDate(post.data.date)}</span>
-        {post.data.tags?.map((tag: string) => (
-          <a class="mx-2" href={'/tags/' + tag}>
-            {tag}
-          </a>
-        ))}
-      </div>
-    )
-  }
-
   <h5 data-pagefind-ignore class:list={['mt-2', { 'text-center': from && from === 'post' }]}>{post.data.title}</h5>
 
-  {
-    from && from === 'post' && (
-      <>
-        <div data-pagefind-ignore class="my-2 text-right text-xs text-gray-400">
-          {post.data.tags?.map((tag: string) => (
-            <a class="mx-1 text-xs no-underline" href={'/tags/' + tag}>
-              #{tag}
-            </a>
-          ))}
-          {getFormatDate(post.data.date)}
-        </div>
-        {post.data.cover && <Image src={post.data.cover} loading="eager" alt="" />}
-      </>
-    )
-  }
+  <>
+    <div data-pagefind-ignore class="my-2 text-right text-xs text-gray-400">
+      {
+        post.data.tags?.map((tag: string) => (
+          <a class="mx-1 text-xs no-underline" href={'/tags/' + tag}>
+            #{tag}
+          </a>
+        ))
+      }
+      {getFormatDate(post.data.date)}
+    </div>
+    {post.data.cover && <Image src={post.data.cover} loading="eager" data-pagefind-meta="image[src]" alt="" />}
+  </>
+
   <Content />
 </article>
