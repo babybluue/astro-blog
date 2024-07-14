@@ -1,6 +1,7 @@
 ---
+import { links } from '@constant'
+
 import ThemeButton from '@components/basic/theme-button.astro'
-import { links } from '@utils/nav-link'
 
 const isCurrentPage = (url: string) => {
   const pathname = Astro.url.pathname
