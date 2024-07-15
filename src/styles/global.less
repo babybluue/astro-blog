@@ -149,6 +149,10 @@ article {
   h5,
   h6 {
     font-weight: bold;
+    &:target {
+      padding-top: 6.5rem;
+      margin-top: -6.5rem;
+    }
   }
 
   h1 {
@@ -217,6 +221,14 @@ article {
   img {
     width: 100%;
     border-radius: 5px;
+  }
+}
+
+.toc {
+  width: 100%;
+  margin-bottom: 1.2rem;
+  ol {
+    list-style: circle;
   }
 }
 

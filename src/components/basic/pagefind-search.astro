@@ -5,6 +5,9 @@
 
   const isDev = import.meta.env.DEV
   document.addEventListener('astro:page-load', () => {
+    if (!document.querySelector('#search')) {
+      return
+    }
     new PagefindUI({
       element: '#search',
       showSubResults: true,
@@ -120,6 +123,10 @@
 
       &-excerpt {
         opacity: 0.5;
+      }
+
+      &-nested {
+        margin-top: 1rem;
       }
 
       @media screen and (max-width: 768px) {
