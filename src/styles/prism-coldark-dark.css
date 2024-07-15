@@ -10,7 +10,7 @@ code[class*='language-'],
 pre[class*='language-'] {
   color: #e3eaf2;
   background: none;
-  font-family: 'Ubuntu Mono', monospace, HarmonyOS_Sans;
+  font-family: 'Noto Sans SC', 'Open Sans', monospace;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
