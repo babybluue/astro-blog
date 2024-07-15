@@ -53,10 +53,11 @@
 
     &__drawer {
       width: 80%;
-      max-height: 80dvh;
+      max-height: 70dvh;
       overflow-y: auto;
-
+      overflow-x: hidden;
       scrollbar-width: auto;
+      margin-right: -4px;
 
       &::-webkit-scrollbar,
       &::-webkit-scrollbar-track {
@@ -75,6 +76,11 @@
 
       &::-webkit-scrollbar-corner {
         opacity: 0;
+      }
+
+      @media screen and (max-width: 768px) {
+        width: 90%;
+        margin-right: -10px;
       }
     }
 

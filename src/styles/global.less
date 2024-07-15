@@ -25,19 +25,6 @@
   }
 }
 
-@font-face {
-  font-family: 'HarmonyOS_Sans';
-  src: url('/fonts/harmony_sans.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'HarmonyOS_Sans';
-  src: url('/fonts/harmony_sans_bold.woff2') format('woff2');
-  font-weight: bold;
-}
-
 html {
   width: 100vw;
   overflow-x: hidden;
@@ -49,7 +36,9 @@ html {
 }
 
 body {
-  font-family: monospace, HarmonyOS_Sans, Arial, Helvetica;
+  font-family: 'Noto Sans SC', 'Open Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
   line-height: 24px !important;
   .prettier-scrollbar();
 }
