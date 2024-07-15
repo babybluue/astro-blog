@@ -10,7 +10,7 @@ code[class*='language-'],
 pre[class*='language-'] {
   color: #e3eaf2;
   background: none;
-  font-family: 'Noto Sans SC', 'Open Sans', monospace;
+  font-family: 'Open Sans', 'Noto Sans SC', sans-serif;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
