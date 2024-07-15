@@ -1,4 +1,5 @@
 import AstroPWA from '@vite-pwa/astro'
+import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
@@ -7,6 +8,7 @@ import { defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypePrism from 'rehype-prism-plus'
 import remarkRehype from 'remark-rehype'
+import remarkToc from 'remark-toc'
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,8 +18,9 @@ export default defineConfig({
   },
   markdown: {
     syntaxHighlight: 'prism',
-    remarkPlugins: [remarkRehype],
+    remarkPlugins: [remarkRehype, [remarkToc, { maxDepth: 3, parents: ['listItem', 'root'], skip: 'delta' }]],
     rehypePlugins: [
+      rehypeHeadingIds,
       [rehypePrism, { showLineNumbers: true }],
       [rehypeExternalLinks, { rel: 'nofollow', target: '_blank' }],
     ],

@@ -7,12 +7,20 @@
   document.addEventListener('astro:page-load', () => {
     new PagefindUI({
       element: '#search',
-      showSubResults: false,
+      showSubResults: true,
       bundlePath: isDev ? '/dist/pagefind/' : '/pagefind/',
       resetStyles: false,
-      excerptLength: 30,
+      excerptLength: 80,
       processResult: function (result: any) {
-        result.url = result.url.slice(0, -1)
+        if (result.sub_results.length) {
+          result.sub_results.forEach((sub_result: any) => {
+            if (sub_result.title === result.meta.title) {
+              sub_result.title = ''
+            }
+            sub_result.url = sub_result.url.split('/').slice(-3).join('/')
+          })
+        }
+        result.url = result.url.split('/').slice(-3, -1).join('/')
         return result
       },
     })
