@@ -125,8 +125,7 @@ article {
   h3,
   h5,
   h6 {
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
+    margin: 0.75rem 0;
   }
 
   p {
@@ -134,12 +133,6 @@ article {
     a {
       margin: 0 0.1875rem;
     }
-  }
-
-  ul,
-  ol {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
   }
 
   h1,
@@ -150,8 +143,12 @@ article {
   h6 {
     font-weight: bold;
     &:target {
-      padding-top: 6.5rem;
-      margin-top: -6.5rem;
+      padding-top: 100px;
+      margin-top: -100px;
+      @media screen and (min-width: 1500px) {
+        padding-top: 120px;
+        margin-top: -120px;
+      }
     }
   }
 
@@ -181,18 +178,14 @@ article {
 
   ul {
     list-style: disc;
+    padding-left: 1.25rem;
+    margin: 0.5rem 0;
   }
 
   ol {
     list-style: decimal;
-  }
-
-  ul {
-    padding-left: 1.25rem;
-  }
-
-  ol {
     padding-left: 2.25rem;
+    margin: 0.5rem 0;
   }
 
   li {
@@ -226,7 +219,10 @@ article {
 
 .toc {
   width: 100%;
-  margin-bottom: 1.2rem;
+  padding: 1.2rem 0;
+  background-color: #dddddd;
+
+  border-radius: 5px;
   ol {
     list-style: circle;
   }
@@ -255,6 +251,9 @@ blockquote {
 
   blockquote {
     border-left-color: #fcfcfc;
+    background-color: #2a2a2a;
+  }
+  .toc {
     background-color: #2a2a2a;
   }
 }
