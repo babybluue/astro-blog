@@ -13,7 +13,7 @@
       showSubResults: true,
       bundlePath: isDev ? '/dist/pagefind/' : '/pagefind/',
       resetStyles: false,
-      excerptLength: 80,
+      excerptLength: 50,
       processResult: function (result: any) {
         console.log(result)
         if (result.sub_results.length) {
@@ -123,11 +123,8 @@
         margin-top: 1rem;
       }
 
-      @media screen and (max-width: 768px) {
-        flex-direction: column;
-        &-thumb:has(img) {
-          width: 100%;
-        }
+      &-thumb img {
+        margin-bottom: 0.5rem;
       }
     }
 
