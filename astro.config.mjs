@@ -26,9 +26,26 @@ export default defineConfig({
       [
         rehypeToc,
         {
+          nav: false,
           customizeTOC: (toc) => {
-            if (toc.children[0].children.length > 0) {
-              return toc
+            if (toc.children.length > 0) {
+              return {
+                type: 'element',
+                tagName: 'details',
+                children: [
+                  {
+                    type: 'element',
+                    tagName: 'summary',
+                    children: [
+                      {
+                        type: 'text',
+                        value: 'Table of Contents',
+                      },
+                    ],
+                  },
+                  toc,
+                ],
+              }
             }
             return false
           },

@@ -123,13 +123,14 @@ article {
   h1,
   h2,
   h3,
+  h4,
   h5,
   h6 {
     margin: 0.75rem 0;
   }
 
   p {
-    margin: 1.2rem 0;
+    margin: 0.5rem 0;
     a {
       margin: 0 0.1875rem;
     }
@@ -162,14 +163,17 @@ article {
 
   h3 {
     font-size: 1.2rem;
+    color: #2e80f2;
   }
 
   h4 {
     font-size: 1.1rem;
+    color: #e5b567;
   }
 
   h5 {
     font-size: 1rem;
+    color: #e83e3e;
   }
 
   h6 {
@@ -189,7 +193,7 @@ article {
   }
 
   li {
-    margin: 0.125rem 0;
+    margin: 0.5rem 0;
   }
 
   li > ul {
@@ -217,9 +221,16 @@ article {
   }
 }
 
+details {
+  summary {
+    cursor: pointer;
+    margin: 0.625rem 0;
+  }
+}
+
 .toc {
   width: 100%;
-  padding: 1.2rem 0;
+  padding: 1rem 0 1rem 3rem;
   background-color: #dddddd;
 
   border-radius: 5px;
