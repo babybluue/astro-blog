@@ -23,7 +23,17 @@ export default defineConfig({
     rehypePlugins: [
       rehypeSlug,
       [rehypeAutolinkHeadings, { behavior: 'after' }],
-      rehypeToc,
+      [
+        rehypeToc,
+        {
+          customizeTOC: (toc) => {
+            if (toc.children[0].children.length > 0) {
+              return toc
+            }
+            return false
+          },
+        },
+      ],
       [rehypePrism, { showLineNumbers: true }],
       [rehypeExternalLinks, { rel: 'nofollow', target: '_blank' }],
     ],
