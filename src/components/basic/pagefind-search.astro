@@ -15,7 +15,6 @@
       resetStyles: false,
       excerptLength: 50,
       processResult: function (result: any) {
-        console.log(result)
         if (result.sub_results.length) {
           result.sub_results.forEach((sub_result: any) => {
             if (sub_result.title === result.meta.title) {
@@ -50,7 +49,7 @@
       border-radius: 0.5rem;
       margin: auto;
       background-color: inherit;
-      border: 1px solid #282c34;
+      border: 1px solid #5252527a;
       &:focus {
         outline: none;
       }
