@@ -22,15 +22,17 @@ const description = '标签页面-didmax'
 <BaseLayout title={title} description={description}>
   <NavHead />
   <main>
-    <section class="flex flex-wrap gap-5 px-2 pt-1">
+    <section class="grid grid-cols-4 gap-5 px-2 pt-1">
       {
         tagContent.map((item) => (
           <div
-            class="flex justify-between gap-2 rounded-lg bg-gray-300 px-5
+            class="flex justify-between gap-2 rounded-xl bg-gray-200 px-5
           py-1
           dark:bg-[#5252527a]"
           >
-            <a href={'/tags/' + item.tag}>{`${item.tag?.slice(0, 1).toUpperCase()}${item.tag?.slice(1)}`}</a>
+            <a href={'/tags/' + item.tag} class="truncate">
+              {item.tag}
+            </a>
             <span>{item.count}</span>
           </div>
         ))
