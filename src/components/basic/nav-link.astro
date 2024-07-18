@@ -17,7 +17,7 @@ const isCurrentPage = (url: string) => {
   >
     {
       links.map((link) => (
-        <li class:list={[{ 'grayscale-[0.4]': isCurrentPage(link.url) }]}>
+        <li class:list={[{ 'text-gray-400 grayscale-[0.5]': isCurrentPage(link.url) }]}>
           <a href={link.url}>{link.title}</a>
         </li>
       ))
