@@ -25,11 +25,13 @@ const description = '标签页面-didmax'
     <section class="flex flex-wrap gap-5 px-2 pt-1">
       {
         tagContent.map((item) => (
-          <div class="flex justify-between">
+          <div
+            class="flex justify-between gap-2 rounded-lg bg-gray-300 px-5
+          py-1
+          dark:bg-[#5252527a]"
+          >
             <a href={'/tags/' + item.tag}>{`${item.tag?.slice(0, 1).toUpperCase()}${item.tag?.slice(1)}`}</a>
-            <sup class="mt-1 flex h-[14px] w-[14px] items-center justify-center rounded-full  text-[10px]">
-              {item.count}
-            </sup>
+            <span>{item.count}</span>
           </div>
         ))
       }
