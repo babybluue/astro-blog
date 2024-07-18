@@ -27,7 +27,7 @@ const description = '标签页面-didmax'
         tagContent.map((item) => (
           <div class="flex justify-between">
             <a href={'/tags/' + item.tag}>{`${item.tag?.slice(0, 1).toUpperCase()}${item.tag?.slice(1)}`}</a>
-            <sup class="mt-1 flex h-[14px] w-[14px] items-center justify-center rounded-full border text-[10px]  ">
+            <sup class="mt-1 flex h-[14px] w-[14px] items-center justify-center rounded-full  text-[10px]">
               {item.count}
             </sup>
           </div>
