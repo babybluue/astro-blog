@@ -82,6 +82,10 @@
       margin: 0.6rem 0;
     }
 
+    &__message {
+      text-align: center;
+    }
+
     &__results {
       display: flex;
       flex-direction: column;
@@ -143,9 +147,12 @@
       }
     }
 
-    &__result:not(:last-child) {
-      padding-bottom: 1rem;
-      border-bottom: 1px dotted #282c34;
+    &__result:not(:last-child)::after {
+      content: '';
+      display: block;
+      border-top: 3px dotted #282c34;
+      margin: 1rem auto;
+      width: 30%;
     }
   }
 </style>
