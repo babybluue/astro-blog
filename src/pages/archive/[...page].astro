@@ -25,11 +25,11 @@ const description = '归档页面-didmax'
 <BaseLayout title={title} description={description}>
   <NavHead />
   <main>
-    <section class="list max-[768px]:pl-4">
+    <section class="list pl-4">
       <PostList posts={page.data} />
     </section>
 
-    <section class="flex items-center gap-4 py-5 max-[768px]:pl-4">
+    <section class="flex items-center gap-4 py-5 pl-4">
       <Pagination page={page} />
     </section>
   </main>

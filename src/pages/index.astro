@@ -1,12 +1,11 @@
 ---
-import { description, quote, title } from '@constant'
+import { description, getPostLink, quote, title } from '@constant'
 
 import AvatarImage from '@components/basic/avatar-image.astro'
 import NavLink from '@components/basic/nav-link.astro'
 import BaseLayout from '@layouts/base-layout.astro'
 import { getAllPosts } from '@utils/all-posts'
 import { formatedYMD } from '@utils/date-helper'
-import { getPostLink } from '@utils/post-link'
 
 const latestPost = (await getAllPosts()).slice(0, 8)
 ---

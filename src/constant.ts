@@ -1,4 +1,5 @@
 import avatarImg from '@assets/avatar.jpg'
+import type { PostModel } from '@interfaces/post-model'
 
 // index
 
@@ -17,3 +18,5 @@ export const links = [
   { url: '/archive', title: '🗂️归档' },
   { url: '/search', title: '🔍搜索' },
 ]
+
+export const getPostLink = (post: PostModel) => `/posts/${post.data.abbrlink}`

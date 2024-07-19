@@ -1,7 +1,8 @@
 ---
-import type { PostMatter, PostModel } from '@interfaces/post-model'
+import { getPostLink } from '@constant'
+
+import type { PostModel } from '@interfaces/post-model'
 import { formatedYMD } from '@utils/date-helper'
-import { getPostLink } from '@utils/post-link'
 
 interface Props {
   posts: PostModel[]

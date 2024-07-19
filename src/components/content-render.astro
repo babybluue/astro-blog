@@ -4,6 +4,8 @@ import { Image } from 'astro:assets'
 import type { PostModel } from '@interfaces/post-model'
 import { getFormatDate } from '@utils/date-helper'
 
+import '@styles/prism-coldark-dark.css'
+
 interface Props {
   post: PostModel
   from?: string
@@ -187,6 +189,20 @@ const { Content } = await post.render()
 
     :is(p) code {
       background-color: #374151;
+    }
+  }
+
+  .dark {
+    :is(p) code {
+      background-color: #282c34;
+    }
+
+    blockquote {
+      border-left-color: #fcfcfc;
+      background-color: #2a2a2a;
+    }
+    .toc {
+      background-color: #2a2a2a;
     }
   }
 </style>
