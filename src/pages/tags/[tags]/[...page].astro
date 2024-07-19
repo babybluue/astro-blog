@@ -37,12 +37,12 @@ const { page } = Astro.props
 
 <BaseLayout title={tags ?? 'tag'} description="blog tag">
   <NavHead />
-  <main>
-    <section class="py-5 pl-4 text-2xl font-bold first-letter:uppercase">{tags}</section>
-    <section class="pl-4">
+  <main class="pl-6">
+    <section class="py-5 text-2xl font-bold first-letter:uppercase">{tags}</section>
+    <section>
       <PostList posts={page.data} />
     </section>
-    <section class="mt-5 flex items-center gap-4 pl-4">
+    <section class="mt-5 flex items-center gap-4">
       <Pagination page={page} />
     </section>
   </main>
