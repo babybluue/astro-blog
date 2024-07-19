@@ -1,4 +1,4 @@
-<div id="search"></div>
+<div id="search" class="relative h-full overflow-hidden"></div>
 
 <script>
   import { PagefindUI } from '@pagefind/default-ui'
@@ -33,6 +33,7 @@
 
 <style lang="less" is:global>
   .pagefind-ui {
+    height: 100%;
     &__form {
       display: flex;
       flex-direction: column;
@@ -40,6 +41,8 @@
       align-items: center;
       gap: 2rem;
       width: 100%;
+      height: 100%;
+      overflow: hidden;
     }
 
     &__search-input {
@@ -65,11 +68,29 @@
 
     &__drawer {
       width: 80%;
-      max-height: 70dvh;
+      height: 100%;
+      overflow: hidden;
+      margin-right: -10px;
+      @media screen and (max-width: 768px) {
+        width: 95%;
+      }
+    }
+
+    &__button {
+      color: #56b6c2;
+      text-align: right;
+      margin: 0.6rem 0;
+    }
+
+    &__results {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 1rem 0;
+      padding-right: 10px;
       overflow-y: auto;
       overflow-x: hidden;
       scrollbar-width: auto;
-      margin-right: -4px;
 
       &::-webkit-scrollbar,
       &::-webkit-scrollbar-track {
@@ -89,27 +110,22 @@
       &::-webkit-scrollbar-corner {
         opacity: 0;
       }
-
-      @media screen and (max-width: 768px) {
-        width: 90%;
-        margin-right: -10px;
-      }
     }
 
-    &__button {
-      color: #56b6c2;
-      text-align: right;
-      margin: 0.6rem 0;
-    }
-
-    &__results {
+    &__results-area {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      margin-top: 1rem;
+      height: 100%;
+      overflow: hidden;
     }
 
     &__result {
+      &-inner > &-title {
+        font-weight: bold;
+        color: #56b6c2;
+        font-size: 1.3rem;
+      }
+
       &-title {
         margin-bottom: 0.5rem;
       }
@@ -119,7 +135,7 @@
       }
 
       &-nested {
-        margin-top: 1rem;
+        margin-top: 0.5rem;
       }
 
       &-thumb img {

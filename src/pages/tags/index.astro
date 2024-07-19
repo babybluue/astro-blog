@@ -25,7 +25,7 @@ const description = '标签页面-didmax'
     <section class="grid grid-cols-3 gap-5 px-2 pt-1 max-[768px]:grid-cols-2 min-[1500px]:grid-cols-4">
       {
         tagContent.map((item) => (
-          <div class="flex justify-between gap-2 rounded-xl bg-gray-200 px-5 py-1 dark:bg-[#5252527a]">
+          <div class="flex justify-between gap-2 rounded-xl bg-gray-200 px-5 py-1 shadow-md dark:bg-[#5252527a] ">
             <a href={'/tags/' + item.tag} class="truncate">
               {item.tag}
             </a>

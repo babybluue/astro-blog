@@ -7,3 +7,16 @@ import NavLink from './basic/nav-link.astro'
 >
   <NavLink />
 </header>
+<style lang="less" is:global>
+  header nav ul {
+    @media screen and (min-width: 768px) {
+      justify-content: flex-start !important;
+      gap: 2.5rem;
+
+      li:last-child {
+        position: absolute;
+        right: 2rem;
+      }
+    }
+  }
+</style>

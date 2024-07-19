@@ -6,6 +6,8 @@ import type { PostModel } from '@interfaces/post-model'
 import BaseLayout from '@layouts/base-layout.astro'
 import { getAllPosts } from '@utils/all-posts'
 
+import '@styles/prism-coldark-dark.css'
+
 interface Props {
   post: PostModel
   prev: PostModel | undefined
@@ -33,3 +35,19 @@ const { post, prev, next } = Astro.props
     <PostPagination prev={prev} next={next} />
   </main>
 </BaseLayout>
+
+<style lang="less" is:global>
+  .dark {
+    :is(p) code {
+      background-color: #282c34;
+    }
+
+    blockquote {
+      border-left-color: #fcfcfc;
+      background-color: #2a2a2a;
+    }
+    .toc {
+      background-color: #2a2a2a;
+    }
+  }
+</style>
