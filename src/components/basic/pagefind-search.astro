@@ -21,10 +21,10 @@
               sub_result.title = ''
             }
             const urlArr = sub_result.url.split('/').slice(-3)
-            sub_result.url = urlArr[0] + '/' + urlArr[1] + urlArr[2]
+            sub_result.url = '/' + urlArr[0] + '/' + urlArr[1] + urlArr[2]
           })
         }
-        result.url = result.url.split('/').slice(-3, -1).join('/')
+        result.url = '/' + result.url.split('/').slice(-3, -1).join('/')
         return result
       },
     })
