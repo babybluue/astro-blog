@@ -71,9 +71,6 @@ export default defineConfig({
         navigateFallbackDenylist: [/.*\.xml$/, /search/],
       },
       includeAssets: ['**/*'],
-      experimental: {
-        directoryAndTrailingSlashHandler: true,
-      },
       manifest: {
         name: 'didmax - blog',
         short_name: 'didmax',
