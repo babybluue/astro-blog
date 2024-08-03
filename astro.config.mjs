@@ -14,9 +14,6 @@ import remarkRehype from 'remark-rehype'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://astro-blog-ecru-phi.vercel.app',
-  build: {
-    format: 'file',
-  },
   prefetch: {
     prefetchAll: true,
   },
