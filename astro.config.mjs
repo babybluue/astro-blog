@@ -14,6 +14,9 @@ import remarkRehype from 'remark-rehype'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://astro-blog-ecru-phi.vercel.app',
+  build: {
+    format: 'file',
+  },
   prefetch: {
     prefetchAll: true,
   },
@@ -68,6 +71,9 @@ export default defineConfig({
         navigateFallbackDenylist: [/.*\.xml$/, /search/],
       },
       includeAssets: ['**/*'],
+      experimental: {
+        directoryAndTrailingSlashHandler: true,
+      },
       manifest: {
         name: 'didmax - blog',
         short_name: 'didmax',
