@@ -67,6 +67,9 @@ export default defineConfig({
         globPatterns: ['**/*'],
         navigateFallbackDenylist: [/.*\.xml$/, /search/],
       },
+      experimental: {
+        directoryAndTrailingSlashHandler: true,
+      },
       includeAssets: ['**/*'],
       manifest: {
         name: 'didmax - blog',
