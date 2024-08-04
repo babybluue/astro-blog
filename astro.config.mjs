@@ -17,6 +17,7 @@ export default defineConfig({
   prefetch: {
     prefetchAll: true,
   },
+  trailingSlash: 'ignore',
   markdown: {
     syntaxHighlight: 'prism',
     remarkPlugins: [remarkRehype],
