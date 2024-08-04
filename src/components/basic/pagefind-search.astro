@@ -14,19 +14,6 @@
       bundlePath: isDev ? '/dist/pagefind/' : '/pagefind/',
       resetStyles: false,
       excerptLength: 50,
-      processResult: function (result: any) {
-        if (result.sub_results.length) {
-          result.sub_results.forEach((sub_result: any) => {
-            if (sub_result.title === result.meta.title) {
-              sub_result.title = ''
-            }
-            const urlArr = sub_result.url.split('/').slice(-3)
-            sub_result.url = '/' + urlArr[0] + '/' + urlArr[1] + urlArr[2]
-          })
-        }
-        result.url = '/' + result.url.split('/').slice(-3, -1).join('/')
-        return result
-      },
     })
   })
 </script>
