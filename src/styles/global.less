@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-.prettier-scrollbar {
+* {
   scrollbar-width: auto;
-
+  scroll-behavior: smooth;
   &::-webkit-scrollbar,
   &::-webkit-scrollbar-track {
     background-color: transparent;
@@ -40,7 +40,6 @@ body {
   font-optical-sizing: auto;
   font-weight: 500;
   line-height: 24px !important;
-  .prettier-scrollbar();
 }
 
 main,

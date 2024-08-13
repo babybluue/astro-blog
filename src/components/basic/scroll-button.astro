@@ -1,51 +1,70 @@
-<svg
-  class="nav-icon dark:fill-primary-light fixed bottom-10 right-5 hidden rotate-180 cursor-pointer fill-primary-dark transition-all"
-  viewBox="0 0 1024 1024"
-  version="1.1"
-  xmlns="http://www.w3.org/2000/svg"
-  p-id="9313"
-  width="45"
-  height="45"
->
-  <path
-    d="M535.12 442.432v210.016a16 16 0 0 1-16 16h-16.16a16 16 0 0 1-16-16V440.208l-32.88 32.864a16 16 0 0 1-11.312 4.688h-28.304a14.464 14.464 0 0 1-10.24-24.688l97.824-97.808a11.136 11.136 0 0 1 15.744 0l97.808 97.808a14.464 14.464 0 0 1-10.24 24.688h-28.288a16 16 0 0 1-11.312-4.688l-30.64-30.64zM512 800c159.056 0 288-128.944 288-288s-128.944-288-288-288-288 128.944-288 288 128.944 288 288 288z m0 48c-185.568 0-336-150.432-336-336s150.432-336 336-336 336 150.432 336 336-150.432 336-336 336z"
-    p-id="9314"></path>
-</svg>
+<div class="fixed bottom-10 right-5 z-50">
+  <div class="fast-nav"></div>
+  <div class="menu-icon mt-2 flex cursor-pointer flex-col items-end gap-1">
+    <span class="inline-block h-[1px] w-[20px] bg-primary-dark"></span>
+    <span class="inline-block h-[1px] w-[20px] bg-primary-dark"></span>
+    <span class="inline-block h-[1px] w-[20px] bg-primary-dark"></span>
+  </div>
+</div>
+
 <script>
   const pageScroll = () => {
-    const navIcon = document.querySelector('.nav-icon')
-    if (!navIcon) return
-    if (document.documentElement.scrollHeight !== document.documentElement.clientHeight) {
-      navIcon.classList.remove('hidden')
-    }
-    window.addEventListener('scroll', () => {
-      navIcon.classList.remove('hidden')
-      if (window.scrollY !== 0) {
-        //开始滑动
-        navIcon.classList.remove('rotate-180')
-        navIcon.classList.add('to-down', 'rotate-0')
-      } else {
-        //最上面
-        navIcon.classList.add('rotate-180')
-        navIcon.classList.remove('to-down', 'rotate-0')
-      }
-    })
+    const anchorLinks = document.querySelectorAll('.icon-link')
+    const tocLinks = document.querySelectorAll('.fast-nav  .toc-link')
 
-    navIcon.addEventListener('click', () => {
-      // 页面总高
-      const totalH = document.body.scrollHeight || document.documentElement.scrollHeight
-      if (navIcon.classList.contains('to-down')) {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth',
-        })
-      } else {
-        window.scrollTo({
-          top: totalH,
-          behavior: 'smooth',
-        })
-      }
+    window.addEventListener('scroll', () => {
+      anchorLinks.forEach((item, index) => {
+        const ele = item as HTMLElement
+        if (window.scrollY >= ele.offsetTop - 150) {
+          tocLinks.forEach((item) => item.classList.remove('text-primary'))
+          tocLinks[index].classList.add('text-primary')
+        } else {
+          tocLinks[index].classList.remove('text-primary')
+        }
+      })
     })
   }
-  document.addEventListener('astro:page-load', pageScroll)
+
+  const init = () => {
+    const fastNav = document.querySelector('.fast-nav')
+    const tocNav = document.querySelector('.toc')
+    const menuIcon = document.querySelector('.menu-icon')
+    if (fastNav && tocNav) {
+      fastNav.classList.add('hidden')
+      fastNav.append(tocNav.cloneNode(true))
+    }
+    menuIcon?.addEventListener('click', () => {
+      fastNav?.classList.toggle('hidden')
+    })
+    pageScroll()
+  }
+
+  document.addEventListener('astro:page-load', init)
 </script>
+<style lang="less" is:global>
+  .fast-nav {
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+    .toc {
+      width: 100%;
+      padding: 0 0.5rem;
+      background-color: #dddddd;
+      border-radius: 5px;
+      max-height: 40vh;
+      overflow-y: auto;
+
+      ol {
+        list-style: decimal;
+        padding-left: 1.25rem;
+        margin: 0.5rem 0;
+      }
+      li {
+        margin: 0.5rem 0;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+  }
+</style>
