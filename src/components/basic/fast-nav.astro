@@ -1,0 +1,90 @@
+<div class="nav-area fixed bottom-10 right-5 z-50 hidden">
+  <div class="fast-nav"></div>
+  <div class="menu-icon mt-2 flex cursor-pointer flex-col items-end gap-1">
+    <span class="inline-block h-[1.5px] w-[20px] bg-primary-dark"></span>
+    <span class="inline-block h-[1.5px] w-[20px] bg-primary-dark"></span>
+    <span class="inline-block h-[1.5px] w-[20px] bg-primary-dark"></span>
+  </div>
+</div>
+
+<script>
+  const pageScroll = () => {
+    const anchorLinks = document.querySelectorAll('.icon-link')
+    const tocLinks = document.querySelectorAll('.fast-nav .toc-link')
+
+    window.addEventListener('scroll', () => {
+      anchorLinks.forEach((item, index) => {
+        const ele = item as HTMLElement
+        if (window.scrollY >= ele.offsetTop - 150) {
+          tocLinks.forEach((item) => item.classList.remove('text-primary'))
+          tocLinks[index].classList.add('text-primary')
+        } else {
+          tocLinks[index].classList.remove('text-primary')
+        }
+      })
+    })
+  }
+
+  const init = () => {
+    const navArea = document.querySelector('.nav-area')
+    const fastNav = document.querySelector('.fast-nav')
+    const tocNav = document.querySelector('.toc')
+    const menuIcon = document.querySelector('.menu-icon')
+    if (fastNav && tocNav) {
+      navArea?.classList.remove('hidden')
+      fastNav.classList.add('hidden')
+      fastNav.append(tocNav.cloneNode(true))
+    }
+    menuIcon?.addEventListener('click', () => {
+      menuIcon.classList.toggle('menu-close')
+      fastNav?.classList.toggle('hidden')
+    })
+    pageScroll()
+  }
+
+  document.addEventListener('astro:page-load', init)
+</script>
+<style lang="less" is:global>
+  .fast-nav {
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+    .toc {
+      width: 100%;
+      padding: 0 1rem;
+      padding-top: 0.5rem;
+      background-color: #dddddd;
+      border-radius: 5px;
+      max-height: 40vh;
+      overflow-y: auto;
+
+      ol {
+        list-style: decimal;
+        padding-left: 1.25rem;
+        margin: 0.5rem 0;
+      }
+      li {
+        margin: 0.5rem 0;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .menu-close {
+    span:first-child {
+      transform: rotate(45deg);
+      transform-origin: 50%;
+      margin-top: 10px;
+    }
+    span:nth-child(2) {
+      display: none;
+    }
+    span:last-child {
+      transform: rotate(-45deg);
+      margin-top: -5.5px;
+      transform-origin: 50%;
+    }
+  }
+</style>

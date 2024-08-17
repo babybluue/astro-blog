@@ -1,6 +1,5 @@
 ---
 import ReloadPrompt from '@components/basic/reload-prompt.astro'
-import ScrollButton from '@components/basic/scroll-button.astro'
 import BaseHead from '@components/html-head.astro'
 
 const { title, description, cover } = Astro.props.frontmatter || Astro.props
@@ -11,6 +10,5 @@ const { title, description, cover } = Astro.props.frontmatter || Astro.props
   <body class="bg-primary-light text-primary-dark dark:bg-primary-dark dark:text-white">
     <slot />
     <ReloadPrompt transition:persist />
-    <ScrollButton />
   </body>
 </html>
