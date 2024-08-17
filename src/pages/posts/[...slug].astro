@@ -1,4 +1,5 @@
 ---
+import FastNav from '@components/basic/fast-nav.astro'
 import ContentRender from '@components/content-render.astro'
 import NavHead from '@components/nav-header.astro'
 import PostPagination from '@components/post-pagination.astro'
@@ -31,5 +32,6 @@ const { post, prev, next } = Astro.props
     </div>
 
     <PostPagination prev={prev} next={next} />
+    <FastNav 》 < main />
   </main>
 </BaseLayout>

@@ -1,16 +1,16 @@
-<div class="fixed bottom-10 right-5 z-50">
+<div class="nav-area fixed bottom-10 right-5 z-50 hidden">
   <div class="fast-nav"></div>
   <div class="menu-icon mt-2 flex cursor-pointer flex-col items-end gap-1">
-    <span class="inline-block h-[1px] w-[20px] bg-primary-dark"></span>
-    <span class="inline-block h-[1px] w-[20px] bg-primary-dark"></span>
-    <span class="inline-block h-[1px] w-[20px] bg-primary-dark"></span>
+    <span class="inline-block h-[1.5px] w-[20px] bg-primary-dark"></span>
+    <span class="inline-block h-[1.5px] w-[20px] bg-primary-dark"></span>
+    <span class="inline-block h-[1.5px] w-[20px] bg-primary-dark"></span>
   </div>
 </div>
 
 <script>
   const pageScroll = () => {
     const anchorLinks = document.querySelectorAll('.icon-link')
-    const tocLinks = document.querySelectorAll('.fast-nav  .toc-link')
+    const tocLinks = document.querySelectorAll('.fast-nav .toc-link')
 
     window.addEventListener('scroll', () => {
       anchorLinks.forEach((item, index) => {
@@ -26,10 +26,12 @@
   }
 
   const init = () => {
+    const navArea = document.querySelector('.nav-area')
     const fastNav = document.querySelector('.fast-nav')
     const tocNav = document.querySelector('.toc')
     const menuIcon = document.querySelector('.menu-icon')
     if (fastNav && tocNav) {
+      navArea?.classList.remove('hidden')
       fastNav.classList.add('hidden')
       fastNav.append(tocNav.cloneNode(true))
     }
@@ -49,7 +51,8 @@
     }
     .toc {
       width: 100%;
-      padding: 0 0.5rem;
+      padding: 0 1rem;
+      padding-top: 0.5rem;
       background-color: #dddddd;
       border-radius: 5px;
       max-height: 40vh;
@@ -73,14 +76,14 @@
     span:first-child {
       transform: rotate(45deg);
       transform-origin: 50%;
-      margin-top: 5px;
+      margin-top: 10px;
     }
     span:nth-child(2) {
-      opacity: 0;
+      display: none;
     }
     span:last-child {
       transform: rotate(-45deg);
-      margin-top: -10px;
+      margin-top: -5.5px;
       transform-origin: 50%;
     }
   }
