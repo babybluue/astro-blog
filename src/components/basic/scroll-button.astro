@@ -1,0 +1,11 @@
+<script>
+  const pageScroll = () => {
+    const navIcon = document.querySelector('.nav-icon')
+    if (!navIcon) return
+    if (document.documentElement.scrollHeight !== document.documentElement.clientHeight) {
+      navIcon.classList.remove('hidden')
+    }
+    window.addEventListener('scroll', () => {})
+  }
+  document.addEventListener('astro:page-load', pageScroll)
+</script>
