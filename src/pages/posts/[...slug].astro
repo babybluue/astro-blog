@@ -27,11 +27,11 @@ const { post, prev, next } = Astro.props
 <BaseLayout title={post.data.title} description={post.data.description ?? ''} cover={post.data.cover}>
   <NavHead />
   <main class="flex flex-col justify-between">
-    <div data-pagefind-body class="rounded-lg border p-5 dark:border-primary-gray max-[500px]:p-2">
+    <div data-pagefind-body class="rounded-lg border p-5 dark:border-primary-gray max-[500px]:p-3">
       <ContentRender post={post} />
     </div>
 
     <PostPagination prev={prev} next={next} />
-    <FastNav 》 < main />
+    <FastNav />
   </main>
 </BaseLayout>
