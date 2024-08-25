@@ -166,6 +166,9 @@ const { Content } = await post.render()
         padding: 1rem 0 1rem 3rem;
         background-color: #dddddd;
         border-radius: 5px;
+        @media screen and (max-width: 768px) {
+          padding: 0.1rem 0 0.1rem 2rem;
+        }
       }
       ol {
         list-style: circle;

@@ -27,7 +27,7 @@ const { post, prev, next } = Astro.props
 <BaseLayout title={post.data.title} description={post.data.description ?? ''} cover={post.data.cover}>
   <NavHead />
   <main class="flex flex-col justify-between">
-    <div data-pagefind-body class="rounded-lg border p-5 dark:border-primary-gray max-[500px]:p-3">
+    <div data-pagefind-body class="rounded-lg border p-5 dark:border-primary-gray max-[768px]:p-3">
       <ContentRender post={post} />
     </div>
 
