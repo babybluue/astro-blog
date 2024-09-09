@@ -57,7 +57,9 @@ export default defineConfig({
   },
   integrations: [
     mdx(),
-    sitemap(),
+    sitemap({
+      filter: (page) => page.includes('/posts'),
+    }),
     tailwind({ applyBaseStyles: false }),
     AstroPWA({
       registerType: 'prompt',
