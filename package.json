@@ -19,6 +19,7 @@
     "@astrojs/tailwind": "5.1.0",
     "@astrojs/ts-plugin": "1.6.0",
     "astro": "4.5.5",
+    "astro-i18n-aut": "^0.7.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },

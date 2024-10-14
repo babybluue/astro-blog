@@ -23,3 +23,5 @@ pnpm-debug.log*
 .vscode/*
 
 dev-dist/
+
+astro_tmp_pages_*

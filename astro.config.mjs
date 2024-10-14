@@ -2,6 +2,7 @@ import AstroPWA from '@vite-pwa/astro'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
+import i18n, { filterSitemapByDefaultLocale } from 'astro-i18n-aut/integration'
 import { defineConfig } from 'astro/config'
 
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
@@ -11,11 +12,21 @@ import rehypeSlug from 'rehype-slug'
 import rehypeToc from 'rehype-toc'
 import remarkRehype from 'remark-rehype'
 
+const defaultLocale = 'zh'
+const locales = {
+  zh: '中文',
+  en: 'English',
+}
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://astro-blog-ecru-phi.vercel.app',
   prefetch: {
     prefetchAll: true,
+  },
+  trailingSlash: 'never',
+  build: {
+    format: 'file',
   },
   markdown: {
     syntaxHighlight: 'prism',
@@ -56,9 +67,17 @@ export default defineConfig({
     ],
   },
   integrations: [
+    i18n({
+      locales,
+      defaultLocale,
+    }),
     mdx(),
     sitemap({
-      filter: (page) => page.includes('/posts'),
+      i18n: {
+        locales,
+        defaultLocale,
+      },
+      filter: filterSitemapByDefaultLocale({ defaultLocale }),
     }),
     tailwind({ applyBaseStyles: false }),
     AstroPWA({
