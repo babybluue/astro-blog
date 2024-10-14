@@ -50,7 +50,7 @@ const { Content } = await post.render()
       }
     }
 
-    :is(p) code {
+    code:not(:has(span)) {
       padding: 0 0.4rem;
       margin: 0 0.2rem;
       border-radius: 0.3rem;
@@ -60,6 +60,7 @@ const { Content } = await post.render()
       max-width: 100%;
       scrollbar-width: none;
       color: white;
+      background-color: #374151;
       &::-webkit-scrollbar {
         display: none;
       }
@@ -189,14 +190,10 @@ const { Content } = await post.render()
         margin: 0.3125rem 0;
       }
     }
-
-    :is(p) code {
-      background-color: #374151;
-    }
   }
 
   .dark {
-    :is(p) code {
+    code:not(:has(span)) {
       background-color: #282c34;
     }
 
