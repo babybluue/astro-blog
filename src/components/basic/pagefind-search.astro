@@ -14,6 +14,16 @@
       bundlePath: isDev ? '/dist/pagefind/' : '/pagefind/',
       resetStyles: false,
       excerptLength: 50,
+      processResult: isDev
+        ? function (result: any) {
+            result.meta.image = 'dist/' + result.meta.image
+            result.url = result.raw_url
+            result.sub_results.forEach((subResult: any) => {
+              subResult.url = subResult.url.replace('dist/', '')
+            })
+            return result
+          }
+        : undefined,
     })
   })
 </script>
