@@ -55,6 +55,9 @@ export default defineConfig({
       [rehypeExternalLinks, { rel: 'nofollow', target: '_blank' }],
     ],
   },
+  build: {
+    format: 'file',
+  },
   integrations: [
     mdx(),
     sitemap({
@@ -72,6 +75,7 @@ export default defineConfig({
       experimental: {
         directoryAndTrailingSlashHandler: true,
       },
+
       includeAssets: ['**/*'],
       manifest: {
         name: 'didmax - blog',
