@@ -27,7 +27,7 @@ export const getStaticPaths = async ({ paginate }: { paginate: PaginateFunction 
     const filteredPosts = allPosts
       .filter((post) => post.data.tags && post.data.tags.includes(tag))
       .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-    return paginate(filteredPosts, { params: { tags: tag }, pageSize: 6 })
+    return paginate(filteredPosts, { params: { tags: tag }, pageSize: 12 })
   })
 }
 
