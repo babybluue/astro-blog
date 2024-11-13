@@ -4,6 +4,7 @@ module.exports = {
     sourceType: 'module',
     parser: '@typescript-eslint/parser',
   },
+  plugins: ['@typescript-eslint'],
   extends: ['plugin:astro/recommended', 'plugin:@typescript-eslint/recommended'],
   overrides: [
     {

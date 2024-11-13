@@ -26,6 +26,7 @@
     "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
     "@pagefind/default-ui": "^1.1.0",
     "@types/node": "^20.5.9",
+    "@typescript-eslint/eslint-plugin": "^8.14.0",
     "@typescript-eslint/parser": "^6.3.0",
     "@vite-pwa/astro": "^0.3.0",
     "autoprefixer": "^10.4.14",
