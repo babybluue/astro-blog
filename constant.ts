@@ -1,5 +1,5 @@
-import avatarImg from '@assets/avatar.jpg'
-import type { PostModel } from '@interfaces/post-model'
+import avatarImg from './src/assets/avatar.jpg'
+import type { PostModel } from './src/interfaces/post-model'
 
 // index
 

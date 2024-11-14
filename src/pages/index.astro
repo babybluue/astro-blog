@@ -5,7 +5,7 @@ import AvatarImage from '@components/basic/avatar-image.astro'
 import NavLink from '@components/basic/nav-link.astro'
 import BaseLayout from '@layouts/base-layout.astro'
 import { getAllPosts } from '@utils/all-posts'
-import { formatedYMD } from '@utils/date-helper'
+import { formatYMD } from '@utils/date-helper'
 
 const latestPost = (await getAllPosts()).slice(0, 8)
 ---
@@ -31,7 +31,7 @@ const latestPost = (await getAllPosts()).slice(0, 8)
               <a class="flex-1 truncate" href={getPostLink(post)}>
                 {post.data.title}
               </a>
-              <span>{formatedYMD(post.data.date)}</span>
+              <span>{formatYMD(post.data.date)}</span>
             </div>
           ))
         }

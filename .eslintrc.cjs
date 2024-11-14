@@ -6,6 +6,10 @@ module.exports = {
   },
   plugins: ['@typescript-eslint'],
   extends: ['plugin:astro/recommended', 'plugin:@typescript-eslint/recommended'],
+  rules: {
+    '@typescript-eslint/no-unused-expressions': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+  },
   overrides: [
     {
       // Define the configuration for `.astro` file.

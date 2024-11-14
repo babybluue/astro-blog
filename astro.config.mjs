@@ -1,4 +1,4 @@
-import { site } from '@constant'
+import { site } from './constant'
 import AstroPWA from '@vite-pwa/astro'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
@@ -79,9 +79,9 @@ export default defineConfig({
 
       includeAssets: ['**/*'],
       manifest: {
-        name: 'didmax - blog',
-        short_name: 'didmax',
-        description: 'didmax, my blog website',
+        name: 'astro - blog',
+        short_name: 'astro blob',
+        description: 'a blog theme powered by astro',
         theme_color: '#ffffff',
         background_color: '#ffffff',
         display: 'standalone',
