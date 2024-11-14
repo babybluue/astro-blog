@@ -61,7 +61,7 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap({
-      filter: (page) => page.includes('/posts'),
+      filter: (page) => page == 'https://astro-blog-ecru-phi.vercel.app/' || page.includes('/posts'),
     }),
     tailwind({ applyBaseStyles: false }),
     AstroPWA({
