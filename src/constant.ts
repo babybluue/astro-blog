@@ -3,6 +3,8 @@ import type { PostModel } from '@interfaces/post-model'
 
 // index
 
+export const site = 'https://astro-blog-ecru-phi.vercel.app'
+
 export const title = 'didmax'
 
 export const description = '这是一个托管在 Cloudflare 上的个人博客，用于记录生活和技术笔记。'

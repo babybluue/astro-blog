@@ -1,3 +1,4 @@
+import { site } from '@constant'
 import AstroPWA from '@vite-pwa/astro'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
@@ -13,7 +14,7 @@ import remarkRehype from 'remark-rehype'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://astro-blog-ecru-phi.vercel.app',
+  site,
   prefetch: {
     prefetchAll: true,
   },
@@ -61,7 +62,7 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap({
-      filter: (page) => page == 'https://astro-blog-ecru-phi.vercel.app/' || page.includes('/posts'),
+      filter: (page) => page == `${site}/` || page.includes('/posts'),
     }),
     tailwind({ applyBaseStyles: false }),
     AstroPWA({
