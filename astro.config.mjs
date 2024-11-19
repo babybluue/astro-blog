@@ -1,4 +1,4 @@
-import { site } from './constant'
+import { globalVars, site } from './constant'
 import AstroPWA from '@vite-pwa/astro'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
@@ -11,6 +11,10 @@ import rehypePrism from 'rehype-prism-plus'
 import rehypeSlug from 'rehype-slug'
 import rehypeToc from 'rehype-toc'
 import remarkRehype from 'remark-rehype'
+
+const globalVarsString = Object.entries(globalVars)
+  .map(([key, value]) => `@${key}: ${value};`)
+  .join('\n')
 
 // https://astro.build/config
 export default defineConfig({
@@ -58,6 +62,16 @@ export default defineConfig({
   },
   build: {
     format: 'file',
+  },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        less: {
+          globalVars,
+          additionalData: globalVarsString,
+        },
+      },
+    },
   },
   integrations: [
     mdx(),

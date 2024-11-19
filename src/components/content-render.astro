@@ -4,7 +4,7 @@ import { Image } from 'astro:assets'
 import type { PostModel } from '@interfaces/post-model'
 import { getFormatDate } from '@utils/date-helper'
 
-import '@styles/prism-coldark-dark.css'
+import '@styles/prism-coldark-dark.less'
 
 interface Props {
   post: PostModel
@@ -88,31 +88,31 @@ const { Content } = await post.render()
     }
 
     h1 {
-      font-size: 1.4rem;
+      font-size: @h1-size;
     }
 
     h2 {
-      font-size: 1.3rem;
+      font-size: @h2-size;
     }
 
     h3 {
-      font-size: 1.25rem;
-      color: #6cb8e6;
+      font-size: @h3-size;
+      color: @h3-color;
     }
 
     h4 {
-      font-size: 1.15rem;
-      color: #e5b567;
+      font-size: @h4-size;
+      color: @h4-color;
     }
 
     h5 {
-      font-size: 1.1rem;
-      color: #ffc107;
+      font-size: @h5-size;
+      color: @h5-color;
     }
 
     h6 {
-      font-size: 1rem;
-      color: #795548;
+      font-size: @h6-size;
+      color: @h6-color;
     }
 
     p {

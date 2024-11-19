@@ -22,3 +22,28 @@ export const links = [
 ]
 
 export const getPostLink = (post: PostModel) => `/posts/${post.data.abbrlink}`
+
+export const globalVars = {
+  'post-font': "'Fira Mono', 'Noto Sans SC', sans-serif",
+  'code-font': "'Fira Mono', 'Noto Sans SC', monospace",
+
+  'a-link': '#56b6c2',
+
+  'primary-color': '#56b6c2',
+
+  'h1-size': '1.4rem',
+
+  'h2-size': '1.3rem',
+
+  'h3-size': '1.25rem',
+  'h3-color': '#6cb8e6',
+
+  'h4-size': '1.2rem',
+  'h4-color': '#e5b567',
+
+  'h5-size': '1.15rem',
+  'h5-color': '#ffc107',
+
+  'h6-size': '1.1rem',
+  'h6-color': '#795548',
+}

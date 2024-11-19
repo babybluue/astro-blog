@@ -1,5 +1,6 @@
 # astro blog
 
+![Index](/src/images/c3009907.png)
 ![Lighthouse](/lighthouse.png)
 
 ## How to create a new post with abbrlink
