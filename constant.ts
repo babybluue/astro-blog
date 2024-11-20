@@ -24,12 +24,10 @@ export const links = [
 export const getPostLink = (post: PostModel) => `/posts/${post.data.abbrlink}`
 
 export const globalVars = {
-  'post-font': "'Fira Mono', 'Noto Sans SC', sans-serif",
-  'code-font': "'Fira Mono', 'Noto Sans SC', monospace",
+  'post-font': "'Fira Mono', 'Noto Sans SC', sans-serif", // 文章字体
+  'code-font': "'Fira Mono', 'Noto Sans SC', monospace", // 代码字体
 
-  'a-link': '#56b6c2',
-
-  'primary-color': '#56b6c2',
+  'a-link': '#56b6c2', // 链接悬浮色
 
   'h1-size': '1.4rem',
 

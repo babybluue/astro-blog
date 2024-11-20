@@ -27,7 +27,6 @@ const { prev, next } = Astro.props
       <div class="flex flex-1 flex-col justify-items-end gap-1 truncate  py-1 text-right ">
         <span class="opacity-70">Next</span>
         <a href={'/posts/' + next.data.abbrlink} class="truncate">
-          {' '}
           {next.data.title}
         </a>
       </div>
