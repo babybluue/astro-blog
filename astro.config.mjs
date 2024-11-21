@@ -94,7 +94,7 @@ export default defineConfig({
       includeAssets: ['**/*'],
       manifest: {
         name: 'astro - blog',
-        short_name: 'astro blob',
+        short_name: 'astro blog',
         description: 'a blog theme powered by astro',
         theme_color: '#ffffff',
         background_color: '#ffffff',
