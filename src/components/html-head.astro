@@ -1,7 +1,7 @@
 ---
 import '@styles/global.less'
 
-import { ViewTransitions } from 'astro:transitions'
+import { ClientRouter } from 'astro:transitions'
 
 import { pwaInfo } from 'virtual:pwa-info'
 
@@ -59,6 +59,6 @@ const { title, description, cover } = Astro.props
     rel="stylesheet"
   />
 
-  <ViewTransitions />
+  <ClientRouter />
   {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
 </head>

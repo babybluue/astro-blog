@@ -19,9 +19,7 @@ const globalVarsString = Object.entries(globalVars)
 // https://astro.build/config
 export default defineConfig({
   site,
-  prefetch: {
-    prefetchAll: true,
-  },
+  prefetch: true,
   markdown: {
     syntaxHighlight: 'prism',
     remarkPlugins: [remarkRehype],

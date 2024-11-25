@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets'
+import { render } from 'astro:content'
 
 import type { PostModel } from '@interfaces/post-model'
 import { getFormatDate } from '@utils/date-helper'
@@ -12,7 +13,7 @@ interface Props {
 }
 
 const { post, from } = Astro.props
-const { Content } = await post.render()
+const { Content } = await render(post)
 ---
 
 <article>
