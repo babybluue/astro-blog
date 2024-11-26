@@ -21,7 +21,9 @@ export const links = [
   { url: '/search', title: '🔍搜索' },
 ]
 
-export const getPostLink = (post: PostModel) => `/posts/${post.data.abbrlink}`
+export const linkAttr = 'abbrlink'
+
+export const getPostLink = (post: PostModel) => `/posts/${post.data[linkAttr]}`
 
 export const globalVars = {
   'post-font': "'Fira Mono', 'Noto Sans SC', sans-serif", // 文章字体

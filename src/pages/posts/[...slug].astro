@@ -1,4 +1,6 @@
 ---
+import { linkAttr } from '@constant'
+
 import Toc from '@components/basic/toc.astro'
 import ContentRender from '@components/content-render.astro'
 import NavHead from '@components/nav-header.astro'
@@ -16,7 +18,7 @@ interface Props {
 export async function getStaticPaths() {
   const posts = await getAllPosts()
   return posts.map((post, index) => ({
-    params: { slug: post.data.abbrlink },
+    params: { slug: post.data[linkAttr] },
     props: { post, prev: posts[index - 1], next: posts[index + 1] },
   }))
 }

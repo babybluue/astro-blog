@@ -4,8 +4,6 @@ import { Image } from 'astro:assets'
 import type { PostModel } from '@interfaces/post-model'
 import { getFormatDate } from '@utils/date-helper'
 
-import '@styles/prism-coldark-dark.less'
-
 interface Props {
   post: PostModel
   from?: string
@@ -194,6 +192,29 @@ const { Content } = await post.render()
         margin: 0.3125rem 0;
       }
     }
+  }
+
+  pre.astro-code {
+    padding: 0.5rem 0;
+    font-family: @post-font;
+    code {
+      font-family: @post-font;
+    }
+  }
+
+  code {
+    counter-reset: step;
+    counter-increment: step 0;
+  }
+
+  code .line::before {
+    content: counter(step);
+    counter-increment: step;
+    width: 1.6rem;
+    margin-right: 1rem;
+    display: inline-block;
+    text-align: right;
+    color: rgba(115, 138, 148, 0.4);
   }
 
   .dark {
