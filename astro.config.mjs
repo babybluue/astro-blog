@@ -7,10 +7,10 @@ import { defineConfig } from 'astro/config'
 
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeExternalLinks from 'rehype-external-links'
-import rehypePrism from 'rehype-prism-plus'
 import rehypeSlug from 'rehype-slug'
 import rehypeToc from 'rehype-toc'
 import remarkRehype from 'remark-rehype'
+import { transformerNotationDiff, transformerNotationHighlight } from '@shikijs/transformers'
 
 const globalVarsString = Object.entries(globalVars)
   .map(([key, value]) => `@${key}: ${value};`)
@@ -23,7 +23,10 @@ export default defineConfig({
     prefetchAll: true,
   },
   markdown: {
-    syntaxHighlight: 'prism',
+    shikiConfig: {
+      theme: 'one-dark-pro',
+      transformers: [transformerNotationHighlight(), transformerNotationDiff()],
+    },
     remarkPlugins: [remarkRehype],
     rehypePlugins: [
       rehypeSlug,
@@ -56,7 +59,6 @@ export default defineConfig({
           },
         },
       ],
-      [rehypePrism, { showLineNumbers: true }],
       [rehypeExternalLinks, { rel: 'nofollow', target: '_blank' }],
     ],
   },

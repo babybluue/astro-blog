@@ -1,4 +1,6 @@
 ---
+import { linkAttr } from '@constant'
+
 import type { PostModel } from '@interfaces/post-model'
 
 interface Props {
@@ -14,7 +16,7 @@ const { prev, next } = Astro.props
     prev ? (
       <div class="flex w-[50%] flex-1 flex-col gap-1 truncate py-1 text-left ">
         <span class="opacity-70">Prev</span>
-        <a href={'/posts/' + prev.data.abbrlink} class="truncate">
+        <a href={'/posts/' + prev.data[linkAttr]} class="truncate">
           {prev.data.title}
         </a>
       </div>
@@ -26,7 +28,7 @@ const { prev, next } = Astro.props
     next ? (
       <div class="flex flex-1 flex-col justify-items-end gap-1 truncate  py-1 text-right ">
         <span class="opacity-70">Next</span>
-        <a href={'/posts/' + next.data.abbrlink} class="truncate">
+        <a href={'/posts/' + next.data[linkAttr]} class="truncate">
           {next.data.title}
         </a>
       </div>
