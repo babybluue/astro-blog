@@ -10,6 +10,7 @@ import rehypeExternalLinks from 'rehype-external-links'
 import rehypeSlug from 'rehype-slug'
 import rehypeToc from 'rehype-toc'
 import remarkRehype from 'remark-rehype'
+import { transformerNotationDiff, transformerNotationHighlight } from '@shikijs/transformers'
 
 const globalVarsString = Object.entries(globalVars)
   .map(([key, value]) => `@${key}: ${value};`)
@@ -24,6 +25,7 @@ export default defineConfig({
   markdown: {
     shikiConfig: {
       theme: 'one-dark-pro',
+      transformers: [transformerNotationHighlight(), transformerNotationDiff()],
     },
     remarkPlugins: [remarkRehype],
     rehypePlugins: [

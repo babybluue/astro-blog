@@ -31,9 +31,9 @@ export const globalVars = {
 
   'a-link': '#56b6c2', // 链接悬浮色
 
-  'h1-size': '1.4rem',
+  'h1-size': '1.45rem',
 
-  'h2-size': '1.3rem',
+  'h2-size': '1.35rem',
 
   'h3-size': '1.25rem',
   'h3-color': '#6cb8e6',

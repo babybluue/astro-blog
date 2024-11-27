@@ -200,21 +200,44 @@ const { Content } = await post.render()
     code {
       font-family: @post-font;
     }
+    font-size: 0.96rem;
   }
 
   code {
+    .highlighted {
+      background-color: #65758529;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .diff.add {
+      background-color: #10b98129;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .diff.remove {
+      background-color: #f43f5e29;
+      display: inline-block;
+      width: 100%;
+    }
+
     counter-reset: step;
     counter-increment: step 0;
-  }
 
-  code .line::before {
-    content: counter(step);
-    counter-increment: step;
-    width: 1.6rem;
-    margin-right: 1rem;
-    display: inline-block;
-    text-align: right;
-    color: rgba(115, 138, 148, 0.4);
+    .line::before {
+      content: counter(step);
+      counter-increment: step;
+      width: 1.6rem;
+      margin-right: 1rem;
+      display: inline-block;
+      text-align: right;
+      color: rgba(115, 138, 148, 0.4);
+    }
+
+    span.line:last-child:empty {
+      display: none;
+    }
   }
 
   .dark {
