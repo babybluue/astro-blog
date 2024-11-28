@@ -114,6 +114,7 @@ const { Content } = await post.render()
     }
 
     p {
+      vertical-align: middle;
       margin: 0.5rem 0;
       a {
         margin: 0 0.1875rem;
@@ -141,6 +142,9 @@ const { Content } = await post.render()
       & > p:first-child {
         display: inline;
       }
+      pre {
+        margin-top: 0.5rem;
+      }
     }
 
     a {
@@ -152,6 +156,10 @@ const { Content } = await post.render()
       border-top: 3px dotted #282c34;
       margin: 1rem auto;
       width: 30%;
+    }
+
+    input {
+      vertical-align: middle;
     }
 
     img {
