@@ -51,20 +51,31 @@ import { Image } from 'astro:assets'
 />
 <script>
   document.addEventListener('astro:page-load', () => {
-    const avatar = document.querySelector('.avatar') as HTMLElement | null;
+    const avatar = document.querySelector('.avatar') as HTMLElement | null
+    let hoverTimer: number | undefined
 
     avatar?.addEventListener('mouseenter', () => {
       avatar.classList.add('rotate-[360deg]')
+      hoverTimer = window.setTimeout(() => {
+        avatar.classList.add('jump')
+      }, 1000)
     })
 
     avatar?.addEventListener('mouseleave', () => {
       avatar.classList.remove('rotate-[360deg]')
+      if (hoverTimer !== undefined) {
+        clearTimeout(hoverTimer)
+        avatar.classList.remove('jump')
+      }
     })
 
     avatar?.addEventListener(
       'touchstart',
       () => {
         avatar.classList.add('rotate-[360deg]')
+        hoverTimer = window.setTimeout(() => {
+          avatar.classList.add('jump')
+        }, 1000)
       },
       { passive: true },
     )
@@ -73,26 +84,12 @@ import { Image } from 'astro:assets'
       'touchend',
       () => {
         avatar.classList.remove('rotate-[360deg]')
+        if (hoverTimer !== undefined) {
+          clearTimeout(hoverTimer)
+          avatar.classList.remove('jump')
+        }
       },
       { passive: true },
     )
   })
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const avatar = document.querySelector('.avatar') as HTMLElement | null;
-    let hoverTimer: number | undefined;
-
-    avatar?.addEventListener('mouseenter', () => {
-      hoverTimer = window.setTimeout(() => {
-        avatar.classList.add('jump');
-      }, 1000); // 5 seconds
-    });
-
-    avatar?.addEventListener('mouseleave', () => {
-      if (hoverTimer !== undefined) {
-        clearTimeout(hoverTimer);
-        avatar.classList.remove('jump');
-      }
-    });
-  });
 </script>
