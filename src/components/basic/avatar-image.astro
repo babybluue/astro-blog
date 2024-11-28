@@ -3,6 +3,46 @@ import { avatar } from '@constant'
 import { Image } from 'astro:assets'
 ---
 
+<style>
+  .avatar {
+    transition: transform 0.2s;
+  }
+
+  .jump {
+    animation: jump 0.8s infinite ease-in-out;
+  }
+
+  @keyframes jump {
+    0% {
+      transform: translate(0, 0);
+    }
+    12% {
+      transform: translate(-3px, -6px);
+    }
+    25% {
+      transform: translate(5px, -4px);
+    }
+    38% {
+      transform: translate(-6px, -5px);
+    }
+    52% {
+      transform: translate(4px, -6px);
+    }
+    65% {
+      transform: translate(-5px, -3px);
+    }
+    78% {
+      transform: translate(6px, -5px);
+    }
+    90% {
+      transform: translate(-4px, -4px);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+</style>
+
 <Image
   src={avatar}
   loading="eager"
@@ -11,7 +51,7 @@ import { Image } from 'astro:assets'
 />
 <script>
   document.addEventListener('astro:page-load', () => {
-    const avatar = document.querySelector('.avatar')
+    const avatar = document.querySelector('.avatar') as HTMLElement | null;
 
     avatar?.addEventListener('mouseenter', () => {
       avatar.classList.add('rotate-[360deg]')
@@ -37,4 +77,22 @@ import { Image } from 'astro:assets'
       { passive: true },
     )
   })
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const avatar = document.querySelector('.avatar') as HTMLElement | null;
+    let hoverTimer: number | undefined;
+
+    avatar?.addEventListener('mouseenter', () => {
+      hoverTimer = window.setTimeout(() => {
+        avatar.classList.add('jump');
+      }, 1000); // 5 seconds
+    });
+
+    avatar?.addEventListener('mouseleave', () => {
+      if (hoverTimer !== undefined) {
+        clearTimeout(hoverTimer);
+        avatar.classList.remove('jump');
+      }
+    });
+  });
 </script>
