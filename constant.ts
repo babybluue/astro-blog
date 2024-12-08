@@ -1,5 +1,5 @@
-import avatarImg from './src/assets/avatar.jpg'
-import type { PostModel } from './src/interfaces/post-model'
+import avatarImg from './src/assets/avatar.jpg';
+import type { PostModel } from './src/interfaces/post-model';
 
 // index
 
@@ -13,6 +13,14 @@ export const avatar = avatarImg
 
 export const quote =
   '我个人的一个秘密是在需要极大快乐和悲伤的公众场合却达不到这种快乐和悲伤应有的水平，因而内心惊恐万状，汗如雨下'
+
+export const tooltip = {
+  content:'检测到页面内容有更新更新，是否刷新页面',
+  confirm:'是',
+  cancel:'否'
+}
+
+
 
 export const links = [
   { url: '/', title: '🌐首页' },
