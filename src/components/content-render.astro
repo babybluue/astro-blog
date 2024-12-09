@@ -45,10 +45,6 @@ const { Content } = await post.render()
   article {
     pre {
       border-radius: 0.3rem;
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
     }
 
     code:not(:has(span)) {
@@ -128,7 +124,7 @@ const { Content } = await post.render()
 
     ol {
       list-style: decimal;
-      padding-left: 1.6rem;
+      padding-left: 1.85rem;
       margin: 0.5rem 0;
     }
 
@@ -204,10 +200,13 @@ const { Content } = await post.render()
   pre.astro-code {
     padding: 0.5rem 0;
     font-family: @post-font;
+    max-height: 30rem;
+    @media screen and (max-width: 768px) {
+      max-height: 18rem;
+    }
     code {
       font-family: @post-font;
     }
-    font-size: 0.96rem;
   }
 
   code {

@@ -1,5 +1,5 @@
-import avatarImg from './src/assets/avatar.jpg';
-import type { PostModel } from './src/interfaces/post-model';
+import avatarImg from './src/assets/avatar.jpg'
+import type { PostModel } from './src/interfaces/post-model'
 
 // index
 
@@ -15,12 +15,10 @@ export const quote =
   '我个人的一个秘密是在需要极大快乐和悲伤的公众场合却达不到这种快乐和悲伤应有的水平，因而内心惊恐万状，汗如雨下'
 
 export const tooltip = {
-  content:'检测到页面内容有更新更新，是否刷新页面',
-  confirm:'是',
-  cancel:'否'
+  content: '检测到页面内容有更新更新，是否刷新页面',
+  confirm: '是',
+  cancel: '否',
 }
-
-
 
 export const links = [
   { url: '/', title: '🌐首页' },
@@ -34,8 +32,7 @@ export const linkAttr = 'abbrlink'
 export const getPostLink = (post: PostModel) => `/posts/${post.data[linkAttr]}`
 
 export const globalVars = {
-  'post-font': "'Fira Mono', 'Noto Sans SC', sans-serif", // 文章字体
-  'code-font': "'Fira Mono', 'Noto Sans SC', monospace", // 代码字体
+  'post-font': "'Fira Mono', 'Noto Sans SC', Consolas, PingFang SC, Helvetica Neue, Microsoft YaHei, sans-serif", // 文章字体
 
   'a-link': '#56b6c2', // 链接悬浮色
 
