@@ -1,5 +1,9 @@
-import avatarImg from './src/assets/avatar.jpg'
-import type { PostModel } from './src/interfaces/post-model'
+import avatarImg from './src/assets/avatar.jpg';
+import type { PostModel } from './src/interfaces/post-model';
+
+
+
+
 
 // index
 
@@ -32,7 +36,8 @@ export const linkAttr = 'abbrlink'
 export const getPostLink = (post: PostModel) => `/posts/${post.data[linkAttr]}`
 
 export const globalVars = {
-  'post-font': "'Fira Mono', 'Noto Sans SC', Consolas, PingFang SC, Helvetica Neue, Microsoft YaHei, sans-serif", // 文章字体
+  'post-font': "'JetBrains Mono', 'Noto Sans SC', Consolas, PingFang SC, Helvetica Neue, Microsoft YaHei, sans-serif", // 文章字体
+  'code-font': "'JetBrains Mono', 'Noto Sans SC', Consolas, PingFang SC, Helvetica Neue, Microsoft YaHei, monospace", // 文章字体
 
   'a-link': '#56b6c2', // 链接悬浮色
 
