@@ -14,9 +14,9 @@ const { Content } = await post.render()
 ---
 
 <article>
-  <h2 data-pagefind-ignore class:list={['mt-2', { 'text-center': from && from === 'post' }]}>{post.data.title}</h2>
+  <header>
+    <h2 data-pagefind-ignore class:list={['mt-2', { 'text-center': from && from === 'post' }]}>{post.data.title}</h2>
 
-  <>
     <div data-pagefind-ignore class="my-2 text-right text-xs text-gray-400">
       {
         post.data.tags?.map((tag: string) => (
@@ -27,12 +27,13 @@ const { Content } = await post.render()
       }
       {getFormatDate(post.data.date)}
     </div>
+    
     {
       post.data.cover && (
         <Image src={post.data.cover} loading="eager" data-pagefind-meta="image[src]" class="mb-4" alt="" />
       )
     }
-  </>
+  </header>
 
   <Content />
 </article>
@@ -43,7 +44,10 @@ const { Content } = await post.render()
   }
 
   article {
-    code, kbd, samp, pre {
+    code,
+    kbd,
+    samp,
+    pre {
       font-family: @code-font;
     }
 
