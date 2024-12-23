@@ -1,16 +1,19 @@
-import { globalVars, site } from './constant'
-import AstroPWA from '@vite-pwa/astro'
-import mdx from '@astrojs/mdx'
-import sitemap from '@astrojs/sitemap'
-import tailwind from '@astrojs/tailwind'
-import { defineConfig } from 'astro/config'
+import { globalVars, site } from './constant';
+import AstroPWA from '@vite-pwa/astro';
+import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
+import { defineConfig } from 'astro/config';
 
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import rehypeExternalLinks from 'rehype-external-links'
-import rehypeSlug from 'rehype-slug'
-import rehypeToc from 'rehype-toc'
-import remarkRehype from 'remark-rehype'
-import { transformerNotationDiff, transformerNotationHighlight } from '@shikijs/transformers'
+
+
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeExternalLinks from 'rehype-external-links';
+import rehypeSlug from 'rehype-slug';
+import rehypeToc from 'rehype-toc';
+import remarkRehype from 'remark-rehype';
+import { transformerNotationDiff, transformerNotationHighlight } from '@shikijs/transformers';
+
 
 const globalVarsString = Object.entries(globalVars)
   .map(([key, value]) => `@${key}: ${value};`)
@@ -103,23 +106,28 @@ export default defineConfig({
         display: 'standalone',
         icons: [
           {
-            src: 'pwa_192.png',
+            src: 'pwa-48.png',
+            sizes: '48x48',
+            type: 'image/png',
+          },
+          {
+            src: 'pwa-64.png',
+            sizes: '64x64',
+            type: 'image/png',
+          },
+          {
+            src: 'pwa-72.png',
+            sizes: '72x72',
+            type: 'image/png',
+          },
+          {
+            src: 'pwa-192.png',
             sizes: '192x192',
-            type: 'image/png',
-          },
-          {
-            src: 'pwa_512.png',
-            sizes: '512x512',
-            type: 'image/png',
-          },
-          {
-            src: 'pwa_512.png',
-            sizes: '512x512',
             type: 'image/png',
             purpose: 'any',
           },
           {
-            src: 'pwa_512.png',
+            src: 'pwa-512.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'maskable',

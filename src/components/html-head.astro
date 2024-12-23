@@ -20,8 +20,8 @@ const { title, description, cover } = Astro.props
   <!-- Global Metadata -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-  <link rel="apple-touch-icon" href="/pwa_512.png" sizes="192x192" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/pwa-512.png" sizes="192x192" />
   <meta name="generator" content={Astro.generator} />
 
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1f1f1f" />
@@ -52,6 +52,10 @@ const { title, description, cover } = Astro.props
   <meta property="twitter:description" content={description} />
   <meta property="twitter:image" content={new URL(cover ?? '/blog-placeholder.jpg', Astro.url)} />
 
+  <!-- TODO: google site verification, you should remove  -->
+  <meta name="google-site-verification" content="z3c_md4R4hgQycNY4qPPm3ZgM_3_oIhysxd4Ij89yE0" /> 
+
+  <!-- google font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link

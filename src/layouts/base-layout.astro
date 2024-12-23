@@ -1,6 +1,7 @@
 ---
 import ReloadPrompt from '@components/basic/reload-prompt.astro'
 import BaseHead from '@components/html-head.astro'
+import Analytics from '@vercel/analytics/astro' // vercel页面分析插件，可删除
 
 const { title, description, cover } = Astro.props.frontmatter || Astro.props
 ---
@@ -10,5 +11,6 @@ const { title, description, cover } = Astro.props.frontmatter || Astro.props
   <body transition:animate="none" class="bg-primary-light text-primary-dark dark:bg-primary-dark dark:text-white">
     <slot />
     <ReloadPrompt transition:persist />
+    <Analytics/>
   </body>
 </html>

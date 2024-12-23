@@ -2,9 +2,6 @@ import avatarImg from './src/assets/avatar.jpg';
 import type { PostModel } from './src/interfaces/post-model';
 
 
-
-
-
 // index
 
 export const site = 'https://astro-blog-ecru-phi.vercel.app'
