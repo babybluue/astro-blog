@@ -15,7 +15,7 @@ const { Content } = await post.render()
 
 <article>
   <header>
-    <h2 data-pagefind-ignore class:list={['mt-2', { 'text-center': from && from === 'post' }]}>{post.data.title}</h2>
+    <h1 data-pagefind-ignore class:list={['mt-2', { 'text-center': from && from === 'post' }]}>{post.data.title}</h1>
 
     <div data-pagefind-ignore class="my-2 text-right text-xs text-gray-400">
       {
@@ -85,6 +85,17 @@ const { Content } = await post.render()
       font-family: @code-font;
     }
 
+    :not(.footnotes) {
+      *:target {
+        padding-top: 6.25rem;
+        margin-top: -5.25rem;
+        @media screen and (min-width: 1500px) {
+          padding-top: 7.5rem;
+          margin-top: -6.5rem;
+        }
+      }
+    }
+
     h1,
     h2,
     h3,
@@ -93,14 +104,6 @@ const { Content } = await post.render()
     h6 {
       margin: 1rem 0;
       font-weight: bold;
-      &:target {
-        padding-top: 6.25rem;
-        margin-top: -5.25rem;
-        @media screen and (min-width: 1500px) {
-          padding-top: 7.5rem;
-          margin-top: -6.5rem;
-        }
-      }
     }
 
     h1 {
@@ -132,7 +135,7 @@ const { Content } = await post.render()
     }
 
     p {
-      margin: 0.5rem 0;
+      margin: 0.8rem 0;
       a {
         margin: 0 0.1875rem;
       }
