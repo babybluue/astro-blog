@@ -10,7 +10,6 @@ import rehypeExternalLinks from 'rehype-external-links'
 import rehypeSlug from 'rehype-slug'
 import rehypeToc from 'rehype-toc'
 import { remarkAlert } from 'remark-github-blockquote-alert'
-import remarkRehype from 'remark-rehype'
 import sectionize from 'remark-sectionize'
 import { transformerNotationDiff, transformerNotationHighlight } from '@shikijs/transformers'
 
@@ -25,12 +24,12 @@ export default defineConfig({
     prefetchAll: true,
   },
   markdown: {
-    remarkRehype: { footnoteLabelTagName: 'h3', footnoteLabel: ' ' },
+    remarkRehype: { footnoteLabel: ' ' },
     shikiConfig: {
       theme: 'one-dark-pro',
       transformers: [transformerNotationHighlight(), transformerNotationDiff()],
     },
-    remarkPlugins: [sectionize, remarkAlert, remarkRehype],
+    remarkPlugins: [sectionize, remarkAlert],
     rehypePlugins: [
       rehypeSlug,
       [rehypeAutolinkHeadings, { behavior: 'after' }],

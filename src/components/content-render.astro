@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets'
+import { render } from 'astro:content'
 
 import type { PostModel } from '@interfaces/post-model'
 import { getFormatDate } from '@utils/date-helper'
@@ -10,17 +11,17 @@ interface Props {
 }
 
 const { post, from } = Astro.props
-const { Content } = await post.render()
+const { Content } = await render(post)
 ---
 
 <article>
   <header>
     <h1 data-pagefind-ignore class:list={['mt-2', { 'text-center': from && from === 'post' }]}>{post.data.title}</h1>
 
-    <div data-pagefind-ignore class="my-2 text-right text-xs text-gray-400">
+    <div data-pagefind-ignore class='my-2 text-right text-xs text-gray-400'>
       {
         post.data.tags?.map((tag: string) => (
-          <a class="mx-1 inline-block text-xs no-underline" href={'/tags/' + tag}>
+          <a class='mx-1 inline-block text-xs no-underline' href={'/tags/' + tag}>
             #{tag}
           </a>
         ))
@@ -30,7 +31,7 @@ const { Content } = await post.render()
 
     {
       post.data.cover && (
-        <Image src={post.data.cover} loading="eager" data-pagefind-meta="image[src]" class="mb-4" alt="" />
+        <Image src={post.data.cover} loading='eager' data-pagefind-meta='image[src]' class='mb-4' alt='' />
       )
     }
   </header>
@@ -38,8 +39,8 @@ const { Content } = await post.render()
   <Content />
 </article>
 
-<style lang="less" is:global>
-  article {
+<style lang='less' is:global>
+  main {
     --inline-code-bg: #374151;
 
     --color-bg-default: #dddddd;
@@ -56,7 +57,7 @@ const { Content } = await post.render()
     --color-success-emphasis: #1f883d;
   }
 
-  .dark article {
+  .dark main {
     --inline-code-bg: #282c34;
 
     --color-bg-default: #2a2a2a;
@@ -75,6 +76,13 @@ const { Content } = await post.render()
 
   nav {
     padding: 0 0.75rem;
+  }
+
+  .toc {
+    background-color: var(--color-bg-default);
+    li:has(a[href='#footnote-label']) {
+      display: none;
+    }
   }
 
   main {
@@ -197,15 +205,16 @@ const { Content } = await post.render()
         cursor: pointer;
         margin: 0.625rem 0;
       }
+
       .toc {
         width: 100%;
         padding: 0.5rem 0 0.5rem 2rem;
-        background-color: var(--color-bg-default);
         border-radius: 5px;
         @media screen and (max-width: 768px) {
           padding: 0.1rem 0 0.1rem 2rem;
         }
       }
+
       ol {
         list-style: circle;
       }
