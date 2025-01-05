@@ -78,13 +78,6 @@ const { Content } = await render(post)
     padding: 0 0.75rem;
   }
 
-  .toc {
-    background-color: var(--color-bg-default);
-    li:has(a[href='#footnote-label']) {
-      display: none;
-    }
-  }
-
   main {
     code,
     kbd,
@@ -93,14 +86,19 @@ const { Content } = await render(post)
       font-family: @code-font;
     }
 
-    :not(.footnotes) {
+    *:target {
+      padding-top: 6.25rem;
+      margin-top: -5.25rem;
+      @media screen and (min-width: 1500px) {
+        padding-top: 7.5rem;
+        margin-top: -6.5rem;
+      }
+    }
+
+    .footnotes {
       *:target {
-        padding-top: 6.25rem;
-        margin-top: -5.25rem;
-        @media screen and (min-width: 1500px) {
-          padding-top: 7.5rem;
-          margin-top: -6.5rem;
-        }
+        margin: 0;
+        padding: 0;
       }
     }
 
@@ -182,11 +180,11 @@ const { Content } = await render(post)
       content: '';
       display: block;
       border-top: 0.2rem dotted var(--color-border-default);
-      margin: 1.2rem auto 1rem auto;
+      margin: 1.5rem auto 1rem;
       width: 30%;
     }
 
-    .footnote-label {
+    .sr-only {
       display: none;
     }
 
@@ -198,6 +196,13 @@ const { Content } = await render(post)
     img {
       width: 100%;
       border-radius: 5px;
+    }
+
+    .toc {
+      background-color: var(--color-bg-default);
+      li:has(a[href='#footnote-label']) {
+        display: none;
+      }
     }
 
     details {

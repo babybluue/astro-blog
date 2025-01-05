@@ -11,29 +11,29 @@ interface Props {
 const { prev, next } = Astro.props
 ---
 
-<div class="mt-5 flex justify-between gap-x-12 py-2">
+<div class='mt-5 flex justify-between gap-x-12 py-2'>
   {
     prev ? (
-      <div class="flex w-[50%] flex-1 flex-col gap-1 truncate py-1 text-left ">
-        <span class="opacity-70">Prev</span>
-        <a href={'/posts/' + prev.data[linkAttr]} class="truncate">
+      <div class='flex w-[50%] flex-1 flex-col gap-1 truncate py-1 text-left '>
+        <span class='opacity-70'>Prev</span>
+        <a href={'/posts/' + prev.data[linkAttr]} class='truncate no-underline'>
           {prev.data.title}
         </a>
       </div>
     ) : (
-      <span class="flex-1" />
+      <span class='flex-1' />
     )
   }
   {
     next ? (
-      <div class="flex flex-1 flex-col justify-items-end gap-1 truncate  py-1 text-right ">
-        <span class="opacity-70">Next</span>
-        <a href={'/posts/' + next.data[linkAttr]} class="truncate">
+      <div class='flex flex-1 flex-col justify-items-end gap-1 truncate  py-1 text-right '>
+        <span class='opacity-70'>Next</span>
+        <a href={'/posts/' + next.data[linkAttr]} class='truncate no-underline'>
           {next.data.title}
         </a>
       </div>
     ) : (
-      <span class="flex-1" />
+      <span class='flex-1' />
     )
   }
 </div>
