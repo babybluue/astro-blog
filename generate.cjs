@@ -4,7 +4,7 @@ const { crc32 } = require('crc')
 const { stringify } = require('yaml')
 const matter = require('gray-matter')
 
-let dir = resolve(__dirname, './src/content/drafts')
+let dir = resolve(__dirname, './src/data/drafts')
 
 const localDateTimeString = (date) => new Date(date.getTime() + 288e5).toISOString().slice(0, 19).replace('T', ' ')
 
