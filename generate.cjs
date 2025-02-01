@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const { readdir, readFile, writeFile, mkdir, access } = require('fs/promises')
 const { resolve } = require('path')
 const { crc32 } = require('crc')
 const { stringify } = require('yaml')
 const matter = require('gray-matter')
 
-let dir = resolve(__dirname, './src/content/drafts')
+let dir = resolve(__dirname, './src/data/drafts')
 
 const localDateTimeString = (date) => new Date(date.getTime() + 288e5).toISOString().slice(0, 19).replace('T', ' ')
 
@@ -34,7 +35,7 @@ const abbrlinkHelper = async (frontMatter) => {
 const getArgv = async () => {
   const argv = process.argv
   const obj = {}
-  argv.map((item, index) => {
+  argv.map((item) => {
     if (item.startsWith('--')) {
       const content = item.slice(2, item.length).split('=')
       obj[content[0]] = content[1]
@@ -42,7 +43,7 @@ const getArgv = async () => {
   })
 
   if (obj['dir']) {
-    dir = resolve(__dirname, `./src/content/${obj['dir']}`)
+    dir = resolve(__dirname, `./src/data/${obj['dir']}`)
   }
   try {
     await access(dir)
