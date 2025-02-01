@@ -1,6 +1,9 @@
 {
   "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
   "compilerOptions": {
+    "allowJs": true,
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"
@@ -11,7 +14,7 @@
       "@constant": ["./constant.ts"],
       "@components/*": ["src/components/*"],
       "@assets/*": ["src/assets/*"],
-      "@images/*": ["src/images/*"],
+      "@images/*": ["src/data/images/*"],
       "@layouts/*": ["src/layouts/*"],
       "@styles/*": ["src/styles/*"],
       "@interfaces/*": ["src/interfaces/*"],

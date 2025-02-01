@@ -1,19 +1,17 @@
-import { globalVars, site } from './constant';
-import AstroPWA from '@vite-pwa/astro';
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
-import { defineConfig } from 'astro/config';
+import { globalVars, site } from './constant'
+import AstroPWA from '@vite-pwa/astro'
+import mdx from '@astrojs/mdx'
+import sitemap from '@astrojs/sitemap'
+import tailwind from '@astrojs/tailwind'
+import { defineConfig } from 'astro/config'
 
-
-
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypeExternalLinks from 'rehype-external-links';
-import rehypeSlug from 'rehype-slug';
-import rehypeToc from 'rehype-toc';
-import remarkRehype from 'remark-rehype';
-import { transformerNotationDiff, transformerNotationHighlight } from '@shikijs/transformers';
-
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeExternalLinks from 'rehype-external-links'
+import rehypeSlug from 'rehype-slug'
+import rehypeToc from 'rehype-toc'
+import { remarkAlert } from 'remark-github-blockquote-alert'
+import sectionize from 'remark-sectionize'
+import { transformerNotationDiff, transformerNotationHighlight } from '@shikijs/transformers'
 
 const globalVarsString = Object.entries(globalVars)
   .map(([key, value]) => `@${key}: ${value};`)
@@ -26,11 +24,12 @@ export default defineConfig({
     prefetchAll: true,
   },
   markdown: {
+    remarkRehype: { footnoteLabel: ' ' },
     shikiConfig: {
       theme: 'one-dark-pro',
       transformers: [transformerNotationHighlight(), transformerNotationDiff()],
     },
-    remarkPlugins: [remarkRehype],
+    remarkPlugins: [sectionize, remarkAlert],
     rehypePlugins: [
       rehypeSlug,
       [rehypeAutolinkHeadings, { behavior: 'after' }],

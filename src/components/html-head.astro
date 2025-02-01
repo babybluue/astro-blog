@@ -1,7 +1,7 @@
 ---
 import '@styles/global.less'
 
-import { ViewTransitions } from 'astro:transitions'
+import { ClientRouter } from 'astro:transitions'
 
 import { pwaInfo } from 'virtual:pwa-info'
 
@@ -53,7 +53,7 @@ const { title, description, cover } = Astro.props
   <meta property="twitter:image" content={new URL(cover ?? '/blog-placeholder.jpg', Astro.url)} />
 
   <!-- TODO: google site verification, you should remove  -->
-  <meta name="google-site-verification" content="z3c_md4R4hgQycNY4qPPm3ZgM_3_oIhysxd4Ij89yE0" /> 
+  <meta name="google-site-verification" content="z3c_md4R4hgQycNY4qPPm3ZgM_3_oIhysxd4Ij89yE0" />
 
   <!-- google font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -63,6 +63,6 @@ const { title, description, cover } = Astro.props
     rel="stylesheet"
   />
 
-  <ViewTransitions />
+  <ClientRouter />
   {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
 </head>

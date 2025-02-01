@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets'
+import { render } from 'astro:content'
 
 import type { PostModel } from '@interfaces/post-model'
 import { getFormatDate } from '@utils/date-helper'
@@ -10,27 +11,27 @@ interface Props {
 }
 
 const { post, from } = Astro.props
-const { Content } = await post.render()
+const { Content } = await render(post)
 ---
 
 <article>
   <header>
-    <h2 data-pagefind-ignore class:list={['mt-2', { 'text-center': from && from === 'post' }]}>{post.data.title}</h2>
+    <h1 data-pagefind-ignore class:list={['mt-2', { 'text-center': from && from === 'post' }]}>{post.data.title}</h1>
 
-    <div data-pagefind-ignore class="my-2 text-right text-xs text-gray-400">
+    <div data-pagefind-ignore class='my-2 text-right text-xs text-gray-400'>
       {
         post.data.tags?.map((tag: string) => (
-          <a class="mx-1 inline-block text-xs no-underline" href={'/tags/' + tag}>
+          <a class='mx-1 inline-block text-xs no-underline' href={'/tags/' + tag}>
             #{tag}
           </a>
         ))
       }
       {getFormatDate(post.data.date)}
     </div>
-    
+
     {
       post.data.cover && (
-        <Image src={post.data.cover} loading="eager" data-pagefind-meta="image[src]" class="mb-4" alt="" />
+        <Image src={post.data.cover} loading='eager' data-pagefind-meta='image[src]' class='mb-4' alt='' />
       )
     }
   </header>
@@ -38,12 +39,46 @@ const { Content } = await post.render()
   <Content />
 </article>
 
-<style lang="less" is:global>
+<style lang='less' is:global>
+  main {
+    --inline-code-bg: #374151;
+
+    --color-bg-default: #dddddd;
+    --color-border-default: #9e9e9e;
+    --color-accent-fg: #0969da;
+    --color-accent-emphasis: #0969da;
+    --color-danger-fg: #d1242f;
+    --color-danger-emphasis: #cf222e;
+    --color-attention-fg: #9a6700;
+    --color-attention-emphasis: #9a6700;
+    --color-done-fg: #8250df;
+    --color-done-emphasis: #8250df;
+    --color-success-fg: #1a7f37;
+    --color-success-emphasis: #1f883d;
+  }
+
+  .dark main {
+    --inline-code-bg: #282c34;
+
+    --color-bg-default: #2a2a2a;
+    --color-border-default: #6d6d6d;
+    --color-accent-fg: #58a6ff;
+    --color-accent-emphasis: #1f6feb;
+    --color-danger-fg: #f85149;
+    --color-danger-emphasis: #da3633;
+    --color-attention-fg: #d29922;
+    --color-attention-emphasis: #9e6a03;
+    --color-done-fg: #a371f7;
+    --color-done-emphasis: #8957e5;
+    --color-success-fg: #3fb950;
+    --color-success-emphasis: #238636;
+  }
+
   nav {
     padding: 0 0.75rem;
   }
 
-  article {
+  main {
     code,
     kbd,
     samp,
@@ -51,23 +86,19 @@ const { Content } = await post.render()
       font-family: @code-font;
     }
 
-    pre {
-      border-radius: 0.3rem;
+    *:target {
+      padding-top: 6.25rem;
+      margin-top: -5.25rem;
+      @media screen and (min-width: 1500px) {
+        padding-top: 7.5rem;
+        margin-top: -6.5rem;
+      }
     }
 
-    code:not(:has(span)) {
-      padding: 0 0.4rem;
-      margin: 0 0.2rem;
-      border-radius: 0.3rem;
-      display: inline-flex;
-      white-space: nowrap;
-      overflow-x: scroll;
-      max-width: 100%;
-      scrollbar-width: none;
-      color: white;
-      background-color: #374151;
-      &::-webkit-scrollbar {
-        display: none;
+    .footnotes {
+      *:target {
+        margin: 0;
+        padding: 0;
       }
     }
 
@@ -79,14 +110,6 @@ const { Content } = await post.render()
     h6 {
       margin: 1rem 0;
       font-weight: bold;
-      &:target {
-        padding-top: 6.25rem;
-        margin-top: -5.25rem;
-        @media screen and (min-width: 1500px) {
-          padding-top: 7.5rem;
-          margin-top: -6.5rem;
-        }
-      }
     }
 
     h1 {
@@ -118,7 +141,7 @@ const { Content } = await post.render()
     }
 
     p {
-      margin: 0.5rem 0;
+      margin: 0.8rem 0;
       a {
         margin: 0 0.1875rem;
       }
@@ -142,9 +165,6 @@ const { Content } = await post.render()
         padding-left: 1.25rem;
       }
 
-      & > p:first-child {
-        display: inline;
-      }
       pre {
         margin-top: 0.5rem;
       }
@@ -155,14 +175,22 @@ const { Content } = await post.render()
       text-underline-offset: 4px;
     }
 
-    hr {
-      border-top: 3px dotted #282c34;
-      margin: 1rem auto;
+    hr,
+    .footnotes:before {
+      content: '';
+      display: block;
+      border-top: 0.2rem dotted var(--color-border-default);
+      margin: 1.5rem auto 1rem;
       width: 30%;
+    }
+
+    .sr-only {
+      display: none;
     }
 
     input {
       vertical-align: middle;
+      margin-bottom: 1px;
     }
 
     img {
@@ -170,20 +198,28 @@ const { Content } = await post.render()
       border-radius: 5px;
     }
 
+    .toc {
+      background-color: var(--color-bg-default);
+      li:has(a[href='#footnote-label']) {
+        display: none;
+      }
+    }
+
     details {
       summary {
         cursor: pointer;
         margin: 0.625rem 0;
       }
+
       .toc {
         width: 100%;
         padding: 0.5rem 0 0.5rem 2rem;
-        background-color: #dddddd;
         border-radius: 5px;
         @media screen and (max-width: 768px) {
           padding: 0.1rem 0 0.1rem 2rem;
         }
       }
+
       ol {
         list-style: circle;
       }
@@ -192,75 +228,134 @@ const { Content } = await post.render()
       }
     }
 
-    blockquote {
-      border-left: 0.3rem solid;
+    pre.astro-code {
       border-radius: 0.3rem;
-      border-left-color: #1f1f1f;
-      background-color: #dddddd;
-      margin: 0.625rem 0 !important;
-      padding: 0.625rem 0.625rem 0.625rem 0.625rem;
-      p {
-        margin: 0.3125rem 0;
+      padding: 0.5rem 0;
+      max-height: 30rem;
+      @media screen and (max-width: 768px) {
+        max-height: 18rem;
       }
     }
-  }
 
-  pre.astro-code {
-    padding: 0.5rem 0;
-    max-height: 30rem;
-    @media screen and (max-width: 768px) {
-      max-height: 18rem;
+    code {
+      .highlighted {
+        background-color: #65758529;
+        display: inline-block;
+        width: 100%;
+      }
+
+      .diff.add {
+        background-color: #10b98129;
+        display: inline-block;
+        width: 100%;
+      }
+
+      .diff.remove {
+        background-color: #f43f5e29;
+        display: inline-block;
+        width: 100%;
+      }
+
+      counter-reset: step;
+      counter-increment: step 0;
+
+      .line::before {
+        content: counter(step);
+        counter-increment: step;
+        width: 1.6rem;
+        margin-right: 1rem;
+        display: inline-block;
+        text-align: right;
+        color: rgba(115, 138, 148, 0.4);
+      }
+
+      span.line:last-child:empty {
+        display: none;
+      }
+
+      &:not(:has(span)) {
+        padding: 0 0.4rem;
+        margin: 0 0.2rem;
+        border-radius: 0.3rem;
+        display: inline-flex;
+        white-space: nowrap;
+        overflow-x: scroll;
+        max-width: 100%;
+        scrollbar-width: none;
+        color: white;
+        background-color: var(--inline-code-bg);
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
     }
-  }
 
-  code {
-    .highlighted {
-      background-color: #65758529;
-      display: inline-block;
-      width: 100%;
+    .contains-task-list {
+      list-style: none;
+      padding-left: 0;
+      li {
+        margin: 0;
+      }
     }
 
-    .diff.add {
-      background-color: #10b98129;
-      display: inline-block;
-      width: 100%;
-    }
-
-    .diff.remove {
-      background-color: #f43f5e29;
-      display: inline-block;
-      width: 100%;
-    }
-
-    counter-reset: step;
-    counter-increment: step 0;
-
-    .line::before {
-      content: counter(step);
-      counter-increment: step;
-      width: 1.6rem;
-      margin-right: 1rem;
-      display: inline-block;
-      text-align: right;
-      color: rgba(115, 138, 148, 0.4);
-    }
-
-    span.line:last-child:empty {
-      display: none;
-    }
-  }
-
-  .dark {
-    code:not(:has(span)) {
-      background-color: #282c34;
-    }
-
+    .markdown-alert,
     blockquote {
-      border-left-color: #fcfcfc;
-      background-color: #2a2a2a;
+      border-left: 0.25em solid var(--color-border-default);
+      border-radius: 0.3rem;
+      background-color: var(--color-bg-default);
+      margin: 0.625rem 0 !important;
+      padding: 0.625rem;
+      p:last-child {
+        margin: 0;
+      }
     }
-    .toc {
-      background-color: #2a2a2a;
+
+    .markdown-alert .markdown-alert-title {
+      align-items: center;
+      display: flex;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1;
+    }
+    .markdown-alert .markdown-alert-title svg.octicon {
+      margin-right: 8px !important;
+      margin-right: var(--base-size-8, 8px) !important;
+      fill: currentColor;
+    }
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--borderColor-accent-emphasis, var(--color-accent-emphasis));
+    }
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-accent-fg);
+      color: var(--fgColor-accent, var(--color-accent-fg));
+    }
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--borderColor-success-emphasis, var(--color-success-emphasis));
+    }
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-success-fg);
+      color: var(--fgColor-success, var(--color-success-fg));
+    }
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--borderColor-done-emphasis, var(--color-done-emphasis));
+    }
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-done-fg);
+      color: var(--fgColor-done, var(--color-done-fg));
+    }
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--borderColor-attention-emphasis, var(--color-attention-emphasis));
+    }
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-attention-fg);
+      color: var(--fgColor-attention, var(--color-attention-fg));
+    }
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--borderColor-danger-emphasis, var(--color-danger-emphasis));
+    }
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-danger-fg);
+      color: var(--fgColor-danger, var(--color-danger-fg));
     }
   }
 </style>
