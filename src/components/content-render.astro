@@ -16,12 +16,14 @@ const { Content } = await render(post)
 
 <article>
   <header>
-    <h1 data-pagefind-ignore class:list={['mt-2', { 'text-center': from && from === 'post' }]}>{post.data.title}</h1>
+    <h1 data-pagefind-ignore class:list={['mt-2 leading-8', { 'text-center': from && from === 'post' }]}>
+      {post.data.title}
+    </h1>
 
-    <div data-pagefind-ignore class='my-2 text-right text-xs text-gray-400'>
+    <div data-pagefind-ignore class="my-2 text-right text-xs text-gray-400">
       {
         post.data.tags?.map((tag: string) => (
-          <a class='mx-1 inline-block text-xs no-underline' href={'/tags/' + tag}>
+          <a class="mx-1 inline-block text-xs no-underline" href={'/tags/' + tag}>
             #{tag}
           </a>
         ))
@@ -31,7 +33,7 @@ const { Content } = await render(post)
 
     {
       post.data.cover && (
-        <Image src={post.data.cover} loading='eager' data-pagefind-meta='image[src]' class='mb-4' alt='' />
+        <Image src={post.data.cover} loading="eager" data-pagefind-meta="image[src]" class="mb-4" alt="" />
       )
     }
   </header>
@@ -39,7 +41,7 @@ const { Content } = await render(post)
   <Content />
 </article>
 
-<style lang='less' is:global>
+<style lang="less" is:global>
   main {
     --inline-code-bg: #374151;
 
