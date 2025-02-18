@@ -1,6 +1,5 @@
-import avatarImg from './src/assets/avatar.jpg';
-import type { PostModel } from './src/interfaces/post-model';
-
+import avatarImg from './src/assets/avatar.jpg'
+import type { PostModel } from './src/interfaces/post-model'
 
 // index
 
@@ -38,11 +37,11 @@ export const globalVars = {
 
   'a-link': '#56b6c2', // 链接悬浮色
 
-  'h1-size': '1.45rem',
+  'h1-size': '1.4rem',
 
-  'h2-size': '1.35rem',
+  'h2-size': '1.3rem',
 
-  'h3-size': '1.25rem',
+  'h3-size': '1.23rem',
   'h3-color': '#6cb8e6',
 
   'h4-size': '1.2rem',
