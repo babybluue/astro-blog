@@ -5,7 +5,7 @@ const { crc32 } = require('crc')
 const { stringify } = require('yaml')
 const matter = require('gray-matter')
 
-let dir = resolve(__dirname, './src/data/drafts')
+let dir = resolve(__dirname, './src/data')
 
 const localDateTimeString = (date) => new Date(date.getTime() + 288e5).toISOString().slice(0, 19).replace('T', ' ')
 
@@ -53,6 +53,9 @@ const getArgv = async () => {
 
   const frontMatter = {}
   frontMatter.title = obj['title']
+  if (obj['dir'] == 'drafts') {
+    frontMatter.isDraft = true
+  }
   frontMatter.date = new Date()
   frontMatter.abbrlink = await abbrlinkHelper(frontMatter)
   frontMatter.tags = []
