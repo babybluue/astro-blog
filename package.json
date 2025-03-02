@@ -14,7 +14,6 @@
   "dependencies": {
     "@astrojs/check": "0.9.4",
     "@astrojs/mdx": "4.0.3",
-    "@astrojs/react": "4.1.2",
     "@astrojs/sitemap": "3.2.1",
     "@astrojs/tailwind": "5.1.4",
     "@astrojs/ts-plugin": "1.10.4",
