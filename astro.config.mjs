@@ -1,8 +1,7 @@
-import { globalVars, site } from './constant'
+import { site } from './constant'
 import AstroPWA from '@vite-pwa/astro'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
-import tailwind from '@astrojs/tailwind'
 import { defineConfig } from 'astro/config'
 
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
@@ -12,10 +11,7 @@ import rehypeToc from 'rehype-toc'
 import { remarkAlert } from 'remark-github-blockquote-alert'
 import sectionize from 'remark-sectionize'
 import { transformerNotationDiff, transformerNotationHighlight } from '@shikijs/transformers'
-
-const globalVarsString = Object.entries(globalVars)
-  .map(([key, value]) => `@${key}: ${value};`)
-  .join('\n')
+import tailwindcss from '@tailwindcss/vite'
 
 // https://astro.build/config
 export default defineConfig({
@@ -68,21 +64,13 @@ export default defineConfig({
     format: 'file',
   },
   vite: {
-    css: {
-      preprocessorOptions: {
-        less: {
-          globalVars,
-          additionalData: globalVarsString,
-        },
-      },
-    },
+    plugins: [tailwindcss()],
   },
   integrations: [
     mdx(),
     sitemap({
       filter: (page) => page == `${site}/` || page.includes('/posts'),
     }),
-    tailwind({ applyBaseStyles: false }),
     AstroPWA({
       registerType: 'prompt',
       devOptions: { enabled: false },

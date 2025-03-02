@@ -13,7 +13,7 @@ const isCurrentPage = (url: string) => {
 
 <nav>
   <ul
-    class="relative flex h-full w-full items-center justify-between rounded-full bg-white bg-opacity-95 p-5 text-primary shadow-md dark:bg-[#000000e6]"
+    class='bg-opacity/95 text-primary relative flex h-full w-full items-center justify-between rounded-full bg-white p-5 shadow-md dark:bg-[#000000e6]'
   >
     {
       links.map((link) => (
@@ -22,6 +22,6 @@ const isCurrentPage = (url: string) => {
         </li>
       ))
     }
-    <li class="flex items-center"><ThemeButton /></li>
+    <li class='flex items-center'><ThemeButton /></li>
   </ul>
 </nav>

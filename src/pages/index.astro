@@ -11,24 +11,24 @@ const latestPost = (await getAllPosts()).slice(0, 8)
 ---
 
 <BaseLayout title={title} description={description}>
-  <main class="min-h-[100dvh]">
-    <section class="flex flex-col items-center justify-center">
+  <main class='min-h-[100dvh]'>
+    <section class='flex flex-col items-center justify-center'>
       <AvatarImage />
-      <div class="w-full px-10 text-center max-[768px]:px-0">
+      <div class='w-full px-10 text-center max-[768px]:px-0'>
         "{quote}"
       </div>
     </section>
     <section
-      class="mx-auto my-10 flex items-center justify-center gap-10 whitespace-nowrap max-[768px]:my-5 max-[768px]:gap-5 min-[1500px]:w-[80%]"
+      class='mx-auto my-10 flex items-center justify-center gap-10 whitespace-nowrap max-[768px]:my-5 max-[768px]:gap-5 min-[1500px]:w-[80%]'
     >
       <NavLink />
     </section>
-    <section class="m-auto flex w-[85%] justify-center max-[768px]:w-full">
-      <div class="w-[75%] max-[500px]:w-[95%] min-[1500px]:w-[55%]">
+    <section class='m-auto flex w-[85%] justify-center max-[768px]:w-full'>
+      <div class='w-[75%] max-[500px]:w-[95%] min-[1500px]:w-[55%]'>
         {
           latestPost.map((post) => (
-            <div class="flex justify-between gap-x-3 py-2">
-              <a class="flex-1 truncate" href={getPostLink(post)}>
+            <div class='flex justify-between gap-x-3 py-2'>
+              <a class='flex-1 truncate' href={getPostLink(post)}>
                 {post.data.title}
               </a>
               <span>{formatYMD(post.data.date)}</span>

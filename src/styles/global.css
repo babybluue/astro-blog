@@ -1,10 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #56b6c2;
+  --color-primary-dark: #1f1f1f;
+  --color-primary-gray: #525252;
+  --color-primary-light: #fcfcfcf2;
+}
+
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 * {
   scrollbar-width: auto;
   scroll-behavior: smooth;
+
   &::-webkit-scrollbar,
   &::-webkit-scrollbar-track {
     background-color: transparent;
@@ -15,6 +24,7 @@
     border: 4px solid transparent;
     background-clip: content-box;
     border-radius: 0.625rem;
+
     @media screen and (max-width: 768px) {
       border-width: 6px;
     }
@@ -36,7 +46,7 @@ html {
 }
 
 body {
-  font-family: @post-font;
+  font-family: 'JetBrains Mono', 'Noto Sans SC', Consolas, PingFang SC, Helvetica Neue, Microsoft YaHei, sans-serif;
   font-optical-sizing: auto;
   letter-spacing: 1px;
   font-weight: 500;
@@ -79,6 +89,6 @@ main {
 
 @media (any-hover: hover) {
   a:hover {
-    color: @a-link;
+    color: var(--color-primary);
   }
 }

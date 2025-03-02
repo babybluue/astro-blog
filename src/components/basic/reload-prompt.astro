@@ -1,19 +1,20 @@
 ---
-import { tooltip } from "@constant";
+import { tooltip } from '@constant'
 ---
+
 <div
-  id="pwa-toast"
-  class="fixed left-[50%] top-5 z-10 hidden -translate-x-[50%]"
-  role="alert"
-  aria-labelledby="toast-message"
+  id='pwa-toast'
+  class='fixed left-[50%] top-5 z-10 hidden -translate-x-[50%]'
+  role='alert'
+  aria-labelledby='toast-message'
 >
   <div
-    class="flex min-w-[300px] flex-wrap gap-5 rounded-xl border bg-primary-light px-5 py-2 dark:border-primary-gray dark:bg-primary-dark"
+    class='bg-primary-light dark:border-primary-gray dark:bg-primary-dark flex min-w-[300px] flex-wrap gap-5 rounded-xl border-gray-200 px-5 py-2'
   >
-    <span id="toast-message">{tooltip.content}</span>
+    <span id='toast-message'>{tooltip.content}</span>
     <div>
-      <button id="pwa-refresh" class="hover:text-primary" aria-label="yes">{tooltip.confirm}</button>
-      <button id="pwa-close" class="hover:text-primary" aria-label="no">{tooltip.cancel}</button>
+      <button id='pwa-refresh' class='hover:text-primary' aria-label='yes'>{tooltip.confirm}</button>
+      <button id='pwa-close' class='hover:text-primary' aria-label='no'>{tooltip.cancel}</button>
     </div>
   </div>
 </div>

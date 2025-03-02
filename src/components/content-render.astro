@@ -20,10 +20,10 @@ const { Content } = await render(post)
       {post.data.title}
     </h1>
 
-    <div data-pagefind-ignore class="my-2 text-right text-xs text-gray-400">
+    <div data-pagefind-ignore class='my-2 text-right text-xs text-gray-400'>
       {
         post.data.tags?.map((tag: string) => (
-          <a class="mx-1 inline-block text-xs no-underline" href={'/tags/' + tag}>
+          <a class='mx-1 inline-block text-xs no-underline' href={'/tags/' + tag}>
             #{tag}
           </a>
         ))
@@ -33,7 +33,7 @@ const { Content } = await render(post)
 
     {
       post.data.cover && (
-        <Image src={post.data.cover} loading="eager" data-pagefind-meta="image[src]" class="mb-4" alt="" />
+        <Image src={post.data.cover as any} loading='eager' data-pagefind-meta='image[src]' class='mb-4' alt='' />
       )
     }
   </header>
@@ -41,7 +41,7 @@ const { Content } = await render(post)
   <Content />
 </article>
 
-<style lang="less" is:global>
+<style lang='less' is:global>
   main {
     --inline-code-bg: #374151;
 
@@ -85,7 +85,14 @@ const { Content } = await render(post)
     kbd,
     samp,
     pre {
-      font-family: @code-font;
+      font-family:
+        'JetBrains Mono',
+        'Noto Sans SC',
+        Consolas,
+        PingFang SC,
+        Helvetica Neue,
+        Microsoft YaHei,
+        monospace;
     }
 
     *:target {
@@ -115,31 +122,31 @@ const { Content } = await render(post)
     }
 
     h1 {
-      font-size: @h1-size;
+      font-size: 1.4rem;
     }
 
     h2 {
-      font-size: @h2-size;
+      font-size: 1.3rem;
     }
 
     h3 {
-      font-size: @h3-size;
-      color: @h3-color;
+      font-size: 1.23rem;
+      color: #6cb8e6;
     }
 
     h4 {
-      font-size: @h4-size;
-      color: @h4-color;
+      font-size: 1.2rem;
+      color: #e5b567;
     }
 
     h5 {
-      font-size: @h5-size;
-      color: @h5-color;
+      font-size: 1.15rem;
+      color: #ffc107;
     }
 
     h6 {
-      font-size: @h6-size;
-      color: @h6-color;
+      font-size: 1.1rem;
+      color: #795548;
     }
 
     p {

@@ -30,26 +30,3 @@ export const links = [
 export const linkAttr = 'abbrlink'
 
 export const getPostLink = (post: PostModel) => `/posts/${post.data[linkAttr]}`
-
-export const globalVars = {
-  'post-font': "'JetBrains Mono', 'Noto Sans SC', Consolas, PingFang SC, Helvetica Neue, Microsoft YaHei, sans-serif", // 文章字体
-  'code-font': "'JetBrains Mono', 'Noto Sans SC', Consolas, PingFang SC, Helvetica Neue, Microsoft YaHei, monospace", // 文章字体
-
-  'a-link': '#56b6c2', // 链接悬浮色
-
-  'h1-size': '1.4rem',
-
-  'h2-size': '1.3rem',
-
-  'h3-size': '1.23rem',
-  'h3-color': '#6cb8e6',
-
-  'h4-size': '1.2rem',
-  'h4-color': '#e5b567',
-
-  'h5-size': '1.15rem',
-  'h5-color': '#ffc107',
-
-  'h6-size': '1.1rem',
-  'h6-color': '#795548',
-}
