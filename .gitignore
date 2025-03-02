@@ -23,3 +23,6 @@ pnpm-debug.log*
 .vscode/*
 
 dev-dist/
+
+.yarn/
+.pnp.*
