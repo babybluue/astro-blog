@@ -45,9 +45,9 @@ import { Image } from 'astro:assets'
 
 <Image
   src={avatar}
-  loading='eager'
-  alt=''
-  class='avatar my-5 aspect-square w-[100px] cursor-pointer select-none rounded-full transition-all'
+  loading="eager"
+  alt=""
+  class="avatar my-5 aspect-square w-[100px] cursor-pointer select-none rounded-full transition-all"
 />
 <script>
   document.addEventListener('astro:page-load', () => {
@@ -77,7 +77,7 @@ import { Image } from 'astro:assets'
           avatar.classList.add('jump')
         }, 1000)
       },
-      { passive: true }
+      { passive: true },
     )
 
     avatar?.addEventListener(
@@ -89,7 +89,7 @@ import { Image } from 'astro:assets'
           avatar.classList.remove('jump')
         }
       },
-      { passive: true }
+      { passive: true },
     )
   })
 </script>
