@@ -20,10 +20,10 @@ const { Content } = await render(post)
       {post.data.title}
     </h1>
 
-    <div data-pagefind-ignore class="my-2 text-right text-xs text-gray-400">
+    <div data-pagefind-ignore class='my-2 text-right text-xs text-gray-400'>
       {
         post.data.tags?.map((tag: string) => (
-          <a class="mx-1 inline-block text-xs no-underline" href={'/tags/' + tag}>
+          <a class='mx-1 inline-block text-xs no-underline' href={'/tags/' + tag}>
             #{tag}
           </a>
         ))
@@ -33,7 +33,7 @@ const { Content } = await render(post)
 
     {
       post.data.cover && (
-        <Image src={post.data.cover as any} loading="eager" data-pagefind-meta="image[src]" class="mb-4" alt="" />
+        <Image src={post.data.cover as any} loading='eager' data-pagefind-meta='image[src]' class='mb-4' alt='' />
       )
     }
   </header>
@@ -41,7 +41,7 @@ const { Content } = await render(post)
   <Content />
 </article>
 
-<style lang="less" is:global>
+<style lang='less' is:global>
   main {
     --inline-code-bg: #374151;
 
@@ -123,15 +123,15 @@ const { Content } = await render(post)
     }
 
     h1 {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
     }
 
     h2 {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
     }
 
     h3 {
-      font-size: 1.23rem;
+      font-size: 1.3rem;
       color: #6cb8e6;
     }
 
@@ -269,14 +269,20 @@ const { Content } = await render(post)
       counter-reset: step;
       counter-increment: step 0;
 
+      .line {
+        position: relative;
+      }
+
       .line::before {
         content: counter(step);
         counter-increment: step;
-        width: 1.6rem;
-        margin-right: 1rem;
+        padding: 0 1rem;
         display: inline-block;
         text-align: right;
         color: rgba(115, 138, 148, 0.4);
+        position: sticky;
+        left: 0;
+        background-color: #282c34;
       }
 
       span.line:last-child:empty {
