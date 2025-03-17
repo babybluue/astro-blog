@@ -20,15 +20,15 @@ const { Content } = await render(post)
       {post.data.title}
     </h1>
 
-    <div data-pagefind-ignore class='my-2 text-right text-xs text-gray-400'>
+    <div data-pagefind-ignore class='text-right text-xs text-gray-400'>
       {
         post.data.tags?.map((tag: string) => (
-          <a class='mx-1 inline-block text-xs no-underline' href={'/tags/' + tag}>
+          <a class='mx-1 inline-block text-xs no-underline my-2' href={'/tags/' + tag}>
             #{tag}
           </a>
         ))
       }
-      {getFormatDate(post.data.date)}
+      <span class="my-2">{getFormatDate(post.data.date)}</span>
     </div>
 
     {
