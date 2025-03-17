@@ -23,7 +23,7 @@
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
     "@pagefind/default-ui": "^1.1.0",
-    "@shikijs/transformers": "^1.23.1",
+    "@shikijs/transformers": "^3.2.1",
     "@tailwindcss/vite": "^4.0.9",
     "@types/node": "^20.5.9",
     "@typescript-eslint/eslint-plugin": "^8.14.0",

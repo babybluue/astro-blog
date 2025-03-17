@@ -2284,6 +2284,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@shikijs/core@npm:3.2.1":
+  version: 3.2.1
+  resolution: "@shikijs/core@npm:3.2.1"
+  dependencies:
+    "@shikijs/types": "npm:3.2.1"
+    "@shikijs/vscode-textmate": "npm:^10.0.2"
+    "@types/hast": "npm:^3.0.4"
+    hast-util-to-html: "npm:^9.0.5"
+  checksum: 10c0/d9d1d5587e40ab15f343dfac4c1f109f6a4b9b97640ec22d5c831917a3932958cbcfce36e90ff92fffe9f4d286f902c0d16d0ad2ebdcfbbaa808a1fb87b4f680
+  languageName: node
+  linkType: hard
+
 "@shikijs/engine-javascript@npm:1.29.2":
   version: 1.29.2
   resolution: "@shikijs/engine-javascript@npm:1.29.2"
@@ -2323,13 +2335,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@shikijs/transformers@npm:^1.23.1":
-  version: 1.29.2
-  resolution: "@shikijs/transformers@npm:1.29.2"
+"@shikijs/transformers@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "@shikijs/transformers@npm:3.2.1"
   dependencies:
-    "@shikijs/core": "npm:1.29.2"
-    "@shikijs/types": "npm:1.29.2"
-  checksum: 10c0/bdb2355e3dcaf59c3e020677876d83d6ff99743d8a2cc4c619dc27bb077005d0d7bc973e281e69c065471810c44e94279bf78098ffefc0aa4106a607430d37fb
+    "@shikijs/core": "npm:3.2.1"
+    "@shikijs/types": "npm:3.2.1"
+  checksum: 10c0/3bb1aead2f0aa6662d1723a21a5937a2cc91e073d9156389fb4d86ec72df623b0b82844cc038808d77a7c655c8303fd77072e6a7e4d03ab5538a246e7dfd00ed
   languageName: node
   linkType: hard
 
@@ -2343,7 +2355,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@shikijs/vscode-textmate@npm:^10.0.1":
+"@shikijs/types@npm:3.2.1":
+  version: 3.2.1
+  resolution: "@shikijs/types@npm:3.2.1"
+  dependencies:
+    "@shikijs/vscode-textmate": "npm:^10.0.2"
+    "@types/hast": "npm:^3.0.4"
+  checksum: 10c0/3380fde198d466a8771137b7ca3d4756a54d7d24c6e65f852737472a280c12c07f2123b9ad3d7eb2edec86d8d2c53bc207abe0fc0c7f78d337e52e742dc34edf
+  languageName: node
+  linkType: hard
+
+"@shikijs/vscode-textmate@npm:^10.0.1, @shikijs/vscode-textmate@npm:^10.0.2":
   version: 10.0.2
   resolution: "@shikijs/vscode-textmate@npm:10.0.2"
   checksum: 10c0/36b682d691088ec244de292dc8f91b808f95c89466af421cf84cbab92230f03c8348649c14b3251991b10ce632b0c715e416e992dd5f28ff3221dc2693fd9462
@@ -3195,7 +3217,7 @@ __metadata:
     "@astrojs/ts-plugin": "npm:1.10.4"
     "@ianvs/prettier-plugin-sort-imports": "npm:^4.1.0"
     "@pagefind/default-ui": "npm:^1.1.0"
-    "@shikijs/transformers": "npm:^1.23.1"
+    "@shikijs/transformers": "npm:^3.2.1"
     "@tailwindcss/vite": "npm:^4.0.9"
     "@types/node": "npm:^20.5.9"
     "@typescript-eslint/eslint-plugin": "npm:^8.14.0"
@@ -5290,7 +5312,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hast-util-to-html@npm:^9.0.0, hast-util-to-html@npm:^9.0.4":
+"hast-util-to-html@npm:^9.0.0, hast-util-to-html@npm:^9.0.4, hast-util-to-html@npm:^9.0.5":
   version: 9.0.5
   resolution: "hast-util-to-html@npm:9.0.5"
   dependencies:
