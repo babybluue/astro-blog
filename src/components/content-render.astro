@@ -20,20 +20,20 @@ const { Content } = await render(post)
       {post.data.title}
     </h1>
 
-    <div data-pagefind-ignore class='text-right text-xs text-gray-400'>
+    <div data-pagefind-ignore class="text-right text-xs text-gray-400">
       {
         post.data.tags?.map((tag: string) => (
-          <a class='mx-1 inline-block text-xs no-underline my-2' href={'/tags/' + tag}>
+          <a class="mx-1 my-2 inline-block text-xs no-underline" href={'/tags/' + tag}>
             #{tag}
           </a>
         ))
       }
-      <span class="my-2">{getFormatDate(post.data.date)}</span>
+      <span class="mb-2 inline-block whitespace-nowrap">{getFormatDate(post.data.date)}</span>
     </div>
 
     {
       post.data.cover && (
-        <Image src={post.data.cover as any} loading='eager' data-pagefind-meta='image[src]' class='mb-4' alt='' />
+        <Image src={post.data.cover as any} loading="eager" data-pagefind-meta="image[src]" class="mb-4" alt="" />
       )
     }
   </header>
@@ -41,7 +41,7 @@ const { Content } = await render(post)
   <Content />
 </article>
 
-<style lang='less' is:global>
+<style lang="less" is:global>
   main {
     --inline-code-bg: #374151;
 
@@ -273,7 +273,7 @@ const { Content } = await render(post)
       .warning {
         background-color: #3a3118;
       }
-      
+
       counter-reset: step;
       counter-increment: step 0;
 
