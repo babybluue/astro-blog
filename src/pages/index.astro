@@ -23,7 +23,7 @@ const latestPost = (await getAllPosts()).slice(0, 8)
     >
       <NavLink />
     </section>
-    <section class="m-auto flex w-[85%] justify-center max-[768px]:w-full">
+    <section class="m-auto flex w-[85%] justify-center pb-4 max-[768px]:w-full">
       <div class="w-[75%] max-[500px]:w-[95%] min-[1500px]:w-[55%]">
         {
           latestPost.map((post) => (
