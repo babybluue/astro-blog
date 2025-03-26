@@ -16,9 +16,9 @@ const { posts } = Astro.props
     {
       posts.map((post) => (
         <div class="flex items-center py-2">
-          <div class="flex w-full flex-col max-[768px]:flex-row max-[768px]:items-center">
+          <div class="flex w-full flex-col overflow-x-hidden truncate max-[768px]:items-center">
             <span class="mr-5 inline-block text-sm">{formatYMD(post.data.date)}</span>
-            <a href={getPostLink(post)} class="truncate">
+            <a href={getPostLink(post)} class="w-full truncate text-center">
               {post.data.title}
             </a>
           </div>
