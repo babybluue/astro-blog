@@ -5,7 +5,7 @@ import AvatarImage from '@components/basic/avatar-image.astro'
 import NavLink from '@components/basic/nav-link.astro'
 import BaseLayout from '@layouts/base-layout.astro'
 import { getAllPosts } from '@utils/all-posts'
-import { formatYMD } from '@utils/date-helper'
+import { getMD } from '@utils/date-helper'
 
 const latestPost = (await getAllPosts()).slice(0, 8)
 ---
@@ -24,14 +24,14 @@ const latestPost = (await getAllPosts()).slice(0, 8)
       <NavLink />
     </section>
     <section class="m-auto flex w-[85%] justify-center pb-4 max-[768px]:w-full">
-      <div class="w-[75%] max-[500px]:w-[95%] min-[1500px]:w-[55%]">
+      <div class="w-[75%] max-[500px]:w-[90%] min-[1500px]:w-[55%]">
         {
           latestPost.map((post) => (
             <div class="flex justify-between gap-x-3 py-2">
               <a class="flex-1 truncate" href={getPostLink(post)}>
                 {post.data.title}
               </a>
-              <span>{formatYMD(post.data.date)}</span>
+              <span>{getMD(post.data.date)}</span>
             </div>
           ))
         }
