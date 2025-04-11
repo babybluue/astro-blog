@@ -46,10 +46,7 @@ export default defineConfig({
               return {
                 type: 'element',
                 tagName: 'details',
-                children: [
-                  { type: 'element', tagName: 'summary', children: [{ type: 'text', value: 'Table of Contents' }] },
-                  toc,
-                ],
+                children: [{ type: 'element', tagName: 'summary', children: [{ type: 'text', value: '目录' }] }, toc],
               }
             }
             return false

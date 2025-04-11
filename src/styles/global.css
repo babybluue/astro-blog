@@ -74,6 +74,33 @@
   }
 }
 
+@font-face {
+  font-family: 'Noto Sans SC';
+  src: local('Noto Sans SC'),
+    url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: local('Noto Sans'),
+    url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100..900&display=swap') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: local('Noto Sans Italic'),
+    url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@1,100..900&display=swap') format('woff2');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 html {
   width: 100vw;
   overflow-x: hidden;

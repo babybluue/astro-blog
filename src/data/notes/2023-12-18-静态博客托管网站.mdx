@@ -23,8 +23,9 @@ Github、Vercel、Cloudflare 都能免费部署网站，且操作简单，Github
 
 - 在使用 Cloudflare 部署打包时遇到错误提示
 
-  ```bash language-{1}
-    The lockfile would have been modified by this install, which is explicitly forbidden.
+  ```bash
+  # [!code error]
+  The lockfile would have been modified by this install, which is explicitly forbidden.
   ```
 
 这是因为线上环境与本地环境的 yarn 版本不一致导致的，可以在项目的环境变量添加 YARN_VERSION 指定线上 yarn 版本。(NODE_VERSION 指定 node 版本)
