@@ -10,7 +10,7 @@ const { crc32 } = require('crc')
 const { stringify } = require('yaml')
 const matter = require('gray-matter')
 
-let dir = resolve(__dirname, './src/data')
+let dir = resolve(__dirname, '../data')
 
 const localDateTimeString = (date) => new Date(date.getTime() + 288e5).toISOString().slice(0, 19).replace('T', ' ')
 
@@ -48,7 +48,7 @@ const getArgv = async () => {
   })
 
   if (obj['dir']) {
-    dir = resolve(__dirname, `./src/data/${obj['dir']}`)
+    dir = resolve(__dirname, `../data/${obj['dir']}`)
   }
   try {
     await access(dir)
