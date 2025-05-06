@@ -1,10 +1,10 @@
 ---
 import { linkAttr } from '@constant'
 
-import Toc from '@components/basic/toc.astro'
 import ContentRender from '@components/content-render.astro'
 import NavHead from '@components/nav-header.astro'
 import PostPagination from '@components/post-pagination.astro'
+import Toc from '@components/toc.astro'
 import type { PostModel } from '@interfaces/post-model'
 import BaseLayout from '@layouts/base-layout.astro'
 import { getAllPosts } from '@utils/all-posts'
@@ -28,10 +28,10 @@ const { post, prev, next } = Astro.props
 
 <BaseLayout title={post.data.title} description={post.data.description ?? ''} cover={post.data.cover}>
   <NavHead />
-  <main class='flex flex-col justify-between'>
+  <main class="flex flex-col justify-between">
     <div
       data-pagefind-body
-      class='dark:border-primary-gray flex-1 overflow-x-hidden rounded-lg border-2 border-gray-200 p-5 max-[768px]:p-2'
+      class="dark:border-primary-gray flex-1 overflow-x-hidden rounded-lg border-2 border-gray-200 p-5 max-[768px]:p-2"
     >
       <ContentRender post={post} />
     </div>

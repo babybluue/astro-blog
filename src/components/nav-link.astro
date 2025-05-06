@@ -1,7 +1,6 @@
 ---
+import ThemeButton from './theme-button.astro'
 import { links } from '@constant'
-
-import ThemeButton from '@components/basic/theme-button.astro'
 
 const isCurrentPage = (url: string) => {
   const pathname = Astro.url.pathname

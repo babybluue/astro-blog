@@ -1,3 +1,8 @@
+/**
+ * @description 创建新文章
+ * npm run new --title="文章标题" --dir="drafts"
+ */
+
 /* eslint-disable @typescript-eslint/no-require-imports */
 const { readdir, readFile, writeFile, mkdir, access } = require('fs/promises')
 const { resolve } = require('path')
