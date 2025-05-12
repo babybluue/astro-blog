@@ -20,24 +20,24 @@ const { Content } = await render(post)
       {post.data.title}
     </h1>
 
-    <div data-pagefind-ignore class='text-right text-xs text-gray-400'>
+    <div data-pagefind-ignore class="text-right text-xs text-gray-400">
       {
         post.data.tags?.map((tag: string) => (
-          <a class='mx-1 my-2 inline-block text-xs no-underline' href={'/tags/' + tag}>
+          <a class="mx-1 my-2 inline-block text-xs no-underline" href={'/tags/' + tag}>
             #{tag}
           </a>
         ))
       }
-      <span class='mb-2 inline-block whitespace-nowrap'>{getFormatDate(post.data.date)}</span>
+      <span class="mb-2 inline-block whitespace-nowrap">{getFormatDate(post.data.date)}</span>
     </div>
 
-    {post.data.cover && <Image src={post.data.cover as any} loading='eager' data-pagefind-meta='image[src]' alt='' />}
+    {post.data.cover && <Image src={post.data.cover as any} loading="eager" data-pagefind-meta="image[src]" alt="" />}
   </header>
 
   <Content />
 </article>
 
-<style lang='less' is:global>
+<style lang="less" is:global>
   main {
     --inline-code-bg: #374151;
 
@@ -82,7 +82,7 @@ const { Content } = await render(post)
     samp,
     pre {
       font-family:
-        'Noto Sans',
+        'Fira Code',
         'Noto Sans SC',
         Consolas,
         PingFang SC,
