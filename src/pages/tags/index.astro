@@ -6,17 +6,19 @@ import { getAllPosts } from '@utils/all-posts'
 const allPosts = await getAllPosts()
 
 const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())].filter((tag) => tag) as string[]
-const tagContent = uniqueTags.map((tag) => {
-  const tagPost = allPosts.filter((post) => post.data.tags && post.data.tags.includes(tag))
+const tagContent = uniqueTags
+  .map((tag) => {
+    const tagPost = allPosts.filter((post) => post.data.tags && post.data.tags.includes(tag))
 
-  return {
-    tag,
-    count: tagPost.length,
-  }
-})
+    return {
+      tag,
+      count: tagPost.length,
+    }
+  })
+  .sort((a, b) => b.count - a.count) // 按使用频率排序
 
 const title = '标签'
-const description = '标签页面-didmax'
+const description = '浏览所有文章标签，快速找到感兴趣的话题和内容'
 ---
 
 <BaseLayout title={title} description={description}>

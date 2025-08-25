@@ -26,7 +26,14 @@ export async function getStaticPaths() {
 const { post, prev, next } = Astro.props
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description ?? ''} cover={post.data.cover}>
+<BaseLayout 
+  title={post.data.title} 
+  description={post.data.description ?? ''} 
+  cover={post.data.cover}
+  type="article"
+  publishedTime={post.data.date.toISOString()}
+  tags={post.data.tags}
+>
   <NavHead />
   <main class="flex flex-col justify-between">
     <div

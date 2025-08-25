@@ -1,11 +1,11 @@
 ---
-import { avatar } from '@constant'
+import { avatar, title } from '@constant'
 import { Image } from 'astro:assets'
 ---
 
 <Image
   src={avatar}
   loading='eager'
-  alt=''
+  alt={`Avatar of ${title}`}
   class='hover:animate-jump hover:rotate-360 my-5 aspect-square w-[100px] cursor-pointer select-none rounded-full transition-all duration-150 ease-in'
 />

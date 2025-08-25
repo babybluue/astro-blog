@@ -1,4 +1,5 @@
 ---
+import { config } from '@constant'
 import type { Page, PaginateFunction } from 'astro'
 
 import NavHead from '@components/nav-header.astro'
@@ -27,7 +28,7 @@ export const getStaticPaths = async ({ paginate }: { paginate: PaginateFunction 
     const filteredPosts = allPosts
       .filter((post) => post.data.tags && post.data.tags.includes(tag))
       .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-    return paginate(filteredPosts, { params: { tags: tag }, pageSize: 12 })
+    return paginate(filteredPosts, { params: { tags: tag }, pageSize: config.postsPerPage })
   })
 }
 
@@ -35,7 +36,7 @@ const { tags } = Astro.params
 const { page } = Astro.props
 ---
 
-<BaseLayout title={tags ?? 'tag'} description="blog tag">
+<BaseLayout title={tags ?? 'tag'} description={`浏览标签「${tags}」下的所有文章`}>
   <NavHead />
   <main class="pl-6">
     <section class="py-5 text-2xl font-bold first-letter:uppercase max-[768px]:justify-center">{tags}</section>

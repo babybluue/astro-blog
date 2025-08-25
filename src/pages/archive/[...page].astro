@@ -1,4 +1,5 @@
 ---
+import { config } from '@constant'
 import type { Page, PaginateFunction } from 'astro'
 
 import NavHead from '@components/nav-header.astro'
@@ -14,12 +15,12 @@ interface Props {
 export const getStaticPaths = async ({ paginate }: { paginate: PaginateFunction }) => {
   const blogs = await getAllPosts()
 
-  return paginate(blogs, { pageSize: 12 })
+  return paginate(blogs, { pageSize: config.postsPerPage })
 }
 
 const { page } = Astro.props
 const title = '归档'
-const description = '归档页面-didmax'
+const description = '按时间顺序浏览所有文章，探索更多精彩内容'
 ---
 
 <BaseLayout title={title} description={description}>

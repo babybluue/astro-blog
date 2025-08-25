@@ -2,11 +2,27 @@
 import BaseHead from '@components/html-head.astro'
 import ReloadPrompt from '@components/reload-prompt.astro'
 
-const { title, description, cover } = Astro.props.frontmatter || Astro.props
+const {
+  title,
+  description,
+  cover,
+  type = 'website',
+  publishedTime,
+  modifiedTime,
+  tags = [],
+} = Astro.props.frontmatter || Astro.props
 ---
 
 <html lang="zh">
-  <BaseHead title={title} description={description} cover={cover ? cover.src : null} />
+  <BaseHead
+    title={title}
+    description={description}
+    cover={cover ? cover.src : null}
+    type={type}
+    publishedTime={publishedTime}
+    modifiedTime={modifiedTime}
+    tags={tags}
+  />
   <body transition:animate="none" class="bg-primary-light text-primary-dark dark:bg-primary-dark dark:text-white">
     <slot />
     <ReloadPrompt transition:persist />

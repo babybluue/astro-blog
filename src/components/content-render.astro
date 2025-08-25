@@ -31,7 +31,16 @@ const { Content } = await render(post)
       <span class="mb-2 inline-block whitespace-nowrap">{getFormatDate(post.data.date)}</span>
     </div>
 
-    {post.data.cover && <Image src={post.data.cover as any} loading="eager" data-pagefind-meta="image[src]" alt="" />}
+    {
+      post.data.cover && (
+        <Image
+          src={post.data.cover as any}
+          loading="lazy"
+          data-pagefind-meta="image[src]"
+          alt={`Cover image for ${post.data.title}`}
+        />
+      )
+    }
   </header>
 
   <Content />

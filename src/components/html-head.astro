@@ -1,6 +1,7 @@
 ---
 import '@styles/global.css'
 
+import { config } from '@constant'
 import { ClientRouter } from 'astro:transitions'
 
 import { pwaInfo } from 'virtual:pwa-info'
@@ -9,11 +10,41 @@ interface Props {
   title: string
   description: string
   cover?: string
+  type?: 'website' | 'article'
+  publishedTime?: string
+  modifiedTime?: string
+  tags?: string[]
 }
 
 const canonicalURL = new URL(Astro.url.pathname.replace('.html', ''), Astro.site)
 
-const { title, description, cover } = Astro.props
+const { title, description, cover, type = 'website', publishedTime, modifiedTime, tags = [] } = Astro.props
+
+// 生成结构化数据
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': type === 'article' ? 'BlogPosting' : 'WebSite',
+  name: title,
+  description: description,
+  url: canonicalURL.href,
+  author: {
+    '@type': 'Person',
+    name: config.author,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: config.siteName,
+  },
+  ...(type === 'article' &&
+    publishedTime && {
+      datePublished: publishedTime,
+      dateModified: modifiedTime || publishedTime,
+      keywords: tags.join(', '),
+    }),
+  ...(cover && {
+    image: new URL(cover, Astro.url).href,
+  }),
+}
 ---
 
 <head>
@@ -23,6 +54,9 @@ const { title, description, cover } = Astro.props
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" href="/pwa-512.png" sizes="192x192" />
   <meta name="generator" content={Astro.generator} />
+  <meta name="author" content={config.author} />
+  <meta name="language" content={config.language} />
+  {tags.length > 0 && <meta name="keywords" content={tags.join(', ')} />}
 
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1f1f1f" />
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
@@ -39,11 +73,17 @@ const { title, description, cover } = Astro.props
   <meta name="description" content={description} />
 
   <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content={type} />
   <meta property="og:url" content={Astro.url} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={new URL(cover ?? '/blog-placeholder.jpg', Astro.url)} />
+  <meta property="og:site_name" content={config.siteName} />
+  <meta property="og:locale" content={config.language} />
+  {type === 'article' && publishedTime && <meta property="article:published_time" content={publishedTime} />}
+  {type === 'article' && modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+  {type === 'article' && <meta property="article:author" content={config.author} />}
+  {type === 'article' && tags.map((tag) => <meta property="article:tag" content={tag} />)}
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
@@ -52,10 +92,19 @@ const { title, description, cover } = Astro.props
   <meta property="twitter:description" content={description} />
   <meta property="twitter:image" content={new URL(cover ?? '/blog-placeholder.jpg', Astro.url)} />
 
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
   <!-- google font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet" />
+  <link
+    rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
 
   <ClientRouter />
   {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
