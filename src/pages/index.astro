@@ -19,23 +19,21 @@ const latestPost = (await getAllPosts()).slice(0, config.latestPostsCount)
       </div>
     </section>
     <section
-      class="mx-auto my-6 flex items-center justify-center gap-10 whitespace-nowrap max-[768px]:my-5 max-[768px]:gap-5 min-[1500px]:my-10 min-[1500px]:w-[80%]"
+      class="mx-auto my-6 flex items-center justify-center gap-10 whitespace-nowrap max-[768px]:my-5 max-[768px]:gap-5"
     >
       <NavLink />
     </section>
-    <section class="m-auto flex w-[85%] justify-center pb-4 max-[768px]:w-full">
-      <div class="w-[75%] max-[500px]:w-[90%] min-[1500px]:w-[55%]">
-        {
-          latestPost.map((post) => (
-            <article class="flex justify-between gap-x-3 py-2 max-[500px]:gap-x-5">
-              <a class="flex-1 truncate" href={getPostLink(post)}>
-                {post.data.title}
-              </a>
-              <time datetime={post.data.date.toISOString()}>{getMD(post.data.date)}</time>
-            </article>
-          ))
-        }
-      </div>
+    <section class="m-auto flex w-[70%] flex-col justify-center pb-4 max-[768px]:w-[80%] min-[1100px]:w-[55%]">
+      {
+        latestPost.map((post) => (
+          <article class="flex justify-between gap-x-3 py-2 max-[500px]:gap-x-5">
+            <a class="flex-1 truncate" href={getPostLink(post)}>
+              {post.data.title}
+            </a>
+            <time datetime={post.data.date.toISOString()}>{getMD(post.data.date)}</time>
+          </article>
+        ))
+      }
     </section>
   </main>
 </BaseLayout>
