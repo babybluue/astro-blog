@@ -101,13 +101,14 @@ body {
 }
 
 main,
-nav {
+nav,
+.index-list {
   width: 60%;
   margin: auto;
   max-width: 1220px;
 
   @media screen and (max-width: 1500px) {
-    width: 65%;
+    width: 45rem;
   }
 
   @media screen and (max-width: 1100px) {

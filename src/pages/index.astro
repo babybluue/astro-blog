@@ -23,7 +23,7 @@ const latestPost = (await getAllPosts()).slice(0, config.latestPostsCount)
     >
       <NavLink />
     </section>
-    <section class="m-auto flex w-[70%] flex-col justify-center pb-4 max-[768px]:w-[80%] min-[1100px]:w-[55%]">
+    <section class="index-list px-12">
       {
         latestPost.map((post) => (
           <article class="flex justify-between gap-x-3 py-2 max-[500px]:gap-x-5">
