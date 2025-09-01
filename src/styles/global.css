@@ -103,12 +103,12 @@ body {
 main,
 nav,
 .index-list {
-  width: 60%;
+  width: 65%;
   margin: auto;
   max-width: 1220px;
 
   @media screen and (max-width: 1500px) {
-    width: 45rem;
+    width: 73%;
   }
 
   @media screen and (max-width: 1100px) {
