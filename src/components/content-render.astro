@@ -37,6 +37,7 @@ const { Content } = await render(post)
           src={post.data.cover as any}
           loading="lazy"
           data-pagefind-meta="image[src]"
+          style="margin-bottom: 1.5rem"
           alt={`Cover image for ${post.data.title}`}
         />
       )
@@ -217,6 +218,10 @@ const { Content } = await render(post)
       li:has(a[href='#footnote-label']) {
         display: none;
       }
+    }
+
+    details:has(li:first-child a[href='#footnote-label']) {
+      display: none;
     }
 
     details {
