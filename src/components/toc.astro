@@ -1,6 +1,6 @@
 <div class="nav-area fixed bottom-10 right-5 z-50 hidden">
   <div class="fast-nav"></div>
-  <div class="menu-icon mt-2 flex cursor-pointer flex-col items-end gap-1">
+  <div class="menu-icon my-1 flex cursor-pointer flex-col items-end gap-1">
     <span class="bg-primary-dark dark:bg-primary-light inline-block h-[1.5px] w-[20px]"></span>
     <span class="bg-primary-dark dark:bg-primary-light inline-block h-[1.5px] w-[20px]"></span>
     <span class="bg-primary-dark dark:bg-primary-light inline-block h-[1.5px] w-[20px]"></span>
@@ -105,6 +105,14 @@
     }
   }
   .nav-area {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 0.75rem;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
     @media screen and (max-width: 768px) {
       display: none;
     }
@@ -138,6 +146,13 @@
         overflow: hidden;
       }
     }
+  }
+
+  .dark .nav-area {
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.3),
+      0 2px 4px -1px rgba(0, 0, 0, 0.2);
   }
 
   .menu-close {
