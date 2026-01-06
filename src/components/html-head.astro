@@ -52,7 +52,6 @@ const structuredData = {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="apple-touch-icon" href="/pwa-512.png" sizes="192x192" />
   <meta name="generator" content={Astro.generator} />
   <meta name="author" content={config.author} />
   <meta name="language" content={config.language} />
@@ -61,6 +60,15 @@ const structuredData = {
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1f1f1f" />
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
   <meta name="color-scheme" content="light dark" />
+
+  <!-- PWA / Mobile App Meta Tags -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content={config.siteName} />
+  <link rel="apple-touch-icon" href="/pwa-192.png" />
+  <link rel="apple-touch-icon" sizes="192x192" href="/pwa-192.png" />
+  <link rel="apple-touch-icon" sizes="512x512" href="/pwa-512.png" />
 
   <!-- Canonical URL -->
   <link rel="canonical" href={canonicalURL} />

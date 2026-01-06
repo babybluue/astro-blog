@@ -73,8 +73,10 @@ export default defineConfig({
         short_name: 'astro blog',
         description: 'a blog theme powered by astro',
         theme_color: '#ffffff',
-        background_color: '#ffffff',
+        background_color: '#1f1f1f',
         display: 'standalone',
+        orientation: 'portrait',
+        start_url: '/',
         icons: [
           { src: 'pwa-48.png', sizes: '48x48', type: 'image/png' },
           { src: 'pwa-64.png', sizes: '64x64', type: 'image/png' },

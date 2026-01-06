@@ -7,7 +7,8 @@ export const site = 'https://astro-blog-ecru-phi.vercel.app'
 
 export const title = 'didmax'
 
-export const description = 'didmax 的个人博客，专注于技术分享与生活记录。基于 Astro 构建，简洁快速，支持深色模式。'
+export const description =
+  '本博客是一个基于 Astro 构建的高效静态网站，专注于内容创作与分享，支持深色模式、PWA（渐进式 Web 应用），并具备强大的标签管理与全文搜索功能'
 
 export const avatar = avatarImg
 
