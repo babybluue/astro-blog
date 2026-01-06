@@ -20,3 +20,7 @@ date: 2024-04-18T02:50:36.418Z
 abbrlink: 21cdefe2
 ---
 ```
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
