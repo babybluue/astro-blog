@@ -62,9 +62,26 @@ export default defineConfig({
     mdx(),
     sitemap({ filter: (page) => page == `${site}/` || page.includes('/posts') }),
     AstroPWA({
-      registerType: 'prompt',
+      registerType: 'autoUpdate',
       devOptions: { enabled: false },
-      workbox: { navigateFallback: '/404', globPatterns: ['**/*'], navigateFallbackDenylist: [/.*\.xml$/, /search/] },
+      workbox: {
+        navigateFallback: '/404',
+        // 仅预缓存静态资源，HTML 页面走 NetworkFirst 以每次优先获取最新内容
+        globPatterns: ['**/*.{js,css,woff,woff2,png,svg,ico,webp,gif,jpg,jpeg,json,wasm}'],
+        globIgnores: ['**/*.html'],
+        navigateFallbackDenylist: [/.*\.xml$/, /search/],
+        runtimeCaching: [
+          {
+            urlPattern: ({ request }) => request.mode === 'navigate',
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'pages',
+              expiration: { maxEntries: 32, maxAgeSeconds: 24 * 60 * 60 },
+              networkTimeoutSeconds: 5,
+            },
+          },
+        ],
+      },
       experimental: { directoryAndTrailingSlashHandler: true },
 
       includeAssets: ['**/*'],
